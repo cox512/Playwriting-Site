@@ -6,8 +6,7 @@ const mongoose = require('mongoose');
 const db = mongoose.connection;
 const Play = require('./models/plays.js')
 
-// const playsController = require('./controllers/plays-controller.js');
-// app.use( playsController);
+// const playsController = require('./
 require('dotenv').config();
 
 //Port
@@ -21,7 +20,9 @@ const PORT = process.env.PORT;
 const MONGODB_URI = process.env.MONGODB_URI
 
 // Connect to Mongo
-mongoose.connect(MONGODB_URI ,  { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true }, () => {
+    console.log('the connection with mongod is established')
+});
 
 // Error / success
 db.on('error', (err) => console.log(err.message + ' is Mongod not running?'));
@@ -33,9 +34,7 @@ db.on('open' , ()=>{
     console.log('connected to Mongo');
 });
 
-//___________________
 //Middleware
-//___________________
 
 //use public folder for static assets
 app.use(express.static('public'));
@@ -49,28 +48,49 @@ app.use(methodOverride('_method'));
 
 
 // Routes
-//INDEX PAGE
-app.get('/jjoseph/plays', (req, res) => {
-    // console.log("got this far")
-    res.render('index.ejs');
+//INDEX route
+app.get('/plays', (req, res) => {
+    // console.log(req.body);
+    Play.find({}, (err, foundPlays) => {
+        res.render("index.ejs", {
+            plays: foundPlays,
+        })
+    })    
 })
 
-//NEW PAGE
-app.get('/jjoseph/plays/new', (req, res) => {
+
+//CREATE route
+app.post('/plays', (req, res) => {
+    Play.create(req.body, (err, createdPlay) => {
+        
+        // res.send(createdPlay);
+        res.redirect('/plays');
+    })
+})
+ 
+//NEW Route
+app.get('/plays/new', (req, res) => {
     res.render('new.ejs');
 })
 
-//CREATE PAGE
-app.post('/jjoseph/plays/', (req, res) => {
-    Play.create(req.body, (err, createdPlay) => {
-        res.send(createdPlay);
+//Show Route
+app.get('/plays/:id', (req, res) => {
+       console.log(req.params.id);
+    Play.findById(req.params.id, (err, foundPlay) =>{
+        res.render('show.ejs', {
+            play: foundPlay
+        });
+    });
+});
+
+//DELETE route
+app.delete('/plays/:id', (req, res) => {
+    console.log("inside delete route")
+    Play.findByIdAndRemove(req.params.id, (err, data) => {
+        res.redirect('/plays');
     })
 })
 
-//localhost:3000
-app.get('/' , (req, res) => {
-  res.send('Hello World!');
-});
 
 //___________________
 //Listener

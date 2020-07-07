@@ -1,10 +1,12 @@
 const mongoose = require('mongoose');
 
 const playSchema = new mongoose.Schema({
-    name: {type: String, required: true},
+    title: { type: String, required: true },
     synopsis: String,
-    casting: String,
-    development: Array,
+    castingMale: Number,
+    castingFemale: Number,
+    castingNeutral: Number,
+    development: [{type: String}],
     honors: Array,
     img: String
 })
