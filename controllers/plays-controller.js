@@ -19,6 +19,7 @@ router.get('/', (req, res) => {
         res.render("index.ejs", {
             plays: foundPlays,
             currentUser: req.session.currentUser,
+            titleBar: "Plays",
         })
     })    
 })

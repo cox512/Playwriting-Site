@@ -63,5 +63,9 @@ app.use('/users', userController);
 const sessionController = require('./controllers/sessions-controller.js');
 app.use('/sessions', sessionController);
 
+app.get('/', (req,res) => {
+    res.render('landing.ejs');
+})
+
 //Listener
 app.listen(PORT, () => console.log( 'Listening on port:', PORT));
