@@ -8,7 +8,8 @@ const playSchema = new mongoose.Schema({
     castingNeutral: Number,
     development: [String],
     honors: [String],
-    img: String
+    img: String,
+    dialogue: String,
 })
 
 const Play = mongoose.model('Play', playSchema);

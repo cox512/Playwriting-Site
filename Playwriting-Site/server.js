@@ -62,7 +62,6 @@ app.get('/plays', (req, res) => {
 //CREATE route
 app.post('/plays', (req, res) => {
     Play.create(req.body, (err, createdPlay) => {
-        
         // res.send(createdPlay);
         res.redirect('/plays');
     })
@@ -91,7 +90,21 @@ app.delete('/plays/:id', (req, res) => {
     })
 })
 
+//EDIT route
+app.get('/plays/:id/edit', (req, res) => {
+    Play.findById(req.params.id, (err, foundPlay) => {
+        res.render('edit.ejs', {
+            play: foundPlay
+        })
+    })
+})
 
+//UPDATE route
+app.put('/plays/:id', (req, res) => {
+   Play.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedModel) => {
+       res.redirect('/plays/' + req.params.id);
+   })
+})
 //___________________
 //Listener
 //___________________

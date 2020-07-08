@@ -6,31 +6,28 @@
     <title>New Page</title>
 </head>
 <body>
-    <h1>Add New Play Details</h1>
-    <form action="/plays" method="POST">
+    <h1>Edit Play Details</h1>
+    <form action="/plays/<%= play.id %>?_method=PUT" method="POST">
         <label for="title">Title:</label>
-        <input type="text" id="title" name="title"><br/>
+        <input type="text" id="title" name="title" value="<%= play.title %>"><br/>
         <label for="synopsis">Synopsis:</label>
-        <input type="text" id="synopsis" name="synopsis"><br/>
+        <input type="text" id="synopsis" name="synopsis" value="<%= play.synopsis %>"><br/>
         <label for="dialogue">Dialogue Sample:</label>
-        <input type="text" id="dialogue" name="dialogue"><br/>
+        <input type="text" id="dialogue" name="dialogue" value="<%= play.dialogue %>"><br/>
         <p>Casting Needs:</p>
         <label for="castingMale">Male-Identified:</label>
-        <input type="number" id="castingMale" name="castingMale"><br/>
+        <input type="number" id="castingMale" name="castingMale" value="<%= play.castingMale %>"><br/>
         <label for="castingFemale">Female-Identified:</label>
-        <input type="number" id="castingFemale" name="castingFemale"><br/>
+        <input type="number" id="castingFemale" name="castingFemale" value="<%= play.castingFemale %>"><br/>
         <label for="castingNeutral">Gender Neutral:</label>
-        <input type="number" id="castingNeutral" name="castingNeutral"><br/>
+        <input type="number" id="castingNeutral" name="castingNeutral" value="<%= play.castingNeutral %>"><br/>
 
         <label for="development">Development History:</label>
-        <!-- make type "hidden?" -->
-
-        <input type="text" id="development" name="development"><br/>
+        <input type="hidden" id="development" name="development" value="<%= play.development %>"><br/>
         <button type="button" id="devBtn1">Add Another</button>
        
         <label for="honors">Honors:</label>
-        <!-- make type "hidden?" -->
-        <input type="text" id="honors" name="honors"><br/>
+        <input type="hidden" id="honors" name="honors" value="<%= play.honors %>"><br/>
         <button type="button" id="honorBtn1">Add Another</button>
 
         
