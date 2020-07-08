@@ -7,18 +7,24 @@ const db = mongoose.connection;
 const session = require('express-session');
 const playsController = require('./controllers/plays-controller.js');
 require('dotenv').config();
-
-
+const bcrypt = require('bcrypt');
 
 //Port
 // Allow use of Heroku's port or your own local port, depending on the environment
 const PORT = process.env.PORT;
 
-//___________________
 //Database
-//___________________
 // How to connect to the database either via heroku or locally
 const MONGODB_URI = process.env.MONGODB_URI
+
+
+//express-session
+app.use(
+    session({
+        secret: process.env.SECRET, //may need to change
+        resave: false,
+        saveUninitialized: false
+    }))
 
 // Connect to Mongo
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true }, () => {
@@ -48,13 +54,10 @@ app.use(express.json());// returns middleware that only parses JSON
 app.use(methodOverride('_method'));
 
 app.use('/plays', playsController);
-//express-session
-app.use(
-    session({
-        secret: process.env.SECRET, //may need to change
-        resave: false,
-        saveUninitialized: false
-    }))
+
+//User controller
+const userController = require('./controllers/users-controller.js');
+app.use('/users', userController);
 
 //___________________
 //Listener

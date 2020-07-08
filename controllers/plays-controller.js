@@ -30,7 +30,7 @@ router.post('/', (req, res) => {
 
 //Show Route
 router.get('/:id', (req, res) => {
-       console.log(req.params.id);
+    //    console.log(req.params.id);
     Play.findById(req.params.id, (err, foundPlay) =>{
         res.render('show.ejs', {
             play: foundPlay
