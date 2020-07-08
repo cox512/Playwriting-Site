@@ -6,8 +6,8 @@ const playSchema = new mongoose.Schema({
     castingMale: Number,
     castingFemale: Number,
     castingNeutral: Number,
-    development: [{type: String}],
-    honors: Array,
+    development: [String],
+    honors: [String],
     img: String
 })
 
