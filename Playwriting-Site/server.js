@@ -4,10 +4,11 @@ const app = express ();
 const methodOverride  = require('method-override');
 const mongoose = require('mongoose');
 const db = mongoose.connection;
-const Play = require('./models/plays.js')
 
-// const playsController = require('./
+const playsController = require('./controllers/plays-controller.js');
 require('dotenv').config();
+
+
 
 //Port
 // Allow use of Heroku's port or your own local port, depending on the environment
@@ -46,65 +47,9 @@ app.use(express.json());// returns middleware that only parses JSON
 //use method override
 app.use(methodOverride('_method'));
 
-
-// Routes
-//INDEX route
-app.get('/plays', (req, res) => {
-    // console.log(req.body);
-    Play.find({}, (err, foundPlays) => {
-        res.render("index.ejs", {
-            plays: foundPlays,
-        })
-    })    
-})
+app.use('/plays', playsController);
 
 
-//CREATE route
-app.post('/plays', (req, res) => {
-    Play.create(req.body, (err, createdPlay) => {
-        // res.send(createdPlay);
-        res.redirect('/plays');
-    })
-})
- 
-//NEW Route
-app.get('/plays/new', (req, res) => {
-    res.render('new.ejs');
-})
-
-//Show Route
-app.get('/plays/:id', (req, res) => {
-       console.log(req.params.id);
-    Play.findById(req.params.id, (err, foundPlay) =>{
-        res.render('show.ejs', {
-            play: foundPlay
-        });
-    });
-});
-
-//DELETE route
-app.delete('/plays/:id', (req, res) => {
-    console.log("inside delete route")
-    Play.findByIdAndRemove(req.params.id, (err, data) => {
-        res.redirect('/plays');
-    })
-})
-
-//EDIT route
-app.get('/plays/:id/edit', (req, res) => {
-    Play.findById(req.params.id, (err, foundPlay) => {
-        res.render('edit.ejs', {
-            play: foundPlay
-        })
-    })
-})
-
-//UPDATE route
-app.put('/plays/:id', (req, res) => {
-   Play.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedModel) => {
-       res.redirect('/plays/' + req.params.id);
-   })
-})
 //___________________
 //Listener
 //___________________
