@@ -4,7 +4,7 @@ const app = express ();
 const methodOverride  = require('method-override');
 const mongoose = require('mongoose');
 const db = mongoose.connection;
-
+const session = require('express-session');
 const playsController = require('./controllers/plays-controller.js');
 require('dotenv').config();
 
@@ -48,7 +48,13 @@ app.use(express.json());// returns middleware that only parses JSON
 app.use(methodOverride('_method'));
 
 app.use('/plays', playsController);
-
+//express-session
+app.use(
+    session({
+        secret: process.env.SECRET, //may need to change
+        resave: false,
+        saveUninitialized: false
+    }))
 
 //___________________
 //Listener
