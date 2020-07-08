@@ -7,7 +7,9 @@ const Play = require('../models/plays.js')
 
 //NEW Route
 router.get('/new', (req, res) => {
-    res.render('new.ejs');
+    res.render('new.ejs', {
+    currentUser: req.session.currentUser,
+    });
 })
 
 //INDEX route
@@ -16,6 +18,7 @@ router.get('/', (req, res) => {
     Play.find({}, (err, foundPlays) => {
         res.render("index.ejs", {
             plays: foundPlays,
+            currentUser: req.session.currentUser,
         })
     })    
 })
@@ -33,7 +36,8 @@ router.get('/:id', (req, res) => {
     //    console.log(req.params.id);
     Play.findById(req.params.id, (err, foundPlay) =>{
         res.render('show.ejs', {
-            play: foundPlay
+            play: foundPlay,
+            currentUser: req.session.currentUser
         });
     });
 });
@@ -50,7 +54,9 @@ router.delete('/:id', (req, res) => {
 router.get('/:id/edit', (req, res) => {
     Play.findById(req.params.id, (err, foundPlay) => {
         res.render('edit.ejs', {
-            play: foundPlay
+            play: foundPlay,
+            currentUser: req.session.currentUser
+
         })
     })
 })

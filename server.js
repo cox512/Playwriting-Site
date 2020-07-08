@@ -5,7 +5,6 @@ const methodOverride  = require('method-override');
 const mongoose = require('mongoose');
 const db = mongoose.connection;
 const session = require('express-session');
-const playsController = require('./controllers/plays-controller.js');
 require('dotenv').config();
 const bcrypt = require('bcrypt');
 
@@ -16,15 +15,6 @@ const PORT = process.env.PORT;
 //Database
 // How to connect to the database either via heroku or locally
 const MONGODB_URI = process.env.MONGODB_URI
-
-
-//express-session
-app.use(
-    session({
-        secret: process.env.SECRET, //may need to change
-        resave: false,
-        saveUninitialized: false
-    }))
 
 // Connect to Mongo
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true }, () => {
@@ -42,6 +32,13 @@ db.on('open' , ()=>{
 });
 
 //Middleware
+//express-session
+app.use(
+    session({
+        secret: process.env.SECRET, //may need to change
+        resave: false,
+        saveUninitialized: false
+    }))
 
 //use public folder for static assets
 app.use(express.static('public'));
@@ -53,13 +50,18 @@ app.use(express.json());// returns middleware that only parses JSON
 //use method override
 app.use(methodOverride('_method'));
 
+//CONTROLLERS
+//Plays controller
+const playsController = require('./controllers/plays-controller.js');
 app.use('/plays', playsController);
 
 //User controller
 const userController = require('./controllers/users-controller.js');
 app.use('/users', userController);
 
-//___________________
+//Sessions controller
+const sessionController = require('./controllers/sessions-controller.js');
+app.use('/sessions', sessionController);
+
 //Listener
-//___________________
 app.listen(PORT, () => console.log( 'Listening on port:', PORT));
