@@ -35,7 +35,7 @@ db.on('open' , ()=>{
 //express-session
 app.use(
     session({
-        secret: process.env.SECRET, //may need to change
+        secret: process.env.SECRET, 
         resave: false,
         saveUninitialized: false
     }))
@@ -63,8 +63,11 @@ app.use('/users', userController);
 const sessionController = require('./controllers/sessions-controller.js');
 app.use('/sessions', sessionController);
 
+//Set up a landing page
 app.get('/', (req,res) => {
-    res.render('landing.ejs');
+    res.render('landing.ejs', {
+        titleBar: "Home"
+    });
 })
 
 //Listener

@@ -1,16 +1,14 @@
-<ul class="right">
+<ul>
     <li><a href="/plays/new">Create A New Play</a></li>
     <!-- If the user has successfully logged in .. -->
     <% if (currentUser) { %>
     <li>Welcome <%= currentUser.username %></li>
     <li>
       <form action="/sessions?_method=DELETE" method="POST">
-        <input type="submit" value="Log Out" class="btn-small red" />
+        <input type="submit" value="Log Out"/>
       </form>
     </li>
     <% } else { %>
-    <!-- If the user has yet to successfully log in -->
-    <li><a href="/users/new">Sign Up</a></li>
-    <li><a href="/sessions/new">Log In</a></li>
+        <li><a href="/sessions/new">Log In</a></li>
     <% } %>
   </ul>

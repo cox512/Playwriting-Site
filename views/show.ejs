@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Show Page</title>
+    <%- include('./partials/head.ejs') %>
 </head>
 <body>
     <h1>Show Page</h1>
@@ -11,12 +9,50 @@
 
 
     <h2> <%= play.title %></h2>
-    <p> <%= play.synopsis %></p>
-    <p> <%= play.casting %></p>
-    <p> <%= play.development %></p>
-    <p> <%= play.honors %></p>
-    <p> <%= play.dialogue %></p>
+    <p> <%= play.genre %></p>
+    <% if(play.length === "fullLength") { %>
+        <p>Full-Length</p>
+    <% } else if (play.length === "oneAct") { %>
+        <p> One-Act</p>
+    <%} else if (play.length === "short") { %>
+        <p>Short</p>
+    <% } %>
 
+    <h6>SYNOPSIS</h6>
+    <p> <%= play.synopsis %></p>
+
+    <h6>CASTING REQUIREMENTS</h6>
+    <p>Total Cast Size: <%= play.castSize %></p>
+    <% if (play.castingMale) { %>
+        <p> Male-Identifying: <%= play.castingMale %></p>
+    <% } %>
+    <% if (play.castingFemale) { %>
+        <p> Female-Identifying: <%= play.castingFemale %></p>
+    <% } %>
+    <% if (play.castingNeutral) { %>
+        <p> Gender-Neutral: <%= play.castingNeutral %></p>    
+    <% } %>
+    <% if (play.specialCasting) { %>
+        <p> Special Casting Needs: <%= play.specialCasting %></p>
+    <% } %>
+    
+    <% if (play.development == '') { %>
+        <!-- meaningless variable. Using if (!play.development == '') isn't working -->
+        <% let i = 0 %>
+    <% } else { %>
+        <h6>Development History</h6>
+        <p> <%= play.development %></p>
+    <% } %>
+
+    <% if (play.honors == '') { %>
+        <% let i = 0 %>
+    <% } else { %>
+        <h6>Honors</h6>
+        <p> <%= play.honors %></p>
+    <% } %>
+
+    <p> <%= play.dialogue %></p>
+    <p> <%= play.story %></p>
     <img src='<%= play.img %>'>
 
 </body>

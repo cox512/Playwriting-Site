@@ -6,6 +6,7 @@ const bcrypt = require('bcrypt');
 sessionsRouter.get('/new', (req, res) => {
     res.render('sessions/new.ejs', {
     currentUser: req.session.currentUser,
+    titleBar: 'Log-In'
     });
 })
 
