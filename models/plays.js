@@ -3,9 +3,6 @@ const mongoose = require('mongoose');
 const playSchema = new mongoose.Schema({
     title: { type: String, required: true },
     length: String,
-    // fullLength: Boolean,
-    // oneAct: Boolean,
-    // short: Boolean,
     genre: String,
     synopsis: String,
     castSize: { type: 'Number'},
