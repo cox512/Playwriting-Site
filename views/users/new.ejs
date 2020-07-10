@@ -5,6 +5,8 @@
 
 </head>
 <body>
+    <%- include('../partials/header.ejs') %>
+
     <h1>User Sign-Up Form</h1>
 
     <form action="/users" method="POST">
@@ -14,5 +16,8 @@
         <input type="password" name="password"><br/>
         <input type="submit" value="ENTER"/>
     </form>
+
+    <%- include('../partials/footer.ejs') %>
+
 </body>
 </html>

@@ -5,6 +5,8 @@
 
 </head>
 <body>
+    <%- include('./partials/header.ejs') %>
+
     <h1>Add New Play Details</h1>
     <form action="/plays" method="POST">
         <label for="title">Title:</label>
@@ -54,5 +56,8 @@
         
         <input type="submit" id="submit-btn" value="SUBMIT">
     </form>
+
+    <%- include('./partials/footer.ejs') %>
+
 </body>
 </html>

@@ -65,8 +65,9 @@ app.use('/sessions', sessionController);
 
 //Set up a landing page
 app.get('/', (req,res) => {
-    res.render('landing.ejs', {
-        titleBar: "Home"
+    res.render('about.ejs', {
+        titleBar: "Home",
+        currentUser: req.session.currentUser,
     });
 })
 

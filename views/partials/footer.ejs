@@ -6,10 +6,25 @@
             </div>
             <div class="cols-sm-6">
                 <ul class="list-group list-group-horizontal">
-                <li class="disabled">
-                <a href="#">contact</a>
-                </li>
-                <%- include('log-in-nav.ejs') %>
+                    <!-- If the user has successfully logged in .. -->
+                    <% if (currentUser) { %>
+                        <li>Welcome <%= currentUser.username %></li>
+                        <li>
+                            <a href="/plays/new">add new play</a>
+                        </li>
+                        <li>
+                            <form action="/sessions?_method=DELETE" method="POST">
+                                <input type="submit" value="Log Out"/>
+                            </form>
+                        </li>
+                        <% } else { %>
+                            <li class="disabled">
+                                <a href="#">contact</a>
+                            </li>
+                            <li>
+                                <a href="/sessions/new">admin log-in</a>
+                            </li>
+                        <% } %>
                 </ul>
             </div>
         </div>
