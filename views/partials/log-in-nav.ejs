@@ -1,5 +1,5 @@
-<ul>
-    <li><a href="/plays/new">Create A New Play</a></li>
+
+    <li><a href="/plays/new">add new play</a></li>
     <!-- If the user has successfully logged in .. -->
     <% if (currentUser) { %>
     <li>Welcome <%= currentUser.username %></li>
@@ -9,6 +9,5 @@
       </form>
     </li>
     <% } else { %>
-        <li><a href="/sessions/new">Log In</a></li>
+        <li><a href="/sessions/new">admin</a></li>
     <% } %>
-  </ul>

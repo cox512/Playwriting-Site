@@ -4,17 +4,16 @@
     <%- include('./partials/head.ejs') %>
 </head>
 <body>
-    <nav>
-        <!-- CREATE A NAV PARTIAL THAT STICKS -->
-    </nav>
-    <h1>INDEX PAGE</h1>
-    <nav>
-        <%- include('./partials/log-in-nav.ejs') %>
-    </nav>
-    <a href="/">HOME</a>
-
-    <h4>PLAYS</h4>
     
+    <%- include('./partials/header.ejs') %>
+
+        <!-- CREATE A NAV PARTIAL THAT STICKS -->
+    
+    <h1>INDEX PAGE</h1>
+    <div>
+        <%- include('./partials/log-in-nav.ejs') %>
+    </div>
+    <h4>PLAYS</h4>
     <div>
         <% for(let i=0; i<plays.length; i++) { %>
             <p><a href='/plays/<%= plays[i].id %>'><%= plays[i].title %></a></p>
@@ -26,8 +25,6 @@
 
     </div>
 
-    <footer>
-        <%- include('./partials/footer.ejs') %>
-    </footer>
+    <%- include('./partials/footer.ejs') %>
 </body>
 </html>

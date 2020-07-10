@@ -1,3 +1,25 @@
 body {
     background-color: tan;
 }
+
+nav, footer{
+    background-color: rgba(240, 127, 140, 1);
+}
+
+#name {
+    font-size: 3em;
+    font-weight: bold;
+}
+
+a {
+    color: black;
+}
+
+.list-group {
+    background-color: none;
+    list-style: none;
+}
+
+li {
+    padding: 0 1em;
+}

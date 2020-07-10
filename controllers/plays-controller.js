@@ -57,11 +57,9 @@ router.get('/', (req, res) => {
 router.post('/', isAuthenticated, (req, res) => {
     console.log('This is the Create route')
     Play.create(req.body, (err, createdPlay) => {
-        console.log(err)
-        console.log(req.body);
-        console.log(createdPlay);
-
-
+        // console.log(err)
+        // console.log(req.body);
+        // console.log(createdPlay);
         // res.send(createdPlay);
         res.redirect('/plays');
     })
@@ -86,8 +84,8 @@ router.delete('/:id', isAuthenticated, (req, res) => {
     })
 })
 
-//EDIT route -- add isAuthenticated back
-router.get('/:id/edit', (req, res) => {
+//EDIT route 
+router.get('/:id/edit', isAuthenticated, (req, res) => {
     Play.findById(req.params.id, (err, foundPlay) => {
         res.render('edit.ejs', {
             play: foundPlay,
@@ -97,8 +95,8 @@ router.get('/:id/edit', (req, res) => {
     })
 })
 
-//UPDATE route -- add isAuthenticated back
-router.put('/:id', (req, res) => {
+//UPDATE route
+router.put('/:id', isAuthenticated, (req, res) => {
     
    Play.findByIdAndUpdate(req.params.id, req.body, {new:true, useFindAndModify: false}, (err, updatedModel) => {
        console.log(err);
