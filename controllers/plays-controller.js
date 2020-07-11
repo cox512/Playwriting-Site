@@ -1,5 +1,7 @@
 const express = require('express');
 const router = express.Router();
+const multer = require('multer');
+const path = require('path');
 const Play = require('../models/plays.js')
 
 const isAuthenticated = (req, res, next) => {
@@ -66,6 +68,7 @@ router.post('/', isAuthenticated, (req, res) => {
 
 //Show Route
 router.get('/:id', (req, res) => {
+
     Play.findById(req.params.id, (err, foundPlay) =>{
         res.render('show.ejs', {
             play: foundPlay,

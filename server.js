@@ -7,7 +7,8 @@ const db = mongoose.connection;
 const session = require('express-session');
 require('dotenv').config();
 const bcrypt = require('bcrypt');
-// const ejsLint = require('ejs-lint');
+const multer = require('multer');
+const path = require('path');
 //Port
 // Allow use of Heroku's port or your own local port, depending on the environment
 const PORT = process.env.PORT;
@@ -21,6 +22,15 @@ mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true 
     console.log('the connection with mongod is established')
 });
 
+// Multer File uploading (via stackabuse.com)
+// const storage = multer.diskStorage({
+//     destination: function(req, file, cb) { 
+//         cb(null, 'images/');
+//     },
+//     filename: function(req, file, cb) {
+//         cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
+//     }
+// })
 // Error / success
 db.on('error', (err) => console.log(err.message + ' is Mongod not running?'));
 db.on('connected', () => console.log('mongo connected: ', MONGODB_URI));

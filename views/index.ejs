@@ -13,10 +13,12 @@
     <div>
         <% for(let i=0; i<plays.length; i++) { %>
             <p><a href='/plays/<%= plays[i].id %>'><%= plays[i].title %></a></p>
+            <% if(currentUser) { %>
             <form action="/plays/<%= plays[i].id %>?_method=DELETE" method="POST">
                 <input type="submit" value="DELETE">
             </form>
             <a href="/plays/<%= plays[i].id %>/edit">Edit</a>
+            <% } %>
         <% } %>
 
     </div>
