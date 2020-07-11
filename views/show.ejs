@@ -7,9 +7,6 @@
 
     <%- include('./partials/header.ejs') %>
 
-    <h1>Show Page</h1>
-    <a href='/plays'>INDEX PAGE</a>
-
 
     <h2> <%= play.title %></h2>
     <p> <%= play.genre %></p>
@@ -39,12 +36,15 @@
         <p> Special Casting Needs: <%= play.specialCasting %></p>
     <% } %>
     
+    <!-- DEVELOPMENT -->
     <% if (play.development == '') { %>
         <!-- meaningless variable. Using if (!play.development == '') isn't working -->
         <% let i = 0 %>
     <% } else { %>
         <h6>Development History</h6>
-        <p> <%= play.development %></p>
+        <% for (let i=0; i<play.development.length; i++) { %>
+            <p><%= play.development[i] %></p>
+        <% } %>
     <% } %>
 
     <% if (play.honors == '') { %>

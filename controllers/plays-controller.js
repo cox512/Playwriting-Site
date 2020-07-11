@@ -33,8 +33,8 @@ router.get('/seed', (req, res) => {
     ])
 })
 
-//NEW Route
-router.get('/new', isAuthenticated, (req, res) => {
+//NEW Route -- ADD isAuthenticated
+router.get('/new', (req, res) => {
     res.render('new.ejs', {
     currentUser: req.session.currentUser,
     titleBar: 'New Play',
