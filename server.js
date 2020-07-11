@@ -7,7 +7,7 @@ const db = mongoose.connection;
 const session = require('express-session');
 require('dotenv').config();
 const bcrypt = require('bcrypt');
-
+// const ejsLint = require('ejs-lint');
 //Port
 // Allow use of Heroku's port or your own local port, depending on the environment
 const PORT = process.env.PORT;

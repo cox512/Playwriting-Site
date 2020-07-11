@@ -11,23 +11,21 @@ console.log("inside Jquery onload")
             //if there isn't, alert'your text box is empty'
             //else go ahead and make the new input field
 
-            // if (!$('.dev-array-info').val().length>0) {
-            //     alert('Your input field is empty.');
-            // } else {
-            //     //Keeps existing text and adds another.
-            //     document.getElementById('dev-info').insertAdjacentHTML('beforeend', '<input type="text" name="development" class="dev-array-info"><br/>') 
-            // }
-
-            if (!$('.dev-array').val().length>0) {
+            if (!$('#dev-info input:last').val()) {
                 alert('Your input field is empty.');
             } else {
                 //Keeps existing text and adds another.
-                document.getElementById('dev-info').insertAdjacentHTML('beforeend', '<input type="text" name="development" class="dev-array-info"><br/>') 
+                document.getElementById('dev-info').insertAdjacentHTML('beforeend', '<input type="text" name="development" class="dev-array"><br/>') 
             }
     }
 
     const addHonorsField = () => {
-
+        if (!$('#honors-info input:last').val()) {
+            alert('Your input field is empty.');
+        } else {
+            //Keeps existing text and adds another.
+            document.getElementById('honors-info').insertAdjacentHTML('beforeend', '<input type="text" name="honors" class="honors-array"><br/>') 
+        }
     }
 
 //In order to know which category's button is pressed we need to pass in a parameter that takes that button's id and adds it to their class name.

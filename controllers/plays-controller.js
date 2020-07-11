@@ -41,7 +41,7 @@ router.get('/new', (req, res) => {
     });
 })
 
-//INDEX route
+// INDEX ROUTE
 router.get('/', (req, res) => {
     // console.log(req.body);
     Play.find({}, (err, foundPlays) => {
@@ -55,7 +55,6 @@ router.get('/', (req, res) => {
 
 //CREATE route
 router.post('/', isAuthenticated, (req, res) => {
-    console.log('This is the Create route')
     Play.create(req.body, (err, createdPlay) => {
         // console.log(err)
         // console.log(req.body);
@@ -99,8 +98,8 @@ router.get('/:id/edit', isAuthenticated, (req, res) => {
 router.put('/:id', isAuthenticated, (req, res) => {
     
    Play.findByIdAndUpdate(req.params.id, req.body, {new:true, useFindAndModify: false}, (err, updatedModel) => {
-       console.log(err);
-       console.log(req.body);
+    //    console.log(err);
+    //    console.log(req.body);
        res.redirect('/plays/' + req.params.id);
    })
 })

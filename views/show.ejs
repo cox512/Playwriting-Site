@@ -47,11 +47,14 @@
         <% } %>
     <% } %>
 
+    <!-- HONORS -->
     <% if (play.honors == '') { %>
         <% let i = 0 %>
     <% } else { %>
         <h6>Honors</h6>
-        <p> <%= play.honors %></p>
+        <% for (let i=0; i<play.honors.length; i++) { %>
+            <p><%= play.honors[i] %></p>
+        <% } %> 
     <% } %>
 
     <p> <%= play.dialogue %></p>

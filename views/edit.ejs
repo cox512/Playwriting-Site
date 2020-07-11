@@ -40,14 +40,27 @@
         <input type="text" id="specialCasting" name="specialCasting" value="<%= play.specialCasting%>"><br/>
 
         <p>Play History:</p>
+ <!-- DEVELOPMENT -->
+
         <label for="development">Development History:</label>
-        <!-- make type "hidden?" -->
-        <input type="text" id="development" name="development" value="<%= play.development %>">
-        <button type="button" id="devBtn1">Add Another</button><br/>
+
+        <div id="dev-info">
+            <% for (let i=0; i<play.development.length; i++) { %>
+                <input type="text" name="development" class="dev-array" value="<%= play.development[i] %>"> <br/>
+            <% } %>
+        </div>
+
+        <button type="button" class="dev-button" id="development">Add Another</button><br/>
+<!-- HONORS -->
         <label for="honors">Honors:</label>
-        <!-- make type "hidden?" -->
-        <input type="text" id="honors" name="honors" value="<%= play.honors %>">
-        <button type="button" id="honorBtn1">Add Another</button><br/>
+        <div id="honors-info">
+            <% for (let i=0; i<play.honors.length; i++) { %>
+                <input type="text" name="honors" class="honors-array" value="<%= play.honors[i] %>"> <br/>
+            <% } %>
+        </div>
+        <button type="button" class="honors-button">Add Another</button><br/>
+
+
         <label for="story">Inspiration/Interesting Story</label>
         <textarea id="story" name="story" rows="4" value="<%= play.story %>"></textarea><br/>
 
