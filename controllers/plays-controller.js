@@ -1,7 +1,37 @@
 const express = require('express');
 const router = express.Router();
 const multer = require('multer');
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, './public/images');
+    },
+    filename: (req, file, cb) => {
+        cb(null, Date.now() + '-' + file.originalname);
+    }
+})
+const upload = multer({
+    storage: storage,
+    fileFilter: (req, file, cb) => {
+        checkFileType(file, cb);
+    }
+});
+//Check File Type
+const checkFileType = (file, cb) => {
+    // Allowed ext
+    const filetypes = /jpeg|jpg|png|gif/;
+    //Check ext
+    const extname = filetypes.test(path.extname(file.originalname).toLowerCase());
+    //Check mime
+    const mimetype = filetypes.test(file.mimetype);
+
+    if(mimetype && extname) {
+        return cb(null, true);
+    } else {
+        cb('Error: Images Only');
+    }
+}
 const path = require('path');
+const helpers = require('../helpers')
 const Play = require('../models/plays.js')
 
 const isAuthenticated = (req, res, next) => {
@@ -11,6 +41,17 @@ const isAuthenticated = (req, res, next) => {
         res.redirect('/sessions/new');
     }
 }
+
+// //Multer storage
+// const storage = multer.diskStorage({
+//     destination: '../public/images',
+//     filename: (req, res, cb) => {
+//         cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
+//     }
+// })
+
+// const upload = multer({storage: storage}).single('prod-still');
+
 
 //ROUTES
 //SEED route
@@ -37,6 +78,7 @@ router.get('/seed', (req, res) => {
 
 //NEW Route -- ADD isAuthenticated
 router.get('/new', (req, res) => {
+    // console.log('in New route');
     res.render('new.ejs', {
     currentUser: req.session.currentUser,
     titleBar: 'New Play',
@@ -45,7 +87,7 @@ router.get('/new', (req, res) => {
 
 // INDEX ROUTE
 router.get('/', (req, res) => {
-    // console.log(req.body);
+    
     Play.find({}, (err, foundPlays) => {
         res.render("index.ejs", {
             plays: foundPlays,
@@ -56,24 +98,29 @@ router.get('/', (req, res) => {
 })
 
 //CREATE route
-router.post('/', isAuthenticated, (req, res) => {
+router.post('/', upload.single('prod-still'), isAuthenticated, (req, res) => {
+    // console.log(req.file);
     Play.create(req.body, (err, createdPlay) => {
-        // console.log(err)
-        // console.log(req.body);
-        // console.log(createdPlay);
-        // res.send(createdPlay);
+        console.log(createdPlay);
+        // upload(req, res, (err) => {
+        //     res.render('index.ejs', {
+        //         img: `public/images/${req.file.filename}`
+        //     })
+        // })
         res.redirect('/plays');
+        // })
     })
 })
 
 //Show Route
 router.get('/:id', (req, res) => {
-
+    
     Play.findById(req.params.id, (err, foundPlay) =>{
+        // console.log(foundPlay);
         res.render('show.ejs', {
             play: foundPlay,
             currentUser: req.session.currentUser,
-            titleBar: foundPlay.title
+            titleBar: foundPlay.title,
         });
     });
 });
