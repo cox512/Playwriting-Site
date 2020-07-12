@@ -42,17 +42,6 @@ const isAuthenticated = (req, res, next) => {
     }
 }
 
-// //Multer storage
-// const storage = multer.diskStorage({
-//     destination: '../public/images',
-//     filename: (req, res, cb) => {
-//         cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
-//     }
-// })
-
-// const upload = multer({storage: storage}).single('prod-still');
-
-
 //ROUTES
 //SEED route
 router.get('/seed', (req, res) => {
@@ -100,15 +89,11 @@ router.get('/', (req, res) => {
 //CREATE route
 router.post('/', upload.single('prod-still'), isAuthenticated, (req, res) => {
     // console.log(req.file);
+    req.body.img = `/images/${req.file.filename}`;
+    // console.log(req.body);
     Play.create(req.body, (err, createdPlay) => {
-        console.log(createdPlay);
-        // upload(req, res, (err) => {
-        //     res.render('index.ejs', {
-        //         img: `public/images/${req.file.filename}`
-        //     })
-        // })
+        // console.log(createdPlay);
         res.redirect('/plays');
-        // })
     })
 })
 
@@ -145,8 +130,9 @@ router.get('/:id/edit', isAuthenticated, (req, res) => {
 })
 
 //UPDATE route
-router.put('/:id', isAuthenticated, (req, res) => {
-    
+//CURRENTLY UNABLE TO UPDATE THE IMAGE FILE.
+router.put('/:id', upload.single('prod-still'), isAuthenticated, (req, res) => {
+    // req.body.img = `/images/${req.file.filename}`;
    Play.findByIdAndUpdate(req.params.id, req.body, {new:true, useFindAndModify: false}, (err, updatedModel) => {
     //    console.log(err);
     //    console.log(req.body);

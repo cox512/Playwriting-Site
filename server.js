@@ -9,8 +9,6 @@ require('dotenv').config();
 const bcrypt = require('bcrypt');
 const multer = require('multer');
 const path = require('path');
-const helpers = require('./helpers')
-const Busboy = require('busboy');
 
 //Port
 // Allow use of Heroku's port or your own local port, depending on the environment
