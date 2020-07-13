@@ -7,13 +7,13 @@ console.log("inside Jquery onload")
         //Another input field is created below the first one.
     const addDevField = () => {
         //Check if there is text in the input field.
-            if (!$('#dev-info input:last').val()) {
-                //if there isn't, alert'your text box is empty'
-                alert('Your input field is empty.');
-            } else {
-                //Keeps existing text and add a new input field.
-                document.getElementById('dev-info').insertAdjacentHTML('beforeend', '<input type="text" name="development" class="dev-array"><br/>') 
-            }
+        if (!$('#dev-info input:last').val()) {
+            //if there isn't, alert'your text box is empty'
+            alert('Your input field is empty.');
+        } else {
+            //Keeps existing text and add a new input field.
+            document.getElementById('dev-info').insertAdjacentHTML('beforeend', '<input type="text" name="development" class="form-control dev-array">') 
+        }
     }
         //Repeat for the Honors field -- FIGURE OUT HOW TO MAKE THIS DRY BY MAKING IT WORK FOR BOTH DEV-INFO AND HONORS.
     const addHonorsField = () => {
@@ -21,34 +21,12 @@ console.log("inside Jquery onload")
             alert('Your input field is empty.');
         } else {
             //Keeps existing text and adds another.
-            document.getElementById('honors-info').insertAdjacentHTML('beforeend', '<input type="text" name="honors" class="honors-array"><br/>') 
+            document.getElementById('honors-info').insertAdjacentHTML('beforeend', '<input type="text" name="honors" class="form-control honors-array">') 
         }
     }
 
     //Development History and Honors button event listeners
     $('.dev-button').on('click', addDevField);
     $('.honors-button').on('click', addHonorsField);
-    
-    
-    //Carousel
-// $('#carousel-left').on('slide.bs.carousel', function (e) {
-//     //CC 2.0 License Iatek LLC 2018
-//    const $e = $(e.relatedTarget);
-//    const idx = $e.index();
-//    const itemsPerSlide = 8;
-//    const totalItems = $('.carousel-item').length; 
-//    if (idx >= totalItems-(itemsPerSlide-1)) {
-//        let it = itemsPerSlide - (totalItems - idx);
-//        for (let i=0; i<it; i++) {
-//            // append slides to end
-//            if (e.direction=="left") {
-//                $('.carousel-item').eq(i).appendTo('.carousel-inner');
-//            }
-//            else {
-//                $('.carousel-item').eq(0).appendTo('.carousel-inner');
-//            }
-//        }
-//    }
-// });
 
 })

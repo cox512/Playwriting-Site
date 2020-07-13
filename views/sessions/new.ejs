@@ -9,13 +9,26 @@
     <%- include('../partials/spacer.ejs') %>
 
 
-    <h1>User Log-In Form</h1>
+    <div class="d-flex align-self-center justify-content-center">
+        <div class="holder pt-2">
+            <form action="/sessions" method="POST">
+                <h1 class="heading mt-4 mb-0">User Log-In Form</h1>
+                <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input type="text" class="form-control" name="username">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" class="form-control" name="password">
+                </div>
+                    <input type="submit" class="btn btn-light" value="SUBMIT"/>
+            </form>
+        </div>
+    </div>
 
-    <form action="/sessions" method="POST">
-        Username: <input type="text" name="username"/><br/>
+        <!-- Username: <input type="text" name="username"/><br/>
         Password: <input type="password" name="password">
-        <input type="submit" value="ENTER"/>
-    </form>
+        <input type="submit" value="ENTER"/> -->
 
     <%- include('../partials/footer.ejs') %>
 

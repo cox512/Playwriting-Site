@@ -19,3 +19,6 @@ There's a number of pages I still want to add. A "News" section (which may be in
 # LINK TO THE APP'S HEROKU SITE
 https://playwriting-site.herokuapp.com/
 
+If you would like to log-in feel free to use 
+username: cox512
+password: howdy

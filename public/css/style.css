@@ -1,6 +1,6 @@
 html, body {
-    margin: 0;
-    padding: 0;
+    /* margin: 0;
+    padding: 0; */
     height: 100%;
     min-height: 100%;
     width: 100%;
@@ -55,7 +55,6 @@ body {
 }
 nav, footer{
     background-color: rgb(233, 217, 89);
-
 }
 
 .fixed-top {
@@ -98,3 +97,7 @@ li {
 .row {
     margin: 0;
 }
+
+/* #submit-btn {
+    margin: 2em auto;
+} */

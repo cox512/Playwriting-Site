@@ -7,72 +7,99 @@
 <body>
     <%- include('./partials/header.ejs') %>
     <%- include('./partials/spacer.ejs') %>
-
-
-    <h1 id="top">Add New Play Details</h1>
+    <div class="container pb-5 new-play-form">
     <form action="/plays" method="POST" enctype="multipart/form-data">
+        <h1>Add New Play Details</h1>
         <!-- TITLE -->
-        <label for="title">Title:</label>
-        <input type="text" id="title" name="title" placeholder="required"><br/>
-        <!-- GENRE -->
-        <label for="genre">Genre:</label>
-        <input type="text" id="genre" name="genre"><br/>
+        <div class="row">
+            <div class="col-8">
+                <label for="title">Title</label>
+                <input type="text" class="form-control" placeholder="required" name="title"/>
+            </div>
+            <!-- GENRE -->
+            <div class="col-4">
+                <label for="genre">Genre</label>
+                <input type="text" class="form-control" placeholder="Genre" name="genre"/>
+            </div>
+        </div>
         <!-- LENGTH -->
-        <p>Length:</p>
-        <label for="fullLength">Full-Length:</label>
-        <input type="radio" id="fullLength" name="length" value="fullLength"><br/>
-        <label for="one-act">One-Act:</label>
-        <input type="radio" id="oneAct" name="length" value="oneAct"><br/>
-        <label for="short">Short:</label>
-        <input type="radio" id="short" name="length" value="short"><br/>
-        <!-- SYNOPSIS -->
-        <label for="synopsis">Synopsis:</label>
-        <input type="text" id="synopsis" name="synopsis"><br/>
-        <!-- DIALOGUE -->
-        <label for="dialogue">Dialogue Sample:</label>
-        <input type="text" id="dialogue" name="dialogue"><br/>
+        <div class="row justify-content-center pt-3 pb-3">
+            <div class="form-check form-check-inline col-3">
+                <input class="form-check-input" type="radio" id="fullLength" name="length" value="fullLength">
+                <label class="form-check-label" for="fullLength">Full-Length</label>
+            </div>
+            <div class="form-check form-check-inline col-3">
+                <input class="form-check-input" type="radio" id="oneAct" name="length" value="oneAct">
+                <label class="form-check-label" for="oneAct">One-Act</label>
+            </div>
+            <div class="form-check form-check-inline col-3">
+                <input class="form-check-input" type="radio" id="short" name="length" value="short">
+                <label class="form-check-label" for="short">Short</label>
+            </div>
+        </div>
         <!-- CASTING -->
-        <p>Casting Needs:</p>
-        <label for="castSize">Total Cast Size:</label>
-        <input type="text" id="castSize" name="castSize" placeholder="number"><br/>
-        <label for="castingMale">Male-Identified:</label>
-        <input type="text" id="castingMale" name="castingMale" placeholder="number"><br/>
-        <label for="castingFemale">Female-Identified:</label>
-        <input type="text" id="castingFemale" name="castingFemale" placeholder="number"><br/>
-        <label for="castingNeutral">Gender Neutral:</label>
-        <input type="text" id="castingNeutral" name="castingNeutral" placeholder="number"><br/>
-        <label for="castingSpecial">Casting Special Considerations:</label>
-        <input type="text" id="castingSpecial" name="castingSpecial"><br/>
-
-
+        <div class="row">
+            <div class="col-3">
+                <label for="castSize">Cast Size</label>
+                <input type="text" class="form-control" placeholder="number (range)" name="castSize"/>
+            </div>
+            <div class="col-3">
+                <label for="castingMale"># Male Chars.</label>
+                <input type="text" class="form-control" placeholder="number" name="castingMale"/>
+            </div>
+            <div class="col-3">
+                <label for="castingFemale"># Female Chars.</label>
+                <input type="text" class="form-control" placeholder="number" name="castingFemale"/>
+            </div>
+            <div class="col-3">
+                <label for="castingNeutral"># G.N. Chars.</label>
+                <input type="text" class="form-control" placeholder="number" name="castingNeutral"/>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <label for="castingSpecial">Special Casting Considerations</label>
+            <input type="text" class="form-control" id="castingSpecial" name="castingSpecial"/>
+        </div>       
+        <!-- SYNOPSIS -->
+        <div class="form-group mt-3">
+            <label for="synopsis">Synopsis</label>
+            <textarea class="form-control" id="synopsis" name="synopsis" rows="5"></textarea>
+        </div>
+        <!-- DIALOGUE -->
+        <div class="form-group">
+            <label for="dialogue">Dialogue Sample</label>
+            <input type="text" class="form-control" id="dialogue" name="dialogue"/>
+        </div>
         <!-- DEVELOPMENT HISTORY -->
-        <p>Play History:</p>
-        <label for="development">Development History:</label>
-
-        <div id="dev-info">
-            <input type="text" id="development" name="development" class='dev-array'><br/>
+        <div class="form-group">
+            <div id="dev-info">
+                <label for="development">Development History</label>
+                <input type="text" class="form-control dev-array" id="development" name="development"/>
+            </div>
+            <button type="button" class="dev-button btn-lite" id="development">Add Another</button>
         </div>
-        <button type="button" class="dev-button" id="development">Add Another</button><br/>
-
-
         <!-- HONORS -->
-        <label for="honors">Honors:</label></br>
-        
-        <div id="honors-info">
-        <input type="text" name="honors" class="honors-array"><br/>
+        <div class="form-group">
+            <div id="honors-info">
+                <label for="development">Honors/Awards</label>
+                <input type="text" class="form-control honors-array" id="honors" name="honors"/>
+            </div>
+            <button type="button" class="honors-button btn-lite" id="honors">Add Another</button>
         </div>
-        <button type="button" class="honors-button">Add Another</button><br/>
-
         <!-- BACKSTORY -->
-        <label for="story">Inspiration/Interesting Story</label>
-        <textarea id="story" name="story" rows="4" columns="30"></textarea><br/>
-
-        <!-- IMAGE -->
-        <label for="prod-still">Image Upload:</label>
-        <input type="file" id="prod-still" name="prod-still"><br/>
+        <div class="form-group">
+            <label for="story">Inspiration/Backstory</label>
+            <textarea class="form-control" id="story" name="story" rows="5"></textarea>
+        </div>
+        <!-- IMAGE -- CHECK OUT BS-CUSTOM-FILE-INPUT-NPM TO MAKE FILE BROWSER DYNAMIC-->
+        <div class="custom-file">
+            <input type="file" class="custom-file-input" id="prodStill" name="prodStill">
+            <label class="custom-file-label" for="prodStill">Image Upload</label>
+        </div>
         <!--SUBMIT BUTTON -->
-        <input type="submit" id="submit-btn" value="SUBMIT">
+        <input type="submit" class="btn-lite btn-lg mt-3" id="submit-btn" value="SUBMIT">
     </form>
+    </div>
     
     <%- include('./partials/footer.ejs') %>
 
