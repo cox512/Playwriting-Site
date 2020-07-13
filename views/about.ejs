@@ -2,14 +2,49 @@
 <html lang="en">
 <head>
     <%- include('./partials/head.ejs') %>
-
+    
 </head>
 <body>
     <%- include('./partials/header.ejs') %>
-    
-
+    <!-- BOOTSTRAP CAROUSEL -->
+    <!-- <div class="top-content"> -->
+        <div class="container-fluid">
+            <div class="carousel slide" id="carousel-show" data-ride="carousel" data-interval="2000">
+                <!-- I CUT class="carousel-img" from the img class -->
+                <div class="carousel-inner row w-100 mx-auto" role="listbox">
+                    <div class="carousel-item col-12 col-md-6 active">
+                        <img class="img-fluid mx-auto d-block" src="images/Young_Ray_Meets_Ray.jpg">
+                    </div>
+                    <!-- <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3 active">
+                        <img class="img-fluid mx-auto d-block" src="images/ws_edit.jpg">
+                    </div> -->
+                    <div class="carousel-item col-12 col-md-6">
+                        <img class="img-fluid mx-auto d-block" src="images/Perfectly_Normal2.JPG">
+                    </div>
+                    <div class="carousel-item col-12 col-md-6">
+                        <img class="img-fluid mx-auto d-block" src="images/John_Gabby.jpg">
+                    </div>
+                    <div class="carousel-item col-12 col-md-6">
+                        <img class="img-fluid mx-auto d-block" src="images/Program A 046.jpg">
+                    </div>
+                    <div class="carousel-item col-12 col-md-6">
+                        <img class="img-fluid mx-auto d-block" src="images/Ray_Consoles_Nate.jpeg">
+                    </div>
+                </div>
+                <a href="#carousel-show" class="carousel-control-prev" data-slide="prev" role="button">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a href="#carousel-show" class="carousel-control-next" data-slide="next" role="button">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+    <!-- </div> -->
     
     <%- include('./partials/footer.ejs') %>
 
+</script>
 </body>
 </html>
