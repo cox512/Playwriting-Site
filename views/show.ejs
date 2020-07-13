@@ -6,7 +6,7 @@
 <body>
 
     <%- include('./partials/header.ejs') %>
-
+    <%- include('./partials/spacer.ejs') %>
 
     <h2> <%= play.title %></h2>
     <p> <%= play.genre %></p>
@@ -59,7 +59,7 @@
 
     <p> <%= play.dialogue %></p>
     <p> <%= play.story %></p>
-    <img src='<%= play.img %>'>
+    <img class="img-fluid" src='<%= play.img %>'>
 
     <%- include('./partials/footer.ejs') %>
 

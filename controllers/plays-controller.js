@@ -1,7 +1,37 @@
 const express = require('express');
 const router = express.Router();
 const multer = require('multer');
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, './public/images');
+    },
+    filename: (req, file, cb) => {
+        cb(null, Date.now() + '-' + file.originalname);
+    }
+})
+const upload = multer({
+    storage: storage,
+    fileFilter: (req, file, cb) => {
+        checkFileType(file, cb);
+    }
+});
+//Check File Type
+const checkFileType = (file, cb) => {
+    // Allowed ext
+    const filetypes = /jpeg|jpg|png|gif/;
+    //Check ext
+    const extname = filetypes.test(path.extname(file.originalname).toLowerCase());
+    //Check mime
+    const mimetype = filetypes.test(file.mimetype);
+
+    if(mimetype && extname) {
+        return cb(null, true);
+    } else {
+        cb('Error: Images Only');
+    }
+}
 const path = require('path');
+const helpers = require('../helpers')
 const Play = require('../models/plays.js')
 
 const isAuthenticated = (req, res, next) => {
@@ -37,6 +67,7 @@ router.get('/seed', (req, res) => {
 
 //NEW Route -- ADD isAuthenticated
 router.get('/new', (req, res) => {
+    // console.log('in New route');
     res.render('new.ejs', {
     currentUser: req.session.currentUser,
     titleBar: 'New Play',
@@ -45,7 +76,7 @@ router.get('/new', (req, res) => {
 
 // INDEX ROUTE
 router.get('/', (req, res) => {
-    // console.log(req.body);
+    
     Play.find({}, (err, foundPlays) => {
         res.render("index.ejs", {
             plays: foundPlays,
@@ -56,24 +87,25 @@ router.get('/', (req, res) => {
 })
 
 //CREATE route
-router.post('/', isAuthenticated, (req, res) => {
+router.post('/', upload.single('prod-still'), isAuthenticated, (req, res) => {
+    // console.log(req.file);
+    req.body.img = `/images/${req.file.filename}`;
+    // console.log(req.body);
     Play.create(req.body, (err, createdPlay) => {
-        // console.log(err)
-        // console.log(req.body);
         // console.log(createdPlay);
-        // res.send(createdPlay);
         res.redirect('/plays');
     })
 })
 
 //Show Route
 router.get('/:id', (req, res) => {
-
+    
     Play.findById(req.params.id, (err, foundPlay) =>{
+        // console.log(foundPlay);
         res.render('show.ejs', {
             play: foundPlay,
             currentUser: req.session.currentUser,
-            titleBar: foundPlay.title
+            titleBar: foundPlay.title,
         });
     });
 });
@@ -98,8 +130,9 @@ router.get('/:id/edit', isAuthenticated, (req, res) => {
 })
 
 //UPDATE route
-router.put('/:id', isAuthenticated, (req, res) => {
-    
+//CURRENTLY UNABLE TO UPDATE THE IMAGE FILE.
+router.put('/:id', upload.single('prod-still'), isAuthenticated, (req, res) => {
+    // req.body.img = `/images/${req.file.filename}`;
    Play.findByIdAndUpdate(req.params.id, req.body, {new:true, useFindAndModify: false}, (err, updatedModel) => {
     //    console.log(err);
     //    console.log(req.body);

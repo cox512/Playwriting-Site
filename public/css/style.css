@@ -1,12 +1,66 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    min-height: 100%;
+    width: 100%;
+}
+
 body {
-    background-color: tan;
-    margin: 7em 0;
+    background-color: rgb(203, 203, 200);
+    margin: 0 0 5em 0;
+    
 }
 
+#grey-bar {
+    background-color: silver;
+    width: 3vw;
+    height: 100%;
+    min-height: 100%;
+    position: absolute;
+    right: 0;
+    z-index: 1;
+}
+.carousel-item {
+    padding:0;
+}
+
+
+#main-about-container {
+    position: relative;
+}
+
+#carousel-show {
+    display: inline;
+    padding: 0;
+}
+
+.carousel-inner {
+    height: 30%;
+    display: inline;
+}
+
+.container-fluid, .col-12, #carousel-container{
+    margin: 0;
+    padding: 0;
+}
+#headshot {
+    padding:0;
+    display: inline;
+
+}
+
+.heading {
+    text-align: center;
+}
 nav, footer{
-    background-color: rgba(240, 127, 140, 1);
+    background-color: rgb(233, 217, 89);
+
 }
 
+.fixed-top {
+    padding: 0 2em 0 2em;
+}
 #name {
     font-size: 3em;
     font-weight: bold;
@@ -23,4 +77,24 @@ a {
 
 li {
     padding: 0 1em;
+}
+
+.about-info {
+    max-width:70%;
+    padding: 2em;
+    background-color: white;
+}
+
+.holder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3em 0 3em 0;
+}
+.about-info>p {
+    text-align: justify;
+}
+
+.row {
+    margin: 0;
 }
