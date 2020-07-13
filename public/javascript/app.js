@@ -25,8 +25,14 @@ console.log("inside Jquery onload")
         }
     }
 
+    //Remove an uploaded image on the Edit page
+    const fileRemove = () => {
+        $()
+    }
+
     //Development History and Honors button event listeners
     $('.dev-button').on('click', addDevField);
     $('.honors-button').on('click', addHonorsField);
+    $('#remove-button').on('click', fileRemove);
 
 })

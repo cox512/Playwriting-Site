@@ -12,7 +12,7 @@ const playSchema = new mongoose.Schema({
     specialCasting: String,
     development: {type: [String]},
     honors: Array,
-    img: {type: String, default:''},
+    prodStill: {type: String, default:''},
     dialogue: String,
     story: String,
 })
