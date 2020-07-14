@@ -114,10 +114,10 @@ router.get('/', (req, res) => {
 
 //CREATE route
 router.post('/', upload.single('prodStill'), isAuthenticated, (req, res) => {
-    // console.log(req.file);
-    if(req.body.prodStill) {
+    console.log(req.file);
+    // if(req.body.prodStill) {
     req.body.prodStill = `/images/${req.file.filename}`;
-    }
+    // }
     // console.log(req.body);
     Play.create(req.body, (err, createdPlay) => {
         // console.log(createdPlay);
@@ -159,11 +159,11 @@ router.get('/:id/edit', isAuthenticated, (req, res) => {
 
 //UPDATE route
 router.put('/:id', upload.single('prodStill'), isAuthenticated, (req, res) => {
-    if(req.body.prodStill) {
+    // if(req.body.prodStill) {
         req.body.prodStill = `/images/${req.file.filename}`;
-    } else {
-        res.send("unable to find image at this time.")
-    }
+    // } else {
+    //     res.send("unable to find image at this time.")
+    // }
    Play.findByIdAndUpdate(req.params.id, req.body, {new:true, useFindAndModify: false}, (err, updatedModel) => {
     //    console.log(err);
     //    console.log(req.body);
