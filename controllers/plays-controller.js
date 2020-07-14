@@ -86,7 +86,7 @@ router.get('/seed', (req, res) => {
             specialCasting: 'Both actors need to be over the age of 60',
             development: ['Whiskey Radio Hour - Radio Production', 'The Greenhouse Ensemble - Production', 'Acorn Theater - Production', 'Seoul Players - Production', 'The Artistic Home - Production'],
             honors: ['Seoul Players Short Play Competition - 1st Place'],
-            prodStill:'/images/Program A 046.jpg',
+            prodStill:'',
         }
     ])
 })
@@ -159,7 +159,11 @@ router.get('/:id/edit', isAuthenticated, (req, res) => {
 
 //UPDATE route
 router.put('/:id', upload.single('prodStill'), isAuthenticated, (req, res) => {
-    req.body.prodStill = `/images/${req.file.filename}`;
+    if(req.body.prodStill) {
+        req.body.prodStill = `/images/${req.file.filename}`;
+    } else {
+        res.send("unable to find image at this time.")
+    }
    Play.findByIdAndUpdate(req.params.id, req.body, {new:true, useFindAndModify: false}, (err, updatedModel) => {
     //    console.log(err);
     //    console.log(req.body);
