@@ -96,79 +96,16 @@
                 <label for="story">Inspiration/Backstory</label>
                 <textarea class="form-control" id="story" name="story" rows="5"><%= play.story %></textarea>
             </div>
-            <!-- IMAGE -- CHECK OUT BS-CUSTOM-FILE-INPUT-NPM TO MAKE FILE BROWSER DYNAMIC-->
+            <!-- IMAGE -- CHECK OUT BS-CUSTOM-FILE-INPUT-NPM -->
             <div class="custom-file">
                 <input type="file" class="custom-file-input" id="prodStill" name="prodStill" value="<%= play.prodStill %>">
                 <label class="custom-file-label" for="prodStill" placeholder="Upload Image"><%= play.prodStill %></label>
+                <!-- <button class="btn-lite" id="remove-file">Remove File</button> -->
             </div>
             <!--SUBMIT BUTTON -->
             <input type="submit" class="btn-lite btn-lg mt-3" id="submit-btn" value="SUBMIT">
         </form>
         </div>
-
-    <!-- <h1>Edit Play Details</h1>
-    <form action="/plays/<%= play.id %>?_method=PUT" method="POST">
-        <label for="title">Title:</label>
-        <input type="text" id="title" name="title" value="<%= play.title %>"><br/>
-        <label for="genre">Genre:</label>
-        <input type="text" id="genre" name="genre" value="<%= play.genre %>"><br/> -->
-
-        <!-- <p>Length:</p>
-        <label for="fullLength">Full-Length:</label>
-        <input type="radio" id="fullLength" name="length" value="fullLength"><br/>
-        <label for="one-act">One-Act:</label>
-        <input type="radio" id="oneAct" name="length" value="oneAct"><br/>
-        <label for="short">Short:</label>
-        <input type="radio" id="short" name="length" value="short"><br/> -->
-
-        <!-- <label for="synopsis">Synopsis:</label>
-        <input type="text" id="synopsis" name="synopsis" value="<%= play.synopsis %>"><br/>
-        <label for="dialogue">Dialogue Sample:</label>
-        <input type="text" id="dialogue" name="dialogue" value="<%= play.dialogue %>"><br/> -->
-
-        <!-- <p>Casting Needs:</p>
-        <label for="castSize">Total Cast Size:</label>
-        <input type="text" id="castSize" name="castSize" value="<%= play.castSize %>" placeholder="number"><br/>
-        <label for="castingMale">Male-Identified:</label>
-        <input type="text" id="castingMale" name="castingMale" value="<%= play.castingMale %>" placeholder="number"><br/>
-        <label for="castingFemale">Female-Identified:</label>
-        <input type="text" id="castingFemale" name="castingFemale" value="<%= play.castingFemale %>" placeholder="number"><br/>
-        <label for="castingNeutral">Gender Neutral:</label>
-        <input type="text" id="castingNeutral" name="castingNeutral" value="<%= play.castingNeutral %>" placeholder="number"><br/>
-        <label for="specialCasting">Special Casting Considerations:</label>
-        <input type="text" id="specialCasting" name="specialCasting" value="<%= play.specialCasting%>"><br/>
-
-        <p>Play History:</p> -->
- <!-- DEVELOPMENT -->
-
-        <!-- <label for="development">Development History:</label>
-
-        <div id="dev-info">
-            <% for (let i=0; i<play.development.length; i++) { %>
-                <input type="text" name="development" class="dev-array" value="<%= play.development[i] %>"> <br/>
-            <% } %>
-        </div> -->
-
-        <!-- <button type="button" class="dev-button" id="development">Add Another</button><br/>
- HONORS -->
-        <!-- <label for="honors">Honors:</label>
-        <div id="honors-info">
-            <% for (let i=0; i<play.honors.length; i++) { %>
-                <input type="text" name="honors" class="honors-array" value="<%= play.honors[i] %>"> <br/>
-            <% } %>
-        </div>
-        <button type="button" class="honors-button">Add Another</button><br/> --> 
-
-
-        <!-- <label for="story">Inspiration/Interesting Story</label>
-        <textarea id="story" name="story" rows="4" value="<%= play.story %>"></textarea><br/>
-
-        <label for="prod-still">Image Upload:</label>
-        <input type="file" id="prod-still" name="prod-still"><br/> -->
-        
-        <!-- <input type="submit" id="submit-btn" value="SUBMIT">
-    </form> -->
-
     <%- include('./partials/footer.ejs') %>
 
 </body>

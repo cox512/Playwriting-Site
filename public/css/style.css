@@ -1,6 +1,5 @@
 html, body {
-    /* margin: 0;
-    padding: 0; */
+   
     height: 100%;
     min-height: 100%;
     width: 100%;
@@ -98,6 +97,35 @@ li {
     margin: 0;
 }
 
-/* #submit-btn {
-    margin: 2em auto;
-} */
+/* #index-img {
+    position: relative;
+    top: 0;
+    left: 0;
+    object-fit: contain;
+    width: 100%;
+    max-height: 100%;
+    margin: 0 auto;
+    display: block;
+}  */
+
+.index-overlay {
+    position: absolute;
+    /* top: 10%; */
+    left: 5%;
+    background-color: rgba(255, 255, 255, .6);
+    height: 100vh;
+    /* max-width: 20%;*/ 
+}
+
+a {
+    text-decoration: underline;
+}
+
+#index-page {
+    background-image: url('/images/AVBM_overpass.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    margin: 0;
+}

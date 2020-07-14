@@ -3,26 +3,29 @@
 <head>
     <%- include('./partials/head.ejs') %>
 </head>
-<body>
-    
+<body id="index-page">
+    <!-- HEADER NAV PARTIAL -->
     <%- include('./partials/header.ejs') %>
-    <%- include('./partials/spacer.ejs') %>
+    <!-- SPACE PARTIAL TO KEEP NAV FROM COVERING UP THE MAIN PAGE -->
+    <!-- <%- include('./partials/spacer.ejs') %> -->
+    <!-- <div class="m-0 p-0 d-block">
+        <img id="index-img" class="" src="/images/AVBM_overpass.jpg">
+    </div> -->
 
-
-        <!-- CREATE A NAV PARTIAL THAT STICKS -->
     
-    <h4>PLAYS</h4>
-    <div>
-        <% for(let i=0; i<plays.length; i++) { %>
-            <p><a href='/plays/<%= plays[i].id %>'><%= plays[i].title %></a></p>
-            <% if(currentUser) { %>
-            <form action="/plays/<%= plays[i].id %>?_method=DELETE" method="POST">
-                <input type="submit" value="DELETE">
-            </form>
-            <a href="/plays/<%= plays[i].id %>/edit">Edit</a>
+    <div class="d-flex align-items-center index-overlay col-3 pt-5">
+        <div class="container-item">
+            <h4>THE PLAYS</h4>
+            <% for(let i=0; i<plays.length; i++) { %>
+                <p><a href='/plays/<%= plays[i].id %>'><%= plays[i].title %></a></p>
+                <% if(currentUser) { %>
+                <form action="/plays/<%= plays[i].id %>?_method=DELETE" method="POST">
+                    <input type="submit" value="DELETE">
+                </form>
+                <a href="/plays/<%= plays[i].id %>/edit">Edit</a>
+                <% } %>
             <% } %>
-        <% } %>
-
+        </div>
     </div>
 
     <%- include('./partials/footer.ejs') %>
