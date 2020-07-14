@@ -115,7 +115,9 @@ router.get('/', (req, res) => {
 //CREATE route
 router.post('/', upload.single('prodStill'), isAuthenticated, (req, res) => {
     // console.log(req.file);
+    if(req.body.prodStill) {
     req.body.prodStill = `/images/${req.file.filename}`;
+    }
     // console.log(req.body);
     Play.create(req.body, (err, createdPlay) => {
         // console.log(createdPlay);

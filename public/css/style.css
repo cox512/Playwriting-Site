@@ -109,12 +109,10 @@ li {
 }  */
 
 .index-overlay {
-    position: absolute;
-    /* top: 10%; */
+    position: relative;
     left: 5%;
-    background-color: rgba(255, 255, 255, .6);
+    background-color: rgba(255, 255, 255, .7);
     height: 100vh;
-    /* max-width: 20%;*/ 
 }
 
 a {
@@ -128,4 +126,8 @@ a {
     background-repeat: no-repeat;
     height: 100%;
     margin: 0;
+}
+
+.new-play-form {
+    max-width: 800px;
 }
