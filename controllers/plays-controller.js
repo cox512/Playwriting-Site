@@ -64,13 +64,13 @@ router.get("/", (req, res) => {
 
 //CREATE route
 router.post("/", upload.single("prodStill"), isAuthenticated, (req, res) => {
-  console.log(req.file);
-  if (req.body.prodStill) {
+  //   console.log("req.body: ", req.body);
+  //   console.log("req.file: ", req.file);
+  if (req.file.filename) {
     req.body.prodStill = `/images/${req.file.filename}`;
   }
-  // console.log(req.body);
   Play.create(req.body, (err, createdPlay) => {
-    // console.log(createdPlay);
+    // console.log("createdPlay: ", createdPlay);
     res.redirect("/plays");
   });
 });
@@ -78,7 +78,7 @@ router.post("/", upload.single("prodStill"), isAuthenticated, (req, res) => {
 //Show Route
 router.get("/:id", (req, res) => {
   Play.findById(req.params.id, (err, foundPlay) => {
-    // console.log(foundPlay);
+    // console.log("foundPlay: ", foundPlay);
     res.render("show.ejs", {
       play: foundPlay,
       currentUser: req.session.currentUser,
@@ -111,18 +111,17 @@ router.get("/:id/edit", isAuthenticated, (req, res) => {
 
 //UPDATE route
 router.put("/:id", upload.single("prodStill"), isAuthenticated, (req, res) => {
-  console.log(req);
-  if (req.body.prodStill) {
+  //   console.log("req.body: ", req.body);
+  if (req.file) {
+    // console.log("update if statement");
     req.body.prodStill = `/images/${req.file.filename}`;
   }
-  //Get the input field to show the selected file name.
-  //Give the option to delete the photo file on the
-
   Play.findByIdAndUpdate(
     req.params.id,
     req.body,
     { new: true, useFindAndModify: false },
     (err, updatedModel) => {
+      console.log("updatedModel: ", updatedModel);
       res.redirect("/plays/" + req.params.id);
     }
   );
