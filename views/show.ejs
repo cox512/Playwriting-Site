@@ -3,65 +3,112 @@
 <head>
     <%- include('./partials/head.ejs') %>
 </head>
-<body>
+<body class="show-page">
 
     <%- include('./partials/header.ejs') %>
     <%- include('./partials/spacer.ejs') %>
-
-    <h2> <%= play.title %></h2>
-    <p> <%= play.genre %></p>
-    <% if(play.length === "fullLength") { %>
-        <p>Full-Length</p>
-    <% } else if (play.length === "oneAct") { %>
-        <p> One-Act</p>
-    <%} else if (play.length === "short") { %>
-        <p>Short</p>
-    <% } %>
-
-    <h6>SYNOPSIS</h6>
-    <p> <%= play.synopsis %></p>
-
-    <h6>CASTING REQUIREMENTS</h6>
-    <p>Total Cast Size: <%= play.castSize %></p>
-    <% if (play.castingMale) { %>
-        <p> Male-Identifying: <%= play.castingMale %></p>
-    <% } %>
-    <% if (play.castingFemale) { %>
-        <p> Female-Identifying: <%= play.castingFemale %></p>
-    <% } %>
-    <% if (play.castingNeutral) { %>
-        <p> Gender-Neutral: <%= play.castingNeutral %></p>    
-    <% } %>
-    <% if (play.specialCasting) { %>
-        <p> Special Casting Needs: <%= play.specialCasting %></p>
-    <% } %>
     
-    <!-- DEVELOPMENT -->
-    <% if (play.development == '') { %>
-        <!-- meaningless variable. Using if (!play.development == '') isn't working -->
-        <% let i = 0 %>
-    <% } else { %>
-        <h6>Development History</h6>
-        <% for (let i=0; i<play.development.length; i++) { %>
-            <p><%= play.development[i] %></p>
-        <% } %>
-    <% } %>
+    <div class="container-fluid">
+        <div class="row mt-4">
+            <div class="col-1 left-gutter"></div>
+            <div class="col-10 photo-div">
+                
+                <% if(play.prodStill) { %>
+                    <img class="play-photo" alt="production still" src="<%= play.prodStill %>">
+                    <div class="title-row">
+                        <h2 class="play-details" id="title-display"> <%= play.title %></h2>
+                    </div>
+                    <% if(play.dialogue) { %>
+                    <div class="dialogue-row">
+                        <p class="play-details" id="dialogue-display"> <%= play.dialogue %></p>
+                    </div>
+                    <% } %>
+                <% } else { %>
+                    <div class="no-photo-title">
+                        <%= play.title %>
+                    </div>
+                    <div class="no-photo-dialogue">
+                        <%= play.dialogue %>
+                    </div>
+                <%} %>
+                
+            </div>
+            <div class="col-1 right-gutter"></div>
+        </div>
+    </div>
 
-    <!-- HONORS -->
-    <% if (play.honors == '') { %>
-        <% let i = 0 %>
-    <% } else { %>
-        <h6>Honors</h6>
-        <% for (let i=0; i<play.honors.length; i++) { %>
-            <p><%= play.honors[i] %></p>
-        <% } %> 
-    <% } %>
+    <div class="container details-div mt-4">
+        <h3 class="script-breakdown m-3">SCRIPT BREAKDOWN</h3>
+        <div class="container">
+            <div class="synopsis p-3">
+                <h6 class="play-heading">SYNOPSIS</h6>
+                <p class="play-details"> <%= play.synopsis %></p>
+            </div>
+        </div>
 
-    <p> <%= play.dialogue %></p>
-    <p> <%= play.story %></p>
-    <img class="img-fluid" src='<%= play.prodStill %>'>
-
+        <div class="container overview">
+            <div class="row justify-content-around mt-3 mb-3">
+                    <p class="play-details" id="genre"><b>GENRE:</b> <%= play.genre %></p>
+                    <% if(play.length === "fullLength") { %>
+                
+                    <p class="play-details"><b>LENGTH:</b> Full-Length</p>
+                    <% } else if (play.length === "oneAct") { %>
+                        <p class="play-details"><b>LENGTH:</b> One-Act</p>
+                    <%} else if (play.length === "short") { %>
+                        <p class="play-details"><b>LENGTH:</b> Short</p>
+                    <% } %>
+                
+                    <p class="play-details"><b>TOTAL CAST:</b> <%= play.castSize %> (
+                        <% if (play.castingMale) { %>
+                            M: <%= play.castingMale %>,
+                        <% } %>
+                        <% if (play.castingFemale) { %>
+                            F: <%= play.castingFemale %>,
+                        <% } %>
+                        <% if (play.castingNeutral) { %>
+                            Gender-Neutral: <%= play.castingNeutral %>   
+                        <% } %>
+                        )
+                    </p>
+            </div>     
+            <% if (play.specialCasting) { %>
+            <div class="row">
+                <div class="col">
+                    <p class="play-details"><b> SPECIAL CASTING NEEDS:</b> <%= play.specialCasting %></p>
+                </div>
+            </div>
+            <% } %>
+            <div class="row">
+                <div class="col-md">
+                        <!-- HONORS -->
+                        <% if (play.honors == '') { %>
+                            <% let i = 0 %>
+                        <% } else { %>
+                            <h6 class="play-heading">HONORS</h6>
+                            <ul>
+                            <% for (let i=0; i<play.honors.length; i++) { %>
+                                <li class="play-details"><%= play.honors[i] %></li>
+                            <% } %>
+                            </ul> 
+                        <% } %>
+                </div>
+                <div class="col-md">
+                    <!-- DEVELOPMENT -->
+                    <% if (play.development == '') { %>
+                        <!-- meaningless variable. Using if (!play.development == '') isn't working -->
+                        <% let i = 0 %>
+                    <% } else { %>
+                        <h6 class="play-heading">DEVELOPMENT HISTORY</h6>
+                        <ul>
+                        <% for (let i=0; i<play.development.length; i++) { %>
+                            <li class="play-details"><%= play.development[i] %></li>
+                        <% } %>
+                        </ul>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+    </div>
     <%- include('./partials/footer.ejs') %>
-
 </body>
 </html>

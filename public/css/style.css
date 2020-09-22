@@ -6,11 +6,14 @@ html, body {
 }
 
 body {
-    background-color: rgb(203, 203, 200);
-    margin: 0 0 5em 0;
+    background-color: rgb(5, 5, 48);
+    /* margin: 0 0 5em 0; */
     
 }
 
+.log-in, .new-play-form {
+    color: rgb(233, 217, 89)
+}
 #grey-bar {
     background-color: silver;
     width: 3vw;
@@ -97,17 +100,6 @@ li {
     margin: 0;
 }
 
-/* #index-img {
-    position: relative;
-    top: 0;
-    left: 0;
-    object-fit: contain;
-    width: 100%;
-    max-height: 100%;
-    margin: 0 auto;
-    display: block;
-}  */
-
 .index-overlay {
     position: relative;
     left: 5%;
@@ -131,3 +123,111 @@ a {
 .new-play-form {
     max-width: 800px;
 }
+
+/* SHOW PAGE */
+
+.script-breakdown {
+    color: rgb(233, 217, 89);
+    text-align: center;
+}
+
+.details-div {
+    border: solid silver 4px;
+    margin-bottom: 5em;
+}
+
+.synopsis, .overview {
+    background-color: rgb(193, 189, 201);
+    border: solid rgb(233, 217, 89) 2px;
+    margin: 1.5rem auto; 
+}
+
+.play-heading {
+    font-weight: bold;
+    text-align: center;
+}
+
+#show-page {
+    /* position: relative; */
+}
+
+.play-heading, .play-details{
+    color: rgb(5, 5, 48);
+
+}
+
+.play-photo {
+    max-width: 80vw;
+   border: solid silver 4px;
+}
+
+.title-row {
+    position: absolute;
+    top: 0em;
+    width: 96%;
+    background-image: linear-gradient(90deg, silver, rgba(230, 230, 252,0));
+}
+
+.dialogue-row {
+    position: absolute;
+    bottom: 0em;
+    background-image: linear-gradient(-90deg, silver, rgba(230, 230, 252,0));    
+    width: 96.8%;
+}
+
+.no-photo-title {
+    padding: .4em 2em;
+    font-size: 2.5em;
+    color: silver;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    text-align: center;
+}
+
+.no-photo-dialogue {
+    padding: .8em 2em;
+    font-size: 1.3em;
+    color: silver;
+    font-style: italic;
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+}
+
+#title-display {
+    position: relative;
+    padding: .4em 2em;
+    font-size: 2.5em;
+    color: rgb(17, 7, 41);
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+}
+
+#dialogue-display {
+    position: relative;
+    padding: .8em 2em;
+    font-size: 1.3em;
+    color: rgb(17, 7, 41);
+    font-style: italic;
+    text-align: right;
+    font-family: 'Playfair Display', serif;
+} 
+
+/* // Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) { 
+
+ }
+
+/* // Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+
+ }
+
+/* // Large devices (desktops, 992px and up) */
+@media (min-width: 992px) { 
+
+ }
+
+/* // Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { 
+
+ }
