@@ -7,24 +7,57 @@
     <!-- HEADER NAV PARTIAL -->
     <%- include('./partials/header.ejs') %>
     <!-- SPACE PARTIAL TO KEEP NAV FROM COVERING UP THE MAIN PAGE -->
-    <!-- <%- include('./partials/spacer.ejs') %> -->
-    <!-- <div class="m-0 p-0 d-block">
-        <img id="index-img" class="" src="/images/AVBM_overpass.jpg">
-    </div> -->
+    <%- include('./partials/spacer.ejs') %>
+    
 
     
-    <div class="d-flex align-items-center index-overlay col-3 pt-5">
-        <div class="container-item">
-            <h4>THE PLAYS</h4>
+    <div class="container-fluid mt-4">
+        
+        <div class="row">
+            <h2 class="index-heading">THE PLAYS</h2>
+            <div class="col-lg-2">
+            </div>
+            <div class="col-lg-8">
+                <img  class="overpass" alt="Actors rehearse a play" src="images/AVBM_overpass.jpg" />
+            </div>
+            <div class="col-lg-2">
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        
+        <div class="length-divs">
+            <h3 class="length">LONG ONES</h3>
+            <div class="d-flex flex-column" >
             <% for(let i=0; i<plays.length; i++) { %>
-                <p><a href='/plays/<%= plays[i].id %>'><%= plays[i].title %></a></p>
-                <% if(currentUser) { %>
-                <form action="/plays/<%= plays[i].id %>?_method=DELETE" method="POST">
-                    <input type="submit" value="DELETE">
-                </form>
-                <a href="/plays/<%= plays[i].id %>/edit">Edit</a>
+                <% if (plays[i].length === "fullLength") { %>
+                    <p><a class="play" href='/plays/<%= plays[i].id %>'><%= plays[i].title %></a></p>
+                    <% if(currentUser) { %>
+                    <form action="/plays/<%= plays[i].id %>?_method=DELETE" method="POST">
+                        <input type="submit" value="DELETE">
+                    </form>
+                    <a href="/plays/<%= plays[i].id %>/edit">Edit</a>
+                    <% } %>
                 <% } %>
             <% } %>
+            </div>
+        </div>
+        <div class="length-divs">
+            <h3 class="length">SHORT ONES</h3>
+            <div class="d-flex flex-column" >
+            <% for(let i=0; i<plays.length; i++) { %>
+                <% if (plays[i].length === "oneAct" || plays[i].length === "short") { %>
+                    <p><a class="play" href='/plays/<%= plays[i].id %>'><%= plays[i].title %></a></p>
+                    <% if(currentUser) { %>
+                    <form action="/plays/<%= plays[i].id %>?_method=DELETE" method="POST">
+                        <input type="submit" value="DELETE">
+                    </form>
+                    <a href="/plays/<%= plays[i].id %>/edit">Edit</a>
+                    <% } %>
+                <% } %>
+            <% } %>
+            </div>
         </div>
     </div>
 

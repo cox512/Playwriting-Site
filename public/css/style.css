@@ -1,20 +1,18 @@
 html, body {
-   
     height: 100%;
     min-height: 100%;
     width: 100%;
 }
 
 body {
-    background-color: rgb(5, 5, 48);
-    /* margin: 0 0 5em 0; */
-    
+    background-color: rgb(5, 5, 48);    
 }
 
 .log-in, .new-play-form {
     color: rgb(233, 217, 89)
 }
-#grey-bar {
+
+/* #grey-bar {
     background-color: silver;
     width: 3vw;
     height: 100%;
@@ -22,11 +20,10 @@ body {
     position: absolute;
     right: 0;
     z-index: 1;
-}
+} */
 .carousel-item {
     padding:0;
 }
-
 
 #main-about-container {
     position: relative;
@@ -38,7 +35,7 @@ body {
 }
 
 .carousel-inner {
-    height: 30%;
+    /* height: 30%; */
     display: inline;
 }
 
@@ -46,15 +43,16 @@ body {
     margin: 0;
     padding: 0;
 }
+
 #headshot {
     padding:0;
     display: inline;
-
 }
 
 .heading {
     text-align: center;
 }
+
 nav, footer{
     background-color: rgb(233, 217, 89);
 }
@@ -62,6 +60,7 @@ nav, footer{
 .fixed-top {
     padding: 0 2em 0 2em;
 }
+
 #name {
     font-size: 3em;
     font-weight: bold;
@@ -83,7 +82,9 @@ li {
 .about-info {
     max-width:70%;
     padding: 2em;
-    background-color: white;
+    background-color:rgb(252, 255, 212);
+    border: solid rgb(233, 217, 89) 4px;
+    border-radius: 3px;
 }
 
 .holder {
@@ -100,24 +101,65 @@ li {
     margin: 0;
 }
 
-.index-overlay {
-    position: relative;
-    left: 5%;
-    background-color: rgba(255, 255, 255, .7);
-    height: 100vh;
-}
-
 a {
-    text-decoration: underline;
+    text-decoration: none;
 }
 
-#index-page {
-    background-image: url('/images/AVBM_overpass.jpg');
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 100%;
-    margin: 0;
+.overpass {
+    width: inherit;
+    margin: 4.4em;
+}
+
+.index-heading {
+    font-size: 6em;
+    color: rgb(252, 255, 212);
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    margin: 0 0 1em .5em;
+    position: absolute;
+    top: 20%;
+    left: 0%;
+    z-index: 1;
+    text-shadow: .02em .02em .02em rgb(156, 34, 28);
+}
+
+/* .long-ones {
+    background-color: rgb(252, 255, 212);
+    background-image: radial-gradient(rgb(252, 255, 212) 60%, rgb(125, 121, 70));
+    min-width: 10em;
+    max-width: 18em;
+    border: solid silver 4px;
+    padding: 1em;
+    min-height: 20em;
+    border-radius: 2px;
+    text-decoration: none;
+    
+} */
+
+.length-divs {
+    background-color: rgb(252, 255, 212);
+    background-image: radial-gradient(rgb(252, 255, 212) 60%, rgb(202 195 118));
+    min-width: 10em;
+    max-width: 18em;
+    border: solid silver 4px;
+    padding: 1em;
+    min-height: 20em;
+    border-radius: 2px;
+    text-decoration: none;
+}
+
+.length {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    text-align: center;
+    text-shadow: 0.02em 0.02em 0.02em rgb(4 5 48);
+    color: rgb(4,5,8);
+}
+
+.play {
+    font-size: 1em;
+    margin-left: 1em;
+
 }
 
 .new-play-form {
@@ -137,7 +179,7 @@ a {
 }
 
 .synopsis, .overview {
-    background-color: rgb(193, 189, 201);
+    background-color: rgb(252, 255, 212);
     border: solid rgb(233, 217, 89) 2px;
     margin: 1.5rem auto; 
 }
@@ -145,10 +187,6 @@ a {
 .play-heading {
     font-weight: bold;
     text-align: center;
-}
-
-#show-page {
-    /* position: relative; */
 }
 
 .play-heading, .play-details{
@@ -212,6 +250,9 @@ a {
     font-family: 'Playfair Display', serif;
 } 
 
+.casting-needs {
+    text-align: center;
+}
 /* // Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) { 
 
@@ -219,15 +260,10 @@ a {
 
 /* // Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
-
- }
+    
+}
 
 /* // Large devices (desktops, 992px and up) */
 @media (min-width: 992px) { 
-
- }
-
-/* // Extra large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) { 
-
+    
  }
