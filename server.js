@@ -16,12 +16,13 @@ const PORT = process.env.PORT;
 
 //Database
 // How to connect to the database either via heroku or locally
-const DB_URI = process.env.DB_URI;
+// const DB_URI = process.env.DB_URI;
+const DB_URI =
+  "mongodb+srv://heroku_gvk6hzwc:Fidelity01@cluster-gvk6hzwc.4tid6.mongodb.net/cluster-gvk6hzwc?retryWrites=true&w=majority";
 
 // Connect to Mongo
 mongoose.connect(
-  "mongodb+srv://heroku_gvk6hzwc:Fidelity01@cluster-gvk6hzwc.4tid6.mongodb.net/cluster-gvk6hzwc?retryWrites=true&w=majority",
-  // DB_URI,
+  DB_URI,
   { useNewUrlParser: true, useUnifiedTopology: true },
   () => {
     console.log("the connection with mongod is established");
