@@ -20,7 +20,7 @@ const DB_URI = process.env.DB_URI;
 
 // Connect to Mongo
 mongoose.connect(
-  "mongodb+srv://heroku_gvk6hzwc:Fidelity01@cluster-gvk6hzwc.4tid6.mongodb.net/<dbname>?retryWrites=true&w=majority",
+  "mongodb+srv://heroku_gvk6hzwc:Fidelity01@cluster-gvk6hzwc.4tid6.mongodb.net/cluster-gvk6hzwc?retryWrites=true&w=majority",
   // DB_URI,
   { useNewUrlParser: true, useUnifiedTopology: true },
   () => {
