@@ -7,19 +7,19 @@
 <body>
     <%- include('./partials/header.ejs') %>
     <%- include('./partials/spacer.ejs') %>
-    <div class="container pb-5 new-play-form">
+    <div class="container pb-5 new-play-form form-label">
     <form action="/plays" method="POST" enctype="multipart/form-data">
         <h1>Add New Play Details</h1>
         <!-- TITLE -->
         <div class="row">
             <div class="col-8">
                 <label for="title">Title</label>
-                <input type="text" class="form-control" placeholder="required" name="title"/>
+                <input type="text" id="title" class="form-control" placeholder="required" name="title"/>
             </div>
             <!-- GENRE -->
             <div class="col-4">
                 <label for="genre">Genre</label>
-                <input type="text" class="form-control" placeholder="Genre" name="genre"/>
+                <input type="text" id="genre" class="form-control" placeholder="Genre" name="genre"/>
             </div>
         </div>
         <!-- LENGTH -->
@@ -41,19 +41,19 @@
         <div class="row">
             <div class="col-3">
                 <label for="castSize">Cast Size</label>
-                <input type="text" class="form-control" placeholder="number (range)" name="castSize"/>
+                <input type="text" id="castSize" class="form-control" placeholder="number (range)" name="castSize"/>
             </div>
             <div class="col-3">
                 <label for="castingMale"># Male Chars.</label>
-                <input type="text" class="form-control" placeholder="number" name="castingMale"/>
+                <input type="text" id="castingMale" class="form-control" placeholder="number" name="castingMale"/>
             </div>
             <div class="col-3">
                 <label for="castingFemale"># Female Chars.</label>
-                <input type="text" class="form-control" placeholder="number" name="castingFemale"/>
+                <input type="text" id="castingFemale" class="form-control" placeholder="number" name="castingFemale"/>
             </div>
             <div class="col-3">
                 <label for="castingNeutral"># G.N. Chars.</label>
-                <input type="text" class="form-control" placeholder="number" name="castingNeutral"/>
+                <input type="text" id="castingNeutral" class="form-control" placeholder="number" name="castingNeutral"/>
             </div>
         </div>
         <div class="row mt-3">
@@ -76,7 +76,8 @@
                 <label for="development">Development History</label>
                 <input type="text" class="form-control dev-array" id="development" name="development"/>
             </div>
-            <button type="button" class="dev-button btn-lite" id="development">Add Another</button>
+        <!-- Deleted id="development" from button -->
+            <button type="button" class="dev-button btn-lite">Add Another</button>
         </div>
         <!-- HONORS -->
         <div class="form-group">
@@ -84,7 +85,7 @@
                 <label for="honors">Honors/Awards</label>
                 <input type="text" class="form-control honors-array" id="honors" name="honors"/>
             </div>
-            <button type="button" class="honors-button btn-lite" id="honors">Add Another</button>
+            <button type="button" class="honors-button btn-lite" >Add Another</button>
         </div>
         <!-- BACKSTORY -->
         <div class="form-group">
@@ -100,8 +101,6 @@
         <input type="submit" class="btn-lite btn-lg mt-3" id="submit-btn" value="SUBMIT">
     </form>
     </div>
-    
     <%- include('./partials/footer.ejs') %>
-
 </body>
 </html>
