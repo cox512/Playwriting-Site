@@ -11,7 +11,6 @@ body {
 
 .form-label {
     color: rgb(233, 217, 89)
-
 }
 
 .contact-message {
@@ -142,7 +141,6 @@ a {
     min-width: 11em;
     max-width: 18em;
     border: solid rgb(233, 217, 89) 4px;
-    /* border-style: ridge; */
     padding: 1em;
     min-height: 17em;
     border-radius: 4px;
@@ -275,8 +273,17 @@ a {
     .sender-info {
         display: flex;
         flex-flow: column;
-
     }
+    #name {
+        font-size: 1.2em;
+    }
+    .footer-link {
+        padding: 0 .5em 0 0
+    }
+    .nav-about {
+        padding: 0;
+    }
+
  }
 
 /* // Medium devices (tablets, 768px and up) */
