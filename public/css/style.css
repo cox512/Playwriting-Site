@@ -271,8 +271,12 @@ a {
     text-align: center;
 }
 /* // Small devices (landscape phones, 576px and up) */
-@media (min-width: 576px) { 
+@media (max-width: 576px) { 
+    .sender-info {
+        display: flex;
+        flex-flow: column;
 
+    }
  }
 
 /* // Medium devices (tablets, 768px and up) */
