@@ -94,9 +94,8 @@
                 </div>
                 <div class="col-md">
                     <!-- DEVELOPMENT -->
-                    <% if (play.development == '') { %>
-                        <!-- meaningless variable. Using if (!play.development == '') isn't working -->
-                        <% let i = 0 %>
+                    <% if (play.development == "") { %>
+                        <!-- Only way I could get it to not print the Development History header. !play.development doesn't work. If I simply have a positive if statement, the footer appears in Dev History's place -->
                     <% } else { %>
                         <h6 class="play-heading">DEVELOPMENT HISTORY</h6>
                         <ul>

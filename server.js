@@ -1,4 +1,3 @@
-//Dependencies
 const express = require("express");
 const app = express();
 const methodOverride = require("method-override");
@@ -6,19 +5,13 @@ const mongoose = require("mongoose");
 const db = mongoose.connection;
 const session = require("express-session");
 require("dotenv").config();
-const bcrypt = require("bcrypt");
-const multer = require("multer");
-const path = require("path");
 
 //Port
-// Allow use of Heroku's port or your own local port, depending on the environment
 const PORT = process.env.PORT;
 
 //Database
-// How to connect to the database either via heroku or locally
 const DB_URI = process.env.DB_URI;
 
-// Connect to Mongo
 mongoose.connect(
   DB_URI,
   { useNewUrlParser: true, useUnifiedTopology: true },
@@ -27,7 +20,6 @@ mongoose.connect(
   }
 );
 
-// Error / success
 db.on("error", (err) => console.log(err.message + " is Mongod not running?"));
 db.on("connected", () => console.log("mongo connected: ", DB_URI));
 db.on("disconnected", () => console.log("mongo disconnected"));
@@ -50,27 +42,25 @@ app.use(
 //use public folder for static assets
 app.use(express.static("public"));
 
-// populates req.body with parsed info from forms - if no data from forms will return an empty object {}
-app.use(express.urlencoded({ extended: false })); // extended: false - does not allow nested objects in query strings
-app.use(express.json()); // returns middleware that only parses JSON
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
 
-//use method override
 app.use(methodOverride("_method"));
 
 //CONTROLLERS
-//Plays controller
 const playsController = require("./controllers/plays-controller.js");
 app.use("/plays", playsController);
 
-//User controller
 const userController = require("./controllers/users-controller.js");
 app.use("/users", userController);
 
-//Sessions controller
 const sessionController = require("./controllers/sessions-controller.js");
 app.use("/sessions", sessionController);
 
-//Set up a landing page
+const contactController = require("./controllers/contact-controller.js");
+app.use("/contact", contactController);
+
+//Landing page
 app.get("/", (req, res) => {
   res.render("about.ejs", {
     titleBar: "Home",
@@ -78,5 +68,4 @@ app.get("/", (req, res) => {
   });
 });
 
-//Listener
 app.listen(PORT, () => console.log("Listening on port:", PORT));

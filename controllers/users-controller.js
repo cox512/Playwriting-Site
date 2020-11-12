@@ -12,7 +12,6 @@ userRouter.get("/new", (req, res) => {
 });
 
 userRouter.post("/", (req, res) => {
-  //Salt password to anonymize
   req.body.password = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(9));
   User.create(req.body, (err, createdUser) => {
     console.log("new user:", createdUser);
