@@ -225,24 +225,43 @@ a {
     color: rgb(5, 5, 48);
 }
 
+.show-photo-display {
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
 .play-photo {
-    max-width: 80vw;
-   border: solid silver 4px;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    display: inline-block;
 }
 
-.title-row {
+.title-display {
     position: absolute;
-    top: 0em;
-    width: 96%;
+    padding: .4em 2em;
+    font-size: 2.5em;
+    color: rgb(17, 7, 41);
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    left: 0px;
     background-image: linear-gradient(90deg, silver, rgba(230, 230, 252,0));
 }
 
-.dialogue-row {
+.dialogue-display {
     position: absolute;
-    bottom: 0em;
-    background-image: linear-gradient(-90deg, silver, rgba(230, 230, 252,0));    
-    width: 96.8%;
-}
+    width: 100%;
+    padding: .8em 2em;
+    font-size: 1.3em;
+    color: rgb(17, 7, 41);
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    text-align: right;
+    bottom: 0;
+    right: 0;
+    background-image: linear-gradient(-90deg, silver, rgba(230, 230, 252,0));  
+    margin: 0px; 
+} 
 
 .no-photo-title {
     padding: .4em 2em;
@@ -262,25 +281,6 @@ a {
     font-family: 'Playfair Display', serif;
 }
 
-#title-display {
-    position: relative;
-    padding: .4em 2em;
-    font-size: 2.5em;
-    color: rgb(17, 7, 41);
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-}
-
-#dialogue-display {
-    position: relative;
-    padding: .8em 2em;
-    font-size: 1.3em;
-    color: rgb(17, 7, 41);
-    font-style: italic;
-    text-align: right;
-    font-family: 'Playfair Display', serif;
-} 
-
 .casting-needs {
     text-align: center;
 }
@@ -292,13 +292,25 @@ a {
 footer {
     display: flex;
     justify-content: space-between;
-    flex-direction: row;
-    padding: auto 1em;
+    width: 100%;
 }
 
 .copyright {
     padding-left: 8px;
 }
+
+.contact-form {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+
+.contact-img {
+    display: inherit;
+    margin: 2em auto 7em auto;
+    width: 60%;
+}
+
 
 @media (max-width: 640px) { 
     .sender-info {
@@ -336,16 +348,9 @@ footer {
         font-size: 30px;
     }
 
-    /* .copyright {
-        display: none;
-    } */
-
     .footer-link {
-        /* display: inline; */
        text-align: right;
     }
-    
-
  }
 
 /* // Medium devices (tablets, 768px and up) */

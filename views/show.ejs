@@ -3,39 +3,31 @@
 <head>
     <%- include('./partials/head.ejs') %>
 </head>
-<body class="show-page">
+<body>
 
     <%- include('./partials/header.ejs') %>
     <%- include('./partials/spacer.ejs') %>
     
-    <div class="container-fluid">
-        <div class="row mt-4">
-            <div class="col-1 left-gutter"></div>
-            <div class="col-10 photo-div">
-                
+        <div class="show-photo-display">
                 <% if(play.prodStill) { %>
                     <img class="play-photo" alt="production still" src="<%= play.prodStill %>">
-                    <div class="title-row">
-                        <h2 class="play-details" id="title-display"> <%= play.title %></h2>
-                    </div>
-                    <% if(play.dialogue) { %>
-                    <div class="dialogue-row">
-                        <p class="play-details" id="dialogue-display"> <%= play.dialogue %></p>
-                    </div>
+                    <h2 class="play-details title-display"> <%= play.title %></h2>
+                <% if(play.dialogue) { %>
+                    <!-- <div class="dialogue-row"> -->
+                        <h4 class="play-details dialogue-display"> <%= play.dialogue %></h4>
+                    <!-- </div> -->
                     <% } %>
                 <% } else { %>
-                    <div class="no-photo-title">
+                    <div class="no-photo">
+                        <div class="no-photo-title">
                         <%= play.title %>
+                        </div>
+                        <div class="no-photo-dialogue">
+                            <%= play.dialogue %>
+                        </div>
                     </div>
-                    <div class="no-photo-dialogue">
-                        <%= play.dialogue %>
-                    </div>
-                <%} %>
-                
-            </div>
-            <div class="col-1 right-gutter"></div>
+                <%} %>  
         </div>
-    </div>
 
     <div class="container details-div mt-4">
         <h3 class="script-breakdown m-3">SCRIPT BREAKDOWN</h3>
