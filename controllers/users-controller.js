@@ -3,8 +3,9 @@ const userRouter = express.Router();
 const bcrypt = require("bcrypt");
 
 const User = require("../models/users.js");
+const NEW = process.env.NEW;
 
-userRouter.get("/new", (req, res) => {
+userRouter.get(`/${NEW}`, (req, res) => {
   res.render("users/new.ejs", {
     currentUser: req.session.currentUser,
     titleBar: "Create User",
