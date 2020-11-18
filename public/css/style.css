@@ -45,6 +45,9 @@ body {
     padding: 0;
 }
 
+#solo-headshot {
+    display: none;
+}
 #headshot {
     padding:0;
     display: inline;
@@ -58,11 +61,19 @@ nav, footer{
     background-color: rgb(233, 217, 89);
 }
 
+.nav-spacer {
+    height:7em;
+}
+
+.nav-link {
+    font-size: 24px;
+}
+
 .fixed-top {
     padding: 0 2em 0 2em;
 }
 
-#your-name {
+.name {
     font-size: 3em;
     font-weight: bold;
     margin: 0px;
@@ -77,10 +88,6 @@ a {
     list-style: none;
 }
 
-li {
-    padding: 0 1em;
-}
-
 .about-info {
     max-width:70%;
     padding: 2em;
@@ -89,6 +96,7 @@ li {
     border: solid rgb(233, 217, 89) 4px;
     border-radius: 3px;
     margin-top: 2em;
+    font-size: 16px;
 }
 
 .about-heading, .index-heading {
@@ -107,7 +115,6 @@ li {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 1em 0 3em 0;
 }
 
 .row {
@@ -119,75 +126,72 @@ a {
 }
 
 .overpass {
-    max-width: 800px;
-    margin: 4.4em;
-    padding-top: 2em
+    width: 100%;
+    height: auto;
+    padding-top: 2em;
 }
 
 .index-intro {
     position: relative;
+    text-align: right;
 }
 
 .index-heading {
     position: absolute;
-    z-index: 1;
-    top: 7%;
-    left: 0%;
-    margin: 0 0 1em 0;
+    top: 30px;
+    left: 16px;
 } 
 
-/* .length-divs {
-    background-color: rgb(252, 255, 212);
-    min-width: 11em;
-    max-width: 18em;
-    border: solid rgb(233, 217, 89) 4px;
-    padding: 1em;
-    min-height: 17em;
-    border-radius: 4px;
-    text-decoration: none;
-} */
+.length-divs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+}
 
 .length {
     font-family: 'Playfair Display', serif;
     font-style: italic;
+    font-size: 40px;
     text-align: center;
     text-shadow: 0.02em 0.02em 0.02em rgb(4 5 48);
     color:rgb(252, 255, 212);
+    margin: .7em auto;
 }
 .title {
     color: rgb(252, 255, 212);
     text-align: center;
 }
-/* .long-plays {
-    position: absolute;
-    top: 55%;
-    left: 10%;
-} */
-
-/* .short-plays {
-    position: absolute;
-    top: 67%;
-    left: 23%;
-    margin-bottom: 4em;
-    box-shadow: -5px 10px 20px rgb(32, 32, 34);
-
-} */
 
 .play {
     font-size: 1em;
-    margin-left: 1em;
     color: white
 }
 
-.thumbnail {
+.thumbnail{
     max-width: 250px;
+}
+
+.thumbnail-div {
+    margin: 1em;
 }
 .spacer {
     height:100px;
 }
 
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    margin: 1em auto
+}
+
 .btn {
-    width: 100px
+    width: 100px;
+}
+
+.log-out {
+    padding: 0;
+    width: 70px;
 }
 .new-play-form {
     max-width: 800px;
@@ -219,7 +223,6 @@ a {
 
 .play-heading, .play-details{
     color: rgb(5, 5, 48);
-
 }
 
 .play-photo {
@@ -281,30 +284,83 @@ a {
 .casting-needs {
     text-align: center;
 }
-/* // Small devices (landscape phones, 576px and up) */
-@media (max-width: 576px) { 
+
+.footer-link {
+    padding: 0 .5em 0 0
+}
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    padding: auto 1em;
+}
+
+.copyright {
+    padding-left: 8px;
+}
+
+@media (max-width: 640px) { 
     .sender-info {
         display: flex;
         flex-flow: column;
     }
-    #your-name {
-        font-size: 1.2em;
+
+    .about-heading {
+        font-size: 3em;
     }
+    .about-info {
+        max-width: 100%;
+        padding: 1.3em .7em
+    }
+   
+    .fixed-top {
+        padding: 0 .4em
+    }
+    #hidden-row, .welcome, .copyright {
+        display: none;
+    }
+    #solo-headshot {
+        display: block;
+        width: 50%
+    }
+
+    .index-heading {
+    font-size: 2.5em;
+    position: absolute;
+    top: 30px;
+    left: 16px;
+    }
+
+    .length {
+        font-size: 30px;
+    }
+
+    /* .copyright {
+        display: none;
+    } */
+
     .footer-link {
-        padding: 0 .5em 0 0
+        /* display: inline; */
+       text-align: right;
     }
-    .nav-about {
-        padding: 0;
-    }
+    
 
  }
 
 /* // Medium devices (tablets, 768px and up) */
-@media (min-width: 768px) {
-    
+@media (max-width: 768px) {
+    .navigation {
+        padding: 0;
+    }
+    .nav-link {
+        padding: .9em .2em;
+        font-size: 14px;
+    }
+    .nav-spacer {
+        height: 4em;
+    }
+    .name {
+        font-size: 1em;
+    }
 }
-
-/* // Large devices (desktops, 992px and up) */
-@media (min-width: 992px) { 
-    
- }
