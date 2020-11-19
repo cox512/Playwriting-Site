@@ -66,6 +66,7 @@ router.get("/", (req, res) => {
 
 //Deleted upload.single("prodStill")
 router.post("/", isAuthenticated, (req, res) => {
+  console.log("New Play:", req.body);
   // if (req.file.filename) {
   //   req.body.prodStill = `/images/${req.file.filename}`;
   // }
@@ -105,8 +106,8 @@ router.get("/:id/edit", isAuthenticated, (req, res) => {
 });
 
 //Deleted upload.single("prodStill")
-
-router.put("/:id", isAuthenticated, (req, res) => {
+//Added 'uploads'
+router.put("/uploads/:id", isAuthenticated, (req, res) => {
   // if (req.file) {
   //   req.body.prodStill = `/images/${req.file.filename}`;
   // }

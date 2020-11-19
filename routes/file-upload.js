@@ -3,23 +3,22 @@ const router = express.Router();
 
 const upload = require("../services/file-upload");
 
-const singleUpload = upload.single("image");
+//CHAGED 'IMAGE' TO 'FILE'
+const singleUpload = upload.single("prodStill");
 
 //changed below from "image-upload"
-router.post("/image-upload", function (req, res) {
+router.post("/uploads", function (req, res) {
   // if (req.file.filename) {
   //   req.body.prodStill = `/images/${req.file.filename}`;
   // }
 
   singleUpload(req, res, function (err) {
     if (err) {
-      return res
-        .status(422)
-        .send({
-          errors: [{ title: "File Upload Error", detail: err.message }],
-        });
+      return res.status(422).send({
+        errors: [{ title: "File Upload Error", detail: err.message }],
+      });
     }
-
+    console.log("POST console:", req.file.location);
     return res.json({ imageUrl: req.file.location });
   });
 });
