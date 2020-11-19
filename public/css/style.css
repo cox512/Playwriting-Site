@@ -3,10 +3,8 @@ html, body {
     min-height: 100%;
     width: 100%;
     font-family: 'Hind', sans-serif;
-}
-
-body {
     background-color: rgb(5, 5, 48);    
+
 }
 
 .form-label {
@@ -25,10 +23,6 @@ body {
 
 .carousel-item {
     padding:0;
-}
-
-#main-about-container {
-    position: relative;
 }
 
 #carousel-show {
@@ -196,24 +190,34 @@ a {
 .new-play-form {
     max-width: 800px;
     color: rgb(233, 217, 89);
-
 }
 
 /* SHOW PAGE */
 .script-breakdown {
     color: rgb(233, 217, 89);
     text-align: center;
+    margin: .7em;
+}
+
+.play-details {
+    margin-right: .2em;
+}
+
+.genre, .play-length {
+    display: inherit
 }
 
 .details-div {
     border: solid silver 4px;
-    margin-bottom: 5em;
+    margin: 4em auto;
+    max-width: 70%;
 }
 
-.synopsis, .overview {
+.synopsis, .play-history {
     background-color: rgb(252, 255, 212);
     border: solid rgb(233, 217, 89) 2px;
-    margin: 1.5rem auto; 
+    margin: 1.5rem auto;
+    max-width: 90%; 
 }
 
 .play-heading {
@@ -221,7 +225,7 @@ a {
     text-align: center;
 }
 
-.play-heading, .play-details{
+.show-page{
     color: rgb(5, 5, 48);
 }
 
@@ -237,25 +241,24 @@ a {
     display: inline-block;
 }
 
-.title-display {
+.title-display, .dialogue-display {
     position: absolute;
-    padding: .4em 2em;
-    font-size: 2.5em;
+    width: 100%;
     color: rgb(17, 7, 41);
     font-family: 'Playfair Display', serif;
     font-style: italic;
+}
+
+.title-display {
+    padding: .4em 2em;
+    font-size: 2.5em;
     left: 0px;
     background-image: linear-gradient(90deg, silver, rgba(230, 230, 252,0));
 }
 
 .dialogue-display {
-    position: absolute;
-    width: 100%;
     padding: .8em 2em;
     font-size: 1.3em;
-    color: rgb(17, 7, 41);
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
     text-align: right;
     bottom: 0;
     right: 0;
@@ -281,8 +284,24 @@ a {
     font-family: 'Playfair Display', serif;
 }
 
+.genre-length {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 1em;
+}
+
+.synopsis-text {
+    padding: 0 1em;
+}
+
 .casting-needs {
     text-align: center;
+}
+
+.details-head {
+    text-align: center;
+    margin: .5em 0 0 0;
+    font-weight: bold;
 }
 
 .footer-link {
@@ -311,6 +330,13 @@ footer {
     width: 60%;
 }
 
+h6 {
+    line-height: 1.5em;
+}
+
+.casting-needs {
+    padding: 0 1em;
+}
 
 @media (max-width: 640px) { 
     .sender-info {
@@ -351,6 +377,33 @@ footer {
     .footer-link {
        text-align: right;
     }
+    .title-display {
+        font-size: 1.5em;
+        padding: .2em 2em;
+    }
+
+    .dialogue-display {
+        padding: .3em 1em;
+        font-size: 1em;
+
+    }
+
+    .details-div {
+        border: none;
+        max-width: 98%;
+        margin: 1.5em auto;
+    }
+
+    .genre-length {
+        display: block;
+    }
+
+    .genre, .play-length {
+        display: flex;
+        text-align: left;
+        padding: 0 1em;
+    }
+    
  }
 
 /* // Medium devices (tablets, 768px and up) */

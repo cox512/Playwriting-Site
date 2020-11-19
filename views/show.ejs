@@ -3,103 +3,97 @@
 <head>
     <%- include('./partials/head.ejs') %>
 </head>
-<body>
+<body class="show-page">
 
     <%- include('./partials/header.ejs') %>
     <%- include('./partials/spacer.ejs') %>
     
-        <div class="show-photo-display">
-                <% if(play.prodStill) { %>
-                    <img class="play-photo" alt="production still" src="<%= play.prodStill %>">
-                    <h2 class="play-details title-display"> <%= play.title %></h2>
-                <% if(play.dialogue) { %>
-                    <!-- <div class="dialogue-row"> -->
-                        <h4 class="play-details dialogue-display"> <%= play.dialogue %></h4>
-                    <!-- </div> -->
-                    <% } %>
-                <% } else { %>
-                    <div class="no-photo">
-                        <div class="no-photo-title">
-                        <%= play.title %>
-                        </div>
-                        <div class="no-photo-dialogue">
-                            <%= play.dialogue %>
-                        </div>
-                    </div>
-                <%} %>  
-        </div>
-
-    <div class="container details-div mt-4">
-        <h3 class="script-breakdown m-3">SCRIPT BREAKDOWN</h3>
-        <div class="container">
-            <div class="synopsis p-3">
-                <h6 class="play-heading">SYNOPSIS</h6>
-                <p class="play-details"> <%= play.synopsis %></p>
-            </div>
-        </div>
-
-        <div class="container overview">
-            <div class="row justify-content-around mt-3 mb-3">
-                    <p class="play-details" id="genre"><b>GENRE:</b> <%= play.genre %></p>
-                    <% if(play.length === "fullLength") { %>
-                
-                    <p class="play-details"><b>LENGTH:</b> Full-Length</p>
-                    <% } else if (play.length === "oneAct") { %>
-                        <p class="play-details"><b>LENGTH:</b> One-Act</p>
-                    <%} else if (play.length === "short") { %>
-                        <p class="play-details"><b>LENGTH:</b> Short</p>
-                    <% } %>
-                
-                    <p class="play-details"><b>TOTAL CAST:</b> <%= play.castSize %> (
-                        <% if (play.castingMale) { %>
-                            M: <%= play.castingMale %>,
-                        <% } %>
-                        <% if (play.castingFemale) { %>
-                            F: <%= play.castingFemale %>,
-                        <% } %>
-                        <% if (play.castingNeutral) { %>
-                            Gender-Neutral: <%= play.castingNeutral %>   
-                        <% } %>
-                        )
-                    </p>
-            </div>     
-            <% if (play.specialCasting) { %>
-            <div class="row">
-                <div class="col">
-                    <p class="play-details casting-needs"><b> SPECIAL CASTING NEEDS:</b> <%= play.specialCasting %></p>
-                </div>
-            </div>
+    <div class="show-photo-display">
+        <% if(play.prodStill) { %>
+            <img class="play-photo" alt="production still" src="<%= play.prodStill %>">
+            <h2 class="title-display"> <%= play.title %></h2>
+            <% if(play.dialogue) { %>
+            <h4 class="dialogue-display"> <%= play.dialogue %></h4>
             <% } %>
-            <div class="row">
-                <div class="col-md">
-                        <!-- HONORS -->
-                        <% if (play.honors == '') { %>
-                            <% let i = 0 %>
-                        <% } else { %>
-                            <h6 class="play-heading">HONORS</h6>
-                            <ul>
-                            <% for (let i=0; i<play.honors.length; i++) { %>
-                                <li class="play-details"><%= play.honors[i] %></li>
-                            <% } %>
-                            </ul> 
-                        <% } %>
+        <% } else { %>
+            <div class="no-photo">
+                <div class="no-photo-title">
+                    <%= play.title %>
                 </div>
-                <div class="col-md">
-                    <!-- DEVELOPMENT -->
-                    <% if (play.development == "") { %>
-                        <!-- Only way I could get it to not print the Development History header. !play.development doesn't work. If I simply have a positive if statement, the footer appears in Dev History's place -->
-                    <% } else { %>
-                        <h6 class="play-heading">DEVELOPMENT HISTORY</h6>
-                        <ul>
-                        <% for (let i=0; i<play.development.length; i++) { %>
-                            <li class="play-details"><%= play.development[i] %></li>
-                        <% } %>
-                        </ul>
+                <div class="no-photo-dialogue">
+                    <%= play.dialogue %>
+                </div>
+            </div>
+        <%} %>  
+    </div>
+
+    <div class="details-div">
+        <h3 class="script-breakdown">SYNOPSIS</h3>
+        <div class="synopsis">
+            <div class="genre-length">
+                <div class="genre">
+                    <h6 class="play-details" id="genre"><b>GENRE:</b></h6>
+                    <p"> <%= play.genre %></p>
+                </div>
+                <div class="play-length">
+                    <h6 class="play-details"><b>LENGTH:</b></h6> 
+                    <% if(play.length === "fullLength") { %>
+                        <p >Full-Length</p>
+                    <% } else if (play.length === "oneAct") { %>
+                        <p>One-Act</p>
+                    <%} else if (play.length === "short") { %>
+                        <p >Short</p>
                     <% } %>
                 </div>
             </div>
+            <p class="synopsis-text"> <%= play.synopsis %></p>
+            <div class="casting-needs">
+            <h6 class="details-head">TOTAL CAST: <%= play.castSize %></h6> 
+            <p>(
+                <% if (play.castingMale) { %>
+                    M: <%= play.castingMale %>,
+                <% } %>
+                <% if (play.castingFemale) { %>
+                    F: <%= play.castingFemale %>,
+                <% } %>
+                <% if (play.castingNeutral) { %>
+                    Gender-Neutral: <%= play.castingNeutral %>   
+                <% } %>
+                )
+            </p>
+            <% if (play.specialCasting) { %>
+                <h6 class="details-head">SPECIAL CASTING NEEDS:</h6> 
+                <p><%= play.specialCasting %></p>   
+            <% } %>
+            </div>
+        </div>
+    </div>     
+
+    <% if (play.honors[0] || play.development[0]) { %>
+    <div class="details-div">
+        <div class="play-history">
+                 <!-- HONORS -->
+            <% if (play.honors[0]) { %>
+                <h6 class="details-head">HONORS</h6>
+                <ul>
+                <% for (let i=0; i<play.honors.length; i++) { %>
+                    <li><%= play.honors[i] %></li>
+                <% } %>
+                </ul> 
+            <% } %>
+                <!-- DEVELOPMENT -->
+            <% if (play.development[0]) { %>
+                <h6 class="details-head">DEVELOPMENT HISTORY</h6>
+                <ul>
+                <% for (let i=0; i<play.development.length; i++) { %>
+                    <li><%= play.development[i] %></li>
+                    <% } %>
+                </ul>
+            <% } %>
         </div>
     </div>
+    <% } %>
+
     <%- include('./partials/footer.ejs') %>
 </body>
 </html>
