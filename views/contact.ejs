@@ -8,8 +8,7 @@
 
     <%- include('./partials/header.ejs') %>
     <%- include('./partials/spacer.ejs') %>
-    <div class="d-flex align-self-center justify-content-center">
-        <div class="holder pt-2">
+    <div class="form">
             <form action="/contact" method="POST">
                 <h1 class="heading form-label mt-4 mb-0">Send A Message</h1>          
                 <div class="form-group sender-info">
@@ -25,8 +24,8 @@
                 </div>
                 <button type="submit" class="btn btn-light">Submit</button>
             </form>
-        </div>
     </div>
+    <img class="contact-photo" src="images/Prime_shadow_grave.jpg"  alt="A woman stand by a headstone" />
 
     <%- include('./partials/footer.ejs') %>
 </body>

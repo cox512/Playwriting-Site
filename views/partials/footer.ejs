@@ -1,31 +1,23 @@
 <footer>
-    <!-- <div class="container"> -->
-        <!-- <div class=""> -->
-            <!-- <div class="cols-sm-6"> -->
-                <p class="copyright">copyright 2020</p>
-            <!-- </div> -->
-            <!-- <div class=""> -->
-                <ul class="list-group list-group-horizontal">
-                    <!-- If the user has successfully logged in -->
-                    <% if (currentUser) { %>
-                        <li class="footer-link welcome">Welcome <%= currentUser.username %></li>
-                        <li class="footer-link">
-                            <a href="/plays/new">Add New Play</a>
-                        </li>
-                        <li class="footer-link">
-                            <form action="/sessions?_method=DELETE" method="POST">
-                                <input class="btn log-out" type="submit" value="Log Out"/>
-                            </form>
-                        </li>
-                        <% } else { %>
-                            <li class="footer-link">
-                                <a href="/sessions/new">admin log-in</a>
-                            </li>
-                        <% } %>
-                </ul>
-            <!-- </div> -->
-        <!-- </div> -->
-    <!-- </div> -->
+    <p class="copyright">copyright 2020</p>
+    <ul class="list-group list-group-horizontal">
+    <!-- If the user has successfully logged in -->
+        <% if (currentUser) { %>
+            <li class="footer-link welcome">Welcome <%= currentUser.username %></li>
+            <li class="footer-link">
+                <a href="/plays/new">Add New Play</a>
+            </li>
+            <li class="footer-link">
+                <form action="/sessions?_method=DELETE" method="POST">
+                    <input class="btn log-out" type="submit" value="Log Out"/>
+                </form>
+            </li>
+        <% } else { %>
+            <li class="footer-link">
+                <a href="/sessions/new">admin log-in</a>
+            </li>
+        <% } %>
+    </ul>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
