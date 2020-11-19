@@ -30,7 +30,7 @@ const checkFileType = (file, cb) => {
 };
 
 const path = require("path");
-const helpers = require("../helpers");
+// const helpers = require("../helpers");
 const Play = require("../models/plays.js");
 
 const isAuthenticated = (req, res, next) => {
