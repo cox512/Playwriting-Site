@@ -34,21 +34,13 @@ html, body {
     display: inline;
 }
 
-#carousel-container{
-    margin: 0;
-    padding: 0;
-}
-
-#solo-headshot {
+.solo-headshot {
     display: none;
 }
-#headshot {
+
+.headshot {
     padding:0;
     display: inline;
-}
-
-.heading {
-    text-align: center;
 }
 
 nav, footer{
@@ -82,6 +74,10 @@ a {
     list-style: none;
 }
 
+.about-page {
+    position: relative;
+}
+
 .about-info {
     max-width:70%;
     padding: 2em;
@@ -101,7 +97,7 @@ a {
     text-shadow: -.02em .02em .02em rgb(156, 34, 28);
 }
 
-.about-heading {
+.about-heading, .heading {
     text-align: center;
 }
 
@@ -318,16 +314,22 @@ footer {
     padding-left: 8px;
 }
 
-.contact-form {
+.form {
     display: flex;
     justify-content: center;
     align-self: center;
 }
 
-.contact-img {
+.contact-photo {
     display: inherit;
     margin: 2em auto 7em auto;
     width: 60%;
+}
+
+.sign-in-photo {
+    display: inherit;
+    margin: 2em auto 7em auto;
+    width: 40%;
 }
 
 h6 {
