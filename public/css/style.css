@@ -360,7 +360,7 @@ h6 {
     #hidden-row, .welcome, .copyright {
         display: none;
     }
-    #solo-headshot {
+    .solo-headshot {
         display: block;
         width: 50%
     }

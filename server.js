@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 const db = mongoose.connection;
 const session = require("express-session");
 require("dotenv").config();
+// const aws = require("aws-sdk");
 
 //Port
 const PORT = process.env.PORT;
@@ -49,7 +50,9 @@ app.use(methodOverride("_method"));
 
 //CONTROLLERS
 const playsController = require("./controllers/plays-controller.js");
+const uploadRoute = require("./routes/file-upload"); //Might not need
 app.use("/plays", playsController);
+app.use("/plays", uploadRoute); //Might not need
 
 const userController = require("./controllers/users-controller.js");
 app.use("/users", userController);
@@ -69,3 +72,7 @@ app.get("/", (req, res) => {
 });
 
 app.listen(PORT, () => console.log("Listening on port:", PORT));
+
+// const S3_BUCKET = process.env.S3_BUCKET;
+
+// aws.config.region = "us-east-2";

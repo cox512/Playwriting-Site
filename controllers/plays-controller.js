@@ -1,37 +1,41 @@
 const express = require("express");
 const router = express.Router();
-const multer = require("multer");
-
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, "./public/images");
-  },
-  filename: (req, file, cb) => {
-    cb(null, Date.now() + "-" + file.originalname);
-  },
-});
-
-const upload = multer({
-  storage: storage,
-  fileFilter: (req, file, cb) => {
-    checkFileType(file, cb);
-  },
-});
-
-const checkFileType = (file, cb) => {
-  const filetypes = /jpeg|jpg|png|gif/;
-  const extname = filetypes.test(path.extname(file.originalname).toLowerCase());
-  const mimetype = filetypes.test(file.mimetype);
-  if (mimetype && extname) {
-    return cb(null, true);
-  } else {
-    cb("Error: Images Only");
-  }
-};
-
+// const multer = require("multer");
+const Play = require("../models/plays.js");
 const path = require("path");
 // const helpers = require("../helpers");
-const Play = require("../models/plays.js");
+
+// const storage = multer.diskStorage({
+//   destination: (req, file, cb) => {
+//     cb(null, "./public/images");
+//   },
+//   filename: (req, file, cb) => {
+//     cb(null, Date.now() + "-" + file.originalname);
+//   },
+// });
+
+// const upload = multer({
+//   storage: storage,
+//   fileFilter: (req, file, cb) => {
+//     checkFileType(file, cb);
+//   },
+// });
+
+// const checkFileType = (file, cb) => {
+//   const filetypes = /jpeg|jpg|png|gif/;
+//   const extname = filetypes.test(path.extname(file.originalname).toLowerCase());
+//   const mimetype = filetypes.test(file.mimetype);
+//   if (mimetype && extname) {
+//     return cb(null, true);
+//   } else {
+//     cb(
+//       new Error(
+//         "Invalid file type. Make sure the file has a jpeg, jpg, png, or gif extension."
+//       ),
+//       false
+//     );
+//   }
+// };
 
 const isAuthenticated = (req, res, next) => {
   if (req.session.currentUser) {
@@ -60,10 +64,11 @@ router.get("/", (req, res) => {
   });
 });
 
-router.post("/", upload.single("prodStill"), isAuthenticated, (req, res) => {
-  if (req.file.filename) {
-    req.body.prodStill = `/images/${req.file.filename}`;
-  }
+//Deleted upload.single("prodStill")
+router.post("/", isAuthenticated, (req, res) => {
+  // if (req.file.filename) {
+  //   req.body.prodStill = `/images/${req.file.filename}`;
+  // }
   Play.create(req.body, (err, createdPlay) => {
     res.redirect("/plays");
   });
@@ -99,10 +104,12 @@ router.get("/:id/edit", isAuthenticated, (req, res) => {
   });
 });
 
-router.put("/:id", upload.single("prodStill"), isAuthenticated, (req, res) => {
-  if (req.file) {
-    req.body.prodStill = `/images/${req.file.filename}`;
-  }
+//Deleted upload.single("prodStill")
+
+router.put("/:id", isAuthenticated, (req, res) => {
+  // if (req.file) {
+  //   req.body.prodStill = `/images/${req.file.filename}`;
+  // }
   Play.findByIdAndUpdate(
     req.params.id,
     req.body,
