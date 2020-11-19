@@ -21,6 +21,9 @@ router.post("/uploads", function (req, res) {
     console.log("POST console:", req.file.location);
     return res.json({ imageUrl: req.file.location });
   });
+  Play.create(req.body, (err, createdPlay) => {
+    res.redirect("/plays");
+  });
 });
 
 module.exports = router;

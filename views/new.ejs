@@ -10,15 +10,6 @@
     <div class="container pb-5 new-play-form form-label">
         <!-- Added 'uploads' to the action -->
  <!-- IMAGE -- CHECK OUT BS-CUSTOM-FILE-INPUT-NPM TO MAKE FILE BROWSER DYNAMIC-->
-    <!-- SEPERATE IMAGE UPLOAD FORM -->
-    <form action="/plays/uploads" onSubmit="console.log('Upload!')" method="POST" enctype="multipart/form-data">
-        <div class="custom-file">
-            <input type="file" accept="image/*" class="custom-file-input"  id="prodStill" name="prodStill">
-            <label class="custom-file-label" for="prodStill">Image Upload</label>
-            <input type="submit" class="btn-lite btn-lg mt-3" id="submit-btn2" value="SUBMIT">
-        </div>
-    </form>
-
 
     <form action="/plays/uploads" id="details-page" onSubmit="console.log('Look!')" method="POST" enctype="multipart/form-data">
         <h1>Add New Play Details</h1>
@@ -103,12 +94,20 @@
             <label for="story">Inspiration/Backstory</label>
             <textarea class="form-control" id="story" name="story" rows="5"></textarea>
         </div>
-    </form>
+
+    <!-- SEPERATE IMAGE UPLOAD FORM -->
+    <!-- <form action="/plays/uploads" onSubmit="console.log('Upload!')" method="POST" enctype="multipart/form-data"> -->
+        <div class="custom-file">
+            <input type="file" accept="image/*" class="custom-file-input"  id="prodStill" name="prodStill">
+            <label class="custom-file-label" for="prodStill">Image Upload</label>
+            <!-- <input type="submit" class="btn-lite btn-lg mt-3" id="submit-btn2" value="SUBMIT"> -->
+        </div>
        
         
         <!--SUBMIT BUTTON FOR TEXT FORM-->
         <input type="submit" form="details-page" class="btn-lite btn-lg mt-3" id="submit-btn" value="SUBMIT">
-    
+    </form>
+
     </div>
     <%- include('./partials/footer.ejs') %>
 </body>
