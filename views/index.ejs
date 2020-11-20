@@ -17,8 +17,10 @@
             <% for(let i=0; i<plays.length; i++) { %>
                 <% if (plays[i].length === "fullLength") { %>
                     <div class="thumbnail-div">
-                        <a class="play" href='/plays/<%= plays[i].id %>'><img class="thumbnail" src='<%= plays[i].prodStill %>'/> </a>
-                        <p class="title"><%= plays[i].title %></p>
+                        <a class="play" href='/plays/<%= plays[i].id %>'>
+                            <img class="thumbnail" src='<%= plays[i].prodStill %>'/>
+                            <p class="title"><%= plays[i].title %></p> 
+                        </a>
                         <% if(currentUser) { %>
                             <div class="buttons">
                                 <form action="/plays/<%= plays[i].id %>?_method=DELETE" method="POST">
@@ -37,8 +39,10 @@
             <% for(let i=0; i<plays.length; i++) { %>
                 <% if (plays[i].length === "oneAct" || plays[i].length === "short") { %>
                     <div class="thumbnail-div">
-                        <a class="play" href='/plays/<%= plays[i].id %>'><img class="thumbnail" src='<%= plays[i].prodStill %>'/></a>
-                        <p class="title"><%= plays[i].title %></p>
+                        <a class="play" href='/plays/<%= plays[i].id %>'>
+                            <img class="thumbnail" src='<%= plays[i].prodStill %>'/>
+                            <p class="title"><%= plays[i].title %></p>
+                        </a>
                         <% if(currentUser) { %>
                             <div class="buttons">
                                 <form action="/plays/<%= plays[i].id %>?_method=DELETE" method="POST">

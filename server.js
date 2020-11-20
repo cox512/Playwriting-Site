@@ -50,9 +50,9 @@ app.use(methodOverride("_method"));
 
 //CONTROLLERS
 const playsController = require("./controllers/plays-controller.js");
-const uploadRoute = require("./routes/file-upload"); //Might not need
+// const uploadRoute = require("./routes/file-upload"); //Might not need
 app.use("/plays", playsController);
-app.use("/plays", uploadRoute); //Might not need
+// app.use("/plays", uploadRoute); //Might not need
 
 const userController = require("./controllers/users-controller.js");
 app.use("/users", userController);

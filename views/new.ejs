@@ -74,19 +74,19 @@
         </div>
         <!-- DEVELOPMENT HISTORY -->
         <div class="form-group">
-            <div id="dev-info">
+            <div id="development-info">
                 <label for="development">Development History</label>
-                <input type="text" class="form-control dev-array" id="development" name="development"/>
+                <input type="text" class="form-control development-array field-box" id="development" name="development"/>
             </div>
-            <button type="button" class="dev-button btn-lite">Add Another</button>
+            <button class="dev-button btn-lite" onClick="addField('development')">Add Another</button>
         </div>
         <!-- HONORS -->
         <div class="form-group">
             <div id="honors-info">
                 <label for="honors">Honors/Awards</label>
-                <input type="text" class="form-control honors-array" id="honors" name="honors"/>
+                <input type="text" class="form-control honors-array field-box" id="honors" name="honors"/>
             </div>
-            <button type="button" class="honors-button btn-lite" >Add Another</button>
+            <button class="honors-button btn-lite" onClick="addField('honors')">Add Another</button>
         </div>
         <!-- BACKSTORY -->
         <div class="form-group">
@@ -98,7 +98,6 @@
             <label class="custom-file-label" for="prodStill">Image Upload</label>
         </div>
        
-        <!-- IMAGE -- CHECK OUT BS-CUSTOM-FILE-INPUT-NPM TO MAKE FILE BROWSER DYNAMIC-->
         <input type="submit" class="btn-lite btn-lg mt-3" id="submit-btn" value="SUBMIT">
     </form>
 

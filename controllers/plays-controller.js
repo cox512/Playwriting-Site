@@ -1,7 +1,9 @@
 const express = require("express");
 const router = express.Router();
 const Play = require("../models/plays.js");
-const path = require("path");
+
+const upload = require("../services/file-upload");
+const singleUpload = upload.single("prodStill");
 
 const isAuthenticated = (req, res, next) => {
   if (req.session.currentUser) {
@@ -30,15 +32,21 @@ router.get("/", (req, res) => {
   });
 });
 
-// router.post("/", isAuthenticated, (req, res) => {
-//   console.log("New Play:", req.body);
-//   // if (req.file.filename) {
-//   //   req.body.prodStill = `/images/${req.file.filename}`;
-//   // }
-//   Play.create(req.body, (err, createdPlay) => {
-//     res.redirect("/plays");
-//   });
-// });
+router.post("/uploads", function (req, res) {
+  singleUpload(req, res, function (err) {
+    if (req.file !== undefined) {
+      req.body.prodStill = req.file.location;
+    }
+    if (err) {
+      return res.status(422).send({
+        errors: [{ title: "File Upload Error", detail: err.message }],
+      });
+    }
+    Play.create(req.body, (err, createdPlay) => {
+      res.redirect("/plays");
+    });
+  });
+});
 
 router.get("/:id", (req, res) => {
   Play.findById(req.params.id, (err, foundPlay) => {
@@ -70,19 +78,26 @@ router.get("/:id/edit", isAuthenticated, (req, res) => {
   });
 });
 
-// router.put("/uploads/:id", isAuthenticated, (req, res) => {
-//   // if (req.file) {
-//   //   req.body.prodStill = `/images/${req.file.filename}`;
-//   // }
-//   Play.findByIdAndUpdate(
-//     req.params.id,
-//     req.body,
-//     { new: true, useFindAndModify: false },
-//     (err, updatedModel) => {
-//       console.log("updatedModel: ", updatedModel);
-//       res.redirect("/plays/" + req.params.id);
-//     }
-//   );
-// });
+router.put("/uploads/:id", isAuthenticated, (req, res) => {
+  singleUpload(req, res, function (err) {
+    if (req.file !== undefined) {
+      req.body.prodStill = req.file.location;
+    }
+
+    if (err) {
+      return res.status(422).send({
+        errors: [{ title: "File Upload Error", detail: err.message }],
+      });
+    }
+    Play.findByIdAndUpdate(
+      req.params.id,
+      req.body,
+      { new: true, useFindAndModify: false },
+      (err, updatedModel) => {
+        res.redirect("/plays/" + req.params.id);
+      }
+    );
+  });
+});
 
 module.exports = router;
