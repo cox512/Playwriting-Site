@@ -1,37 +1,7 @@
 const express = require("express");
 const router = express.Router();
-const multer = require("multer");
-
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, "./public/images");
-  },
-  filename: (req, file, cb) => {
-    cb(null, Date.now() + "-" + file.originalname);
-  },
-});
-
-const upload = multer({
-  storage: storage,
-  fileFilter: (req, file, cb) => {
-    checkFileType(file, cb);
-  },
-});
-
-const checkFileType = (file, cb) => {
-  const filetypes = /jpeg|jpg|png|gif/;
-  const extname = filetypes.test(path.extname(file.originalname).toLowerCase());
-  const mimetype = filetypes.test(file.mimetype);
-  if (mimetype && extname) {
-    return cb(null, true);
-  } else {
-    cb("Error: Images Only");
-  }
-};
-
-const path = require("path");
-// const helpers = require("../helpers");
 const Play = require("../models/plays.js");
+const path = require("path");
 
 const isAuthenticated = (req, res, next) => {
   if (req.session.currentUser) {
@@ -60,14 +30,15 @@ router.get("/", (req, res) => {
   });
 });
 
-router.post("/", upload.single("prodStill"), isAuthenticated, (req, res) => {
-  if (req.file.filename) {
-    req.body.prodStill = `/images/${req.file.filename}`;
-  }
-  Play.create(req.body, (err, createdPlay) => {
-    res.redirect("/plays");
-  });
-});
+// router.post("/", isAuthenticated, (req, res) => {
+//   console.log("New Play:", req.body);
+//   // if (req.file.filename) {
+//   //   req.body.prodStill = `/images/${req.file.filename}`;
+//   // }
+//   Play.create(req.body, (err, createdPlay) => {
+//     res.redirect("/plays");
+//   });
+// });
 
 router.get("/:id", (req, res) => {
   Play.findById(req.params.id, (err, foundPlay) => {
@@ -99,19 +70,19 @@ router.get("/:id/edit", isAuthenticated, (req, res) => {
   });
 });
 
-router.put("/:id", upload.single("prodStill"), isAuthenticated, (req, res) => {
-  if (req.file) {
-    req.body.prodStill = `/images/${req.file.filename}`;
-  }
-  Play.findByIdAndUpdate(
-    req.params.id,
-    req.body,
-    { new: true, useFindAndModify: false },
-    (err, updatedModel) => {
-      console.log("updatedModel: ", updatedModel);
-      res.redirect("/plays/" + req.params.id);
-    }
-  );
-});
+// router.put("/uploads/:id", isAuthenticated, (req, res) => {
+//   // if (req.file) {
+//   //   req.body.prodStill = `/images/${req.file.filename}`;
+//   // }
+//   Play.findByIdAndUpdate(
+//     req.params.id,
+//     req.body,
+//     { new: true, useFindAndModify: false },
+//     (err, updatedModel) => {
+//       console.log("updatedModel: ", updatedModel);
+//       res.redirect("/plays/" + req.params.id);
+//     }
+//   );
+// });
 
 module.exports = router;

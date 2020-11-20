@@ -340,6 +340,19 @@ h6 {
     padding: 0 1em;
 }
 
+.upload-line {
+    display: flex;
+}
+
+.checkbox {
+    display: flex;
+    justify-content: start;
+    width: 12em;
+}
+
+.box {
+    margin: .3em .5em;
+}
 @media (max-width: 640px) { 
     .sender-info {
         display: flex;
@@ -360,7 +373,7 @@ h6 {
     #hidden-row, .welcome, .copyright {
         display: none;
     }
-    #solo-headshot {
+    .solo-headshot {
         display: block;
         width: 50%
     }

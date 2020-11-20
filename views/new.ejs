@@ -8,7 +8,9 @@
     <%- include('./partials/header.ejs') %>
     <%- include('./partials/spacer.ejs') %>
     <div class="container pb-5 new-play-form form-label">
-    <form action="/plays" method="POST" enctype="multipart/form-data">
+ 
+
+    <form action="/plays/uploads" id="details-page" method="POST" enctype="multipart/form-data">
         <h1>Add New Play Details</h1>
         <!-- TITLE -->
         <div class="row">
@@ -91,14 +93,15 @@
             <label for="story">Inspiration/Backstory</label>
             <textarea class="form-control" id="story" name="story" rows="5"></textarea>
         </div>
-        <!-- IMAGE -- CHECK OUT BS-CUSTOM-FILE-INPUT-NPM TO MAKE FILE BROWSER DYNAMIC-->
         <div class="custom-file">
-            <input type="file" class="custom-file-input" id="prodStill" name="prodStill">
+            <input type="file" accept="image/*" class="custom-file-input"  id="prodStill" name="prodStill">
             <label class="custom-file-label" for="prodStill">Image Upload</label>
         </div>
-        <!--SUBMIT BUTTON -->
+       
+        <!-- IMAGE -- CHECK OUT BS-CUSTOM-FILE-INPUT-NPM TO MAKE FILE BROWSER DYNAMIC-->
         <input type="submit" class="btn-lite btn-lg mt-3" id="submit-btn" value="SUBMIT">
     </form>
+
     </div>
     <%- include('./partials/footer.ejs') %>
 </body>
