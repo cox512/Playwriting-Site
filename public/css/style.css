@@ -8,11 +8,22 @@ html, body {
 }
 
 .field-box {
-    margin: .7em 0
+    margin: .7em 0;
+    display: flex;
+
 }
+
+/* .dev-honors-field {
+    display: flex;
+    justify-content: space-between;
+} */
 
 .form-label {
     color: rgb(233, 217, 89)
+}
+
+.remove-span {
+    margin-top: auto;
 }
 
 .contact-message {

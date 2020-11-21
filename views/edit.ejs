@@ -77,7 +77,17 @@
                 <div id="development-info">
                     <label for="development">Development History</label>
                     <% for (let i=0; i<play.development.length; i++) { %>
-                    <input type="text" class="form-control development-array field-box" id="development" name="development" value="<%= play.development[i] %>"/>
+                    <div class="dev-honors-field input-group field-box development-array">
+                        <input type="text" class="form-control " id="development" name="development" value="<%= play.development[i] %>">
+                        <div class="input-group-append" id="">
+                            <span class="input-group-text remove-span" >
+                                <button class="close remove-button" onClick="removeField(event,'development')">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                            </span>
+                        </div>
+                    </div>
+                    
                     <% } %>
                 </div>
                 <button class="dev-button btn-lite" onClick="addField('development')">Add Another</button>
@@ -87,7 +97,16 @@
                 <div id="honors-info">
                     <label for="honors">Honors/Awards</label>
                     <% for (let i=0; i<play.honors.length; i++) { %>
-                        <input type="text" class="form-control honors-array field-box" id="honors" name="honors" value="<%= play.honors[i] %>"/>
+                        <div class="dev-honors-field input-group field-box honors-array">
+                            <input type="text" class="form-control" id="honors" name="honors" value="<%= play.honors[i] %>">
+                            <div class="input-group-append">
+                                <span class="input-group-text remove-span" id="basic-addon2">
+                                    <button class="close remove-button" onClick="removeField(event, 'honors')">
+                                    <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
                     <% } %>
                 </div>
                 <button class="honors-button btn-lite" onClick="addField('honors')">Add Another</button>
@@ -97,7 +116,6 @@
                 <label for="story">Inspiration/Backstory</label>
                 <textarea class="form-control" id="story" name="story" rows="5"><%= play.story %></textarea>
             </div>
-            <!-- IMAGE CHECK OUT BS-CUSTOM-FILE-INPUT-NPM -->
             <!-- <div class="upload-line"> -->
                 <!-- <div class="input-group checkbox">
                     <label for="image-delete">Remove Image</label>
@@ -107,12 +125,10 @@
                     <input type="file" accept="image/*" class="custom-file-input" id="prodStill" name="prodStill"/>
                     <label class="custom-file-label" for="prodStill"><%= play.prodStill %></label>  
                 </div>
-            <!-- </div> -->
             <!--SUBMIT BUTTON -->
             <input type="submit" class="btn-lite btn-lg mt-3" id="submit-btn" value="SUBMIT">
         </form>
         </div>
     <%- include('./partials/footer.ejs') %>
-
 </body>
 </html>
