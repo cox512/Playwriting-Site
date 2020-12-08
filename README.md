@@ -1,19 +1,56 @@
-# Playwriting-Site
-My personal playwriting website
+# Playwriting Site
+Personal web site to showcase my playwriting work.
 
-# Technologies Used
-HTML5, CSS3, BOOTSTRAP, JAVASCRIPT, JQUERY, GIT, HEROKU, EXPRESS.JS, EJS, MONGODB, MONGOOSE, MULTER.JS, BCRYPT, NODE.JS, EXPRESS-SESSION
-
-# Goal
-My goal was to create a website for my playwriting work that users can go to to learn a little about my philosphy towards my theatre work as well as see a list of my plays with their production information (cast size, development history, synopsis, etc). I don't want to take a lot of time to make updates to it when I write a new piece or have more information to add to an existing one. I decided it would make sense to have a form that I can fill out to add information about a new play as well as upload a production or workshop photo. The plan is to make the page style itself dynamically, putting the photo in the background and laying out the play details in the correct location. I also added an edit and update route for each play so I can add information to them as time goes on.
-
-In order to make sure the general public can't make changes to the site, I have an "unlisted" path for creating a new user. There, I can create a user name and a password. In order to access the pages to edit or add plays, the user has to sign in under the "admin login" section. Once they do, they have access to the "Create New Play" page. A logged-in account also displays "edit" and "delete" buttons next to the play titles in the Index Page.
-
-# Still To Do
-
-Proper Error Handling
-
-A "News" section (which may be incorporated into the "About" page), a collaborators page highlighting the people and organizations I've worked with and linking to their pages, as well as a contact page that a user can use to send me a message.
-
-# LINK TO THE APP'S HEROKU SITE
+## LIVE SITE
 https://playwriting-site.herokuapp.com/
+
+## Table of Contents
+- Motivation
+- Technology Used
+- Features
+- Still To Do
+
+### Motivation
+I’m a Playwright. Which means, I make my living not being a Playwright, and then, when I’m not doing that, I write a lot of plays. So, it kills me when I have to waste time updating my playwriting site instead of actually creating plays. Don’t get me wrong, I’m a Developer, too. There’s nothing I love more than improving some code or re-designing a layout or learning about incorporating a new feature to a site or application. But if I’m simply adding a new play to the site or updating information about an old one, I take umbrage at the whole process. Grunt-work should be automated whenever possible. So, for my new site I created a form that allows me to dynamically style a new play’s show page as well as edit old pages with new information. This way I spend more time writing scripts (both dev and theatrical) and less time maintaining my site.
+
+### Technology Used
+<table>
+ <tr>
+    <td><b style="font-size:30px">Front-End</b></td>
+    <td><b style="font-size:30px">Back-End</b></td>
+ </tr>
+ <tr>
+    <td>
+    * HTML5<br/>
+    * CSS3<br/>
+    * BOOTSTRAP<br/>
+    * JAVASCRIPT<br/>
+    * JQUERY<br/>
+    * EJS<br/>
+    </td>
+    <td>
+    * EXPRESS.JS<br/>
+    * MONGODB<br/>
+    * MONGOOSE<br/>
+    * MULTER<br/> 
+    * BCRYPT<br/>
+    * NODE<br/>
+    * NODE MAILER<br/> 
+    * EXPRESS-SESSION
+    </td>
+ </tr>
+</table>
+
+### Features
+- Bootstrap photo carousel
+- Full CRUD routing to keep track of admin permissions and plays
+- Image uploader for production photos
+- Dynamic show-page styling
+- E-mail messaging via Node Mailer
+- User authorization
+- MongoDB database
+
+### Still To Do
+
+The current design of the site is sub-par. My focus has been on building the database and backend structure. I intend on adding a React frontend to the site in the future and then I'll overhaul the design so it's more visually pleasing. 
+
