@@ -4,7 +4,6 @@ html, body {
     width: 100%;
     font-family: 'Hind', sans-serif;
     background-color: rgb(5, 5, 48);    
-
 }
 
 .field-box {
@@ -12,11 +11,6 @@ html, body {
     display: flex;
 
 }
-
-/* .dev-honors-field {
-    display: flex;
-    justify-content: space-between;
-} */
 
 .form-label {
     color: rgb(233, 217, 89)
@@ -163,6 +157,7 @@ a {
     color:rgb(252, 255, 212);
     margin: .7em auto;
 }
+
 .title {
     color: rgb(252, 255, 212);
     text-align: center;

@@ -25,7 +25,6 @@ I’m a Playwright. Which means, I make my living not being a Playwright, and th
     * CSS3<br/>
     * BOOTSTRAP<br/>
     * JAVASCRIPT<br/>
-    * JQUERY<br/>
     * EJS<br/>
     </td>
     <td>
@@ -37,6 +36,7 @@ I’m a Playwright. Which means, I make my living not being a Playwright, and th
     * NODE<br/>
     * NODE MAILER<br/> 
     * EXPRESS-SESSION
+    * AWS S3
     </td>
  </tr>
 </table>

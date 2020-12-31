@@ -22,6 +22,6 @@ const removeField = (evt, field) => {
       input[i].onclick = function () {
         input[index].remove();
       };
-    })(i);
+    })(i); // WHY IS i HERE?
   }
 };

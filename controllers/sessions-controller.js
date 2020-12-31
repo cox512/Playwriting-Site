@@ -11,9 +11,7 @@ sessionsRouter.get("/new", (req, res) => {
 });
 
 sessionsRouter.post("/", (req, res) => {
-  //Check to see if the user exists
   User.findOne({ username: req.body.username }, (err, foundUser) => {
-    //Check for an error in the query
     if (err) {
       console.log(err);
       res.send("Something bad happened in the database");
@@ -24,7 +22,7 @@ sessionsRouter.post("/", (req, res) => {
         req.session.currentUser = foundUser;
         res.redirect("/plays");
       } else {
-        res.send('<a href="/">Incorrect password.</a>');
+        res.send("<a href='/'>Incorrect password.</a>");
       }
     }
   });
