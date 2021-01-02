@@ -1,0 +1,11 @@
+.message {
+    color: rgb(233, 217, 89);
+    margin: 4rem;
+    display: flex;
+    align-self: center;
+    justify-content: center;
+}
+
+.message__text {
+    font-size: 2rem;
+}

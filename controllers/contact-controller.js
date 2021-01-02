@@ -32,12 +32,12 @@ router.post("/", (req, res) => {
 
   transporter.sendMail(mailOpts, (error, response) => {
     if (error) {
-      res.render("failure.ejs", {
+      res.render("messages/failure.ejs", {
         currentUser: req.session.currentUser,
         titleBar: "Contact",
       });
     } else {
-      res.render("success.ejs", {
+      res.render("messages/success.ejs", {
         currentUser: req.session.currentUser,
         titleBar: "Contact",
       });

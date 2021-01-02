@@ -1,0 +1,98 @@
+.form {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    color: rgb(233, 217, 89);
+    margin: 2rem 0;
+}
+
+.form__plays{
+    width: 70%;
+    display: block;
+    margin: 0 auto;
+}
+
+.form__btn {
+    margin: 1rem 0;
+}
+
+.form__img--sign-in {
+    display: inherit;
+    margin: 2rem auto 7rem auto;
+    width: 40%;
+}
+
+.form__img {
+    display: inherit;
+    margin: 2rem auto 7rem auto;
+    width: 60%;
+}
+
+.form__textarea {
+    min-width: 100%;
+}
+
+.form__set {
+    display: flex;
+    justify-content: space-around;
+    margin: 1rem auto 0;
+}
+
+.form-control {
+    font-size: 1.4rem;
+}
+
+label[for="title"] {
+    width: 60%;
+}
+
+label[for="genre"]  {
+    width: 30%;
+}
+
+.form__label {
+    width: 100%;
+}
+
+.form__label--short {
+    width: 23%;
+}
+
+.form__button--remove {
+    margin-top: 0;
+}
+
+@media (max-width: 480px) { 
+    .form__set--length, .form__set--split {
+        display: flex;
+        flex-flow: column;
+        justify-content: start;
+    }
+
+    .form__set--split > .form__label {
+        width: 100%
+    }
+}
+
+@media (max-width: 768px) { 
+    .form__label--contact {
+        display: flex;
+        flex-flow: column;
+    }
+
+    .form__set--cast {
+        display: flex;
+        flex-flow: column;
+        margin: 1rem auto 0;
+    }
+
+    .form__label--short {
+        width: 100%;
+    }
+}
+
+@media (max-width: 1024px) { 
+    .form__plays {
+        width: 85%;
+    }
+}
