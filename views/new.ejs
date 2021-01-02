@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
     <%- include('./partials/head.ejs') %>
-
+    <link 
+    rel="stylesheet" 
+    type="text/css" href="/css/forms.css">
 </head>
 <body>
     <%- include('./partials/header.ejs') %>
@@ -11,69 +13,82 @@
         <h1 class="form__heading">Add New Play Details</h1>
         <fieldset class="form__set form__set--split form-group">
             <label class="form__label" for="title">
-                Title<input type="text" id="title" class="form-control" placeholder="required" name="title"/>
+                Title
+                <input type="text" id="title" class="form-control" placeholder="required" name="title"/>
             </label>
             <label class="form__label" for="genre">
-                Genre<input type="text" id="genre" class="form-control" placeholder="Genre" name="genre"/>
+                Genre
+                <input type="text" id="genre" class="form-control" placeholder="Genre" name="genre"/>
             </label>
         </fieldset>
 
         <fieldset class="form__set form__set--length form-check form-check-inline form-group">
             <label class="form__label form-check-label" for="fullLength">
-                Full-Length <input class="form-check-input" type="radio" id="fullLength" name="length" value="fullLength">
+                Full-Length
+                <input class="form-check-input" type="radio" id="fullLength" name="length" value="fullLength">
             </label>
             <label class="form__label form-check-label" for="oneAct">
-                One-Act <input class="form-check-input" type="radio" id="oneAct" name="length" value="oneAct">
+                One-Act
+                <input class="form-check-input" type="radio" id="oneAct" name="length" value="oneAct">
             </label>
             <label class="form__label form-check-label" for="short">
-                Short <input class="form-check-input" type="radio" id="short" name="length" value="short">
+                Short
+                <input class="form-check-input" type="radio" id="short" name="length" value="short">
             </label>
         </fieldset>
 
         <fieldset class="form__set form__set--cast form-group">
             <label class="form__label--short" for="castSize">
-                Cast Size<input type="text" id="castSize" class="form-control" placeholder="number (range)" name="castSize"/>
+                Cast Size
+                <input type="text" id="castSize" class="form-control" placeholder="number (range)" name="castSize"/>
             </label>
             
             <label class="form__label--short" for="castingMale">
-                # Male Characters<input type="text" id="castingMale" class="form-control" placeholder="number" name="castingMale"/>
+                # Male Characters
+                <input type="text" id="castingMale" class="form-control" placeholder="number" name="castingMale"/>
             </label>
             
             <label class="form__label--short" for="castingFemale">
-                # Female Characters<input type="text" id="castingFemale" class="form-control" placeholder="number" name="castingFemale"/>
+                # Female Characters
+                <input type="text" id="castingFemale" class="form-control" placeholder="number" name="castingFemale"/>
             </label>
             
             <label class="form__label--short" for="castingNeutral">
-                # Neutral Characters<input type="text" id="castingNeutral" class="form-control" placeholder="number" name="castingNeutral"/>
+                # Neutral Characters
+                <input type="text" id="castingNeutral" class="form-control" placeholder="number" name="castingNeutral"/>
             </label>
         </fieldset>
 
         <fieldset class="form__set form-group">
             <label class="form__label" for="specialCasting">
-                Special Casting Considerations<input type="text" class="form-control" id="specialCasting" name="specialCasting"/>
+                Special Casting Considerations
+                <input type="text" class="form-control" id="specialCasting" name="specialCasting"/>
             </label>
         </fieldset> 
 
         <fieldset class="form__set form-group">
             <label class="form__label" for="synopsis">
-                Synopsis<textarea class="form-control" id="synopsis" name="synopsis" rows="5"></textarea>
+                Synopsis
+                <textarea class="form-control" id="synopsis" name="synopsis" rows="5"></textarea>
             </label>
         </fieldset>
 
         <fieldset class="form__set form-group">
             <label class="form__label" for="dialogue">
-                Dialogue Sample<input type="text" class="form-control" id="dialogue" name="dialogue"/>
+                Dialogue Sample
+                <input type="text" class="form-control" id="dialogue" name="dialogue"/>
             </label>
         </fieldset>
 
-        <fieldset class="form__set form-group">
+        <fieldset class="form__set--list form-group">
             <label class="form__label" for="development">
                 Development History
+            </label>
                 <div id="development-info">
                     <div class="input-group field-box">
                         <input type="text" class="form-control" id="development" name="development"/>
                         <div class="input-group-append">
-                            <span class="form__button--remove input-group-text remove-span">
+                            <span class="form__button--remove input-group-text">
                                 <button class="close remove-button" onClick="removeField(event,'development')">
                                     <span aria-hidden="true">
                                         &times;
@@ -83,26 +98,43 @@
                         </div>
                     </div>
                 </div>
-                <button class="form__btn dev-button btn" onClick="addField('development')">
+                <button class="btn btn--secondary" onClick="addField('development')">
                     Add Another
                 </button>
-            </label>
         </fieldset>
 
-        <fieldset class="form__set form-group" id="honors-info">
+        <fieldset class="form__set--list form-group">
             <label class="form__label" for="honors">
-                Honors/Awards<input type="text" class="form-control honors-array field-box" id="honors" name="honors"/>
-                <button class="form__btn honors-button btn" onClick="addField('honors')">Add Another</button>
+                Honors/Awards
             </label>
+                <div id="honors-info">
+                    <div class="input-group field-box">
+                        <input type="text" class="form-control" id="honors" name="honors"/>
+                        <div class="input-group-append">
+                            <span class="form__button--remove input-group-text">
+                                <button class="close remove-button" onClick="removeField(event,'development')">
+                                    <span aria-hidden="true">
+                                        &times;
+                                    </span>
+                                </button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn btn--secondary" onClick="addField('honors')">
+                    Add Another
+                </button>
         </fieldset>
        
+        <p class="form__label">Image Upload <i>(.jpeg, .jpg, .png, .gif files only)</i></p>
         <fieldset class="form__set custom-file">
-            <label class="form__label custom-file-label" for="prodStill">
-                Image Upload<input type="file" accept="image/*" class="custom-file-input"  id="prodStill" name="prodStill">
+            <label class="custom-file-label" for="prodStill">
+                Image Upload
             </label>
+            <input type="file" accept="image/*" class="custom-file-input"  id="prodStill" name="prodStill">
         </fieldset>
        
-        <input type="submit" class="form__btn btn" id="submit-btn" value="SUBMIT">
+        <input type="submit" class="form__btn btn" id="submit-btn" value="Submit">
     </form>
 
     <%- include('./partials/footer.ejs') %>

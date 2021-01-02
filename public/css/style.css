@@ -23,148 +23,29 @@ body {
     width: 100%;
 }
 
-.field-box {
-    margin: .7em 0;
-    display: flex;
-
-}
-
-.remove-span {
-    margin-top: auto;
-}
-
-.carousel-item {
-    padding:0;
-}
-
-#carousel-show {
-    display: inline;
-    padding: 0;
-}
-
-.carousel-inner {
-    display: inline;
-}
-
-.solo-headshot {
-    display: none;
-}
-
-.headshot {
-    padding:0;
-    display: inline;
-}
-
 a {
     color: black;
-}
-
-.about-page {
-    position: relative;
-}
-
-.about-info {
-    max-width:70%;
-    padding: 2em;
-    color: rgb(252, 255, 212);
-    background-color:black;
-    border: solid rgb(233, 217, 89) 4px;
-    border-radius: 3px;
-    margin-top: 2em;
-    font-size: 16px;
-}
-
-.about-heading, .index-heading {
-    font-size: 6em;
-    color: rgb(252, 255, 212);
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-    text-shadow: -.02em .02em .02em rgb(156, 34, 28);
-}
-
-.about-heading, .heading {
-    text-align: center;
-}
-
-.holder {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.row {
-    margin: 0;
-}
-
-a {
-    text-decoration: none;
-}
-
-.overpass {
-    width: 100%;
-    height: auto;
-    padding-top: 2em;
-}
-
-.index-intro {
-    position: relative;
-    text-align: right;
-}
-
-.index-heading {
-    position: absolute;
-    top: 30px;
-    left: 16px;
-} 
-
-.length-divs {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-
-}
-
-.length {
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-    font-size: 40px;
-    text-align: center;
-    text-shadow: 0.02em 0.02em 0.02em rgb(4 5 48);
-    color:rgb(252, 255, 212);
-    margin: .7em auto;
-}
-
-.title {
-    color: rgb(252, 255, 212);
-    text-align: center;
-}
-
-.play {
-    font-size: 1em;
-    color: white
-}
-
-.thumbnail{
-    max-width: 250px;
-}
-
-.thumbnail-div {
-    margin: 1em;
-}
-.spacer {
-    height:100px;
-}
-
-.buttons {
-    display: flex;
-    justify-content: space-between;
-    margin: 1em auto
+    text-decoration: none
 }
 
 .btn {
     width: 12rem;
     font-size: 1.8rem;
     background-color: rgb(233, 217, 89);
+    color: black;
+}
+
+.btn:hover {
+    border: solid .1rem white;
+    color: white;
+}
+
+.btn--danger {
+    background-color: rgb(199, 35, 35);
+}
+
+.btn--secondary {
+    background-color: rgb(126, 124, 124);
 }
 
 /* SHOW PAGE */
@@ -279,10 +160,6 @@ a {
     font-weight: bold;
 }
 
-h6 {
-    line-height: 1.5em;
-}
-
 .casting-needs {
     padding: 0 1em;
 }
@@ -302,34 +179,6 @@ h6 {
 }
 
 @media (max-width: 640px) { 
-    .about-heading {
-        font-size: 3em;
-    }
-    .about-info {
-        max-width: 100%;
-        padding: 1.3em .7em
-    }
-   
-    #hidden-row {
-        display: none;
-    }
-
-    .solo-headshot {
-        display: block;
-        width: 50%
-    }
-
-    .index-heading {
-    font-size: 2.5em;
-    position: absolute;
-    top: 30px;
-    left: 16px;
-    }
-
-    .length {
-        font-size: 30px;
-    }
-
     .title-display {
         font-size: 1.5em;
         padding: .2em 2em;

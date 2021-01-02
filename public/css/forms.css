@@ -12,8 +12,14 @@
     margin: 0 auto;
 }
 
+.field-box {
+    margin: .7em 0;
+    display: flex;
+}
+
 .form__btn {
     margin: 1rem 0;
+    color: black;
 }
 
 .form__img--sign-in {
@@ -58,8 +64,14 @@ label[for="genre"]  {
     width: 23%;
 }
 
-.form__button--remove {
+/* .form__button--remove {
     margin-top: 0;
+} */
+
+.form__set--list {
+    display: flex;
+    flex-flow: column;
+    margin: 1rem auto 0;
 }
 
 @media (max-width: 480px) { 

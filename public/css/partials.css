@@ -1,5 +1,6 @@
 nav{
     background-color: rgb(233, 217, 89);
+    color: black;
 }
 
 .fixed-top {
@@ -27,6 +28,7 @@ nav{
     width: 100%;
     background-color: rgb(233, 217, 89);
     font-size: 1.5rem;
+    color: black;
 }
 
 .footer__copyright {
@@ -52,7 +54,7 @@ nav{
     color: #0056b3;
     text-decoration: underline;}
 
-@media (max-width: 640px) {
+@media (max-width: 480px) {
     .fixed-top {
         padding: 0 .4rem
     }
@@ -60,7 +62,6 @@ nav{
     .footer__copyright, .footer--hide{
         display: none;
     }
-
 }
 
 @media (max-width: 768px) {

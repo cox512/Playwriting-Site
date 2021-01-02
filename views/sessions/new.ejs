@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
     <%- include('../partials/head.ejs') %>
-
+    <link 
+    rel="stylesheet" 
+    type="text/css" href="/css/forms.css">
 </head>
 <body>
     <%- include('../partials/header.ejs') %>
@@ -18,7 +20,7 @@
                 <label for="password" class="form__label">Password:</label>
                 <input type="password" id="password" class="form-control" name="password">
             </div>
-            <input type="submit" class="btn btn-light" value="SUBMIT"/>
+            <input type="submit" class="btn" value="SUBMIT"/>
         </form>
     </div>
     <img class="form__img--sign-in" src="/images/Perfectly_Normal_teabag.JPG"
