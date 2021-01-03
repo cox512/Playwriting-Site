@@ -15,11 +15,11 @@
         <fieldset class="form__set form__set--split form-group">
             <label class="form__label" for="title">
                 Title
-                <input type="text" id="title" class="form-control" placeholder="required" name="title"/>
+                <input class="form-control" type="text" id="title" placeholder="required" name="title"/>
             </label>
             <label class="form__label" for="genre">
                 Genre
-                <input type="text" id="genre" class="form-control" placeholder="Genre" name="genre"/>
+                <input class="form-control" type="text" id="genre" placeholder="Genre" name="genre"/>
             </label>
         </fieldset>
 
@@ -85,18 +85,9 @@
             <label class="form__label" for="development">
                 Development History
             </label>
-                <div id="development-info">
+                <div class="form__list--item" id="development-info">
                     <div class="input-group field-box">
                         <input type="text" class="form-control" id="development" name="development"/>
-                        <div class="input-group-append">
-                            <span class="form__button--remove input-group-text">
-                                <button class="close remove-button" onClick="removeField(event,'development')">
-                                    <span aria-hidden="true">
-                                        &times;
-                                    </span>
-                                </button>
-                            </span>
-                        </div>
                     </div>
                 </div>
                 <button class="btn btn--secondary" onClick="addField('development')">
@@ -108,18 +99,9 @@
             <label class="form__label" for="honors">
                 Honors/Awards
             </label>
-                <div id="honors-info">
+                <div class="form__list--item" id="honors-info">
                     <div class="input-group field-box">
                         <input type="text" class="form-control" id="honors" name="honors"/>
-                        <div class="input-group-append">
-                            <span class="form__button--remove input-group-text">
-                                <button class="close remove-button" onClick="removeField(event,'development')">
-                                    <span aria-hidden="true">
-                                        &times;
-                                    </span>
-                                </button>
-                            </span>
-                        </div>
                     </div>
                 </div>
                 <button class="btn btn--secondary" onClick="addField('honors')">

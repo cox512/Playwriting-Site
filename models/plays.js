@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const playSchema = new mongoose.Schema({
   title: { type: String, required: true },
-  length: String,
+  length: { type: String, required: true },
   genre: String,
   synopsis: String,
   castSize: { type: "Number" }, // CAN THIS JUST BE ... Number?

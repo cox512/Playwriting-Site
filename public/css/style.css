@@ -16,11 +16,9 @@ body {
     line-height: 2.5rem;
     background-color: rgb(5, 5, 48);
     font-size: 1.6rem;
-
-
-    height: 100vh;
     min-height: 100vh;
-    width: 100%;
+    position: relative;
+    padding-bottom: 3rem
 }
 
 a {

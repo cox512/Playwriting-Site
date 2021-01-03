@@ -24,7 +24,6 @@ router.get("/new", isAuthenticated, (req, res) => {
 
 router.get("/", (req, res) => {
   Play.find({}, (err, foundPlays) => {
-    // Can you add some error handling here?
     res.render("index.ejs", {
       plays: foundPlays,
       currentUser: req.session.currentUser,
@@ -33,8 +32,7 @@ router.get("/", (req, res) => {
   });
 });
 
-router.post("/uploads", function (req, res) {
-  // ADD IS AUTHENTICATED?
+router.post("/uploads", isAuthenticated, function (req, res) {
   singleUpload(req, res, function (err) {
     if (req.file !== undefined) {
       req.body.prodStill = req.file.location;
@@ -45,7 +43,7 @@ router.post("/uploads", function (req, res) {
       });
     }
     Play.create(req.body, (err, createdPlay) => {
-      res.redirect("/plays");
+      res.redirect("/plays/" + createdPlay._id);
     });
   });
 });
