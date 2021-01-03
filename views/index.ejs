@@ -22,9 +22,13 @@
                     <% if (plays[i].length === "fullLength") { %>
                         <div class="index__plays--thumbnail">
                             <a href='/plays/<%= plays[i].id %>'>
-                                <img class="index__plays--img" src='<%= plays[i].prodStill %>'/>
+                                <% if(plays[i].prodStill) { %>
+                                    <img class="index__plays--img" src='<%= plays[i].prodStill %>'/>
+                                <% } else { %>
+                                    <img class="index__plays--img" alt="The exterior of a theatre" src="/images/PBD_exterior.jpeg">
+                                <% } %>
+                                <p class="index__plays--title"><%= plays[i].title %></p> 
                             </a>
-                            <p><%= plays[i].title %></p> 
                             <% if(currentUser) { %>
                                 <div class="index__btn--display">
                                     <form action="/plays/<%= plays[i].id %>?_method=DELETE" method="POST">
@@ -46,9 +50,13 @@
                     <% if (plays[i].length === "oneAct" || plays[i].length === "short") { %>
                         <div class="index__plays--thumbnail">
                             <a href='/plays/<%= plays[i].id %>'>
-                                <img class="index__plays--img" src='<%= plays[i].prodStill %>'/>
+                                <% if(plays[i].prodStill) { %>
+                                    <img class="index__plays--img" src='<%= plays[i].prodStill %>'/>
+                                <% } else { %>
+                                    <img class="index__plays--img" alt="The exterior of a theatre" src="/images/PBD_exterior.jpeg">
+                                <% } %>
+                                <p class="index__plays--title"><%= plays[i].title %></p>
                             </a>
-                            <p><%= plays[i].title %></p>
                             <% if(currentUser) { %>
                                 <div class="index__btn--display">
                                     <form action="/plays/<%= plays[i].id %>?_method=DELETE" method="POST">

@@ -12,23 +12,22 @@
 }
 
 .index__header--heading {
-    font-size: 6em;
-    text-shadow: -.02em .02em .02em rgb(156, 34, 28);
+    font-size: 9rem;
+    text-shadow: -.1rem .1rem .1rem rgb(156, 34, 28);
     position: absolute;
-    top: 30px;
-    left: 16px;
+    top: 3rem;
+    left: 1.6rem;
 }
 
 .index__header--img {
     width: 100%;
-    padding-top: 2em;
 }
 
 .index__length--heading {
-    font-size: 40px;
+    font-size: 4rem;
     text-align: center;
-    text-shadow: 0.02em 0.02em 0.02em rgb(4 5 48);
-    margin: .7em auto;
+    text-shadow: 0.1rem 0.1rem 0.1rem rgb(156 34 28);
+    margin: 1rem auto;
 }
 
 .index__plays--display {
@@ -42,8 +41,12 @@
     text-align: center;
 }
 
+.index__plays--title {
+    color:rgb(252, 255, 212)
+}
+
 .index__plays--img{
-    max-width: 250px;
+    max-width: 25rem;
 }
 
 .index__plays--img:hover {
@@ -53,24 +56,22 @@
 .index__btn--display {
     display: flex;
     justify-content: space-between;
-    margin: 1em auto
+    margin: 1.5rem auto
 }
 
-@media (max-width: 780px) { 
 
-    .index--headline {
-    font-size: 2.5em;
-    position: absolute;
-    top: 30px;
-    left: 16px;
-    }
-
+@media (max-width: 768px) { 
     .index__length--heading {
-        font-size: 30px;
+        font-size: 3rem;
     }
 
     .index__header--heading {
-        font-size: 3em;
+        font-size: 5rem;
+    }
+}
 
+@media (max-width: 480px) { 
+    .index__header--heading {
+        font-size: 3rem;
     }
 }

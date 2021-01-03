@@ -10,91 +10,117 @@
     <%- include('./partials/header.ejs') %>
     <%- include('./partials/spacer.ejs') %>
 
-    <form class="form form__plays" action="/plays/uploads/<%= play.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
-        <h1 class="form__heading">Edit Play Details</h1>
-        <fieldset class="form__set form__set--split form-group">
-            <label class="form__label" for="title">
-                Title
-                <input type="text" id="title" class="form-control" placeholder="required" name="title" value="<%= play.title %>"/>
-            </label>
-               
-            <label class="form__label" for="genre">
-                Genre
-                <input type="text" id="genre" class="form-control" placeholder="Genre" name="genre" value="<%= play.genre %>"/>
-            </label>
-        </fieldset>
-
-        <fieldset class="form__set form__set--length form-check form-check-inline form-group">
-            <label class="form__label form-check-label" for="fullLength">
-                Full-Length
-                <input class="form-check-input" type="radio" id="fullLength" name="length" value="fullLength">
-            </label>
+    <form class="form" action="/plays/uploads/<%= play.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+        <div class="form__plays">
+            <h1 class="form__heading">Edit Play Details</h1>
+            <fieldset class="form__set form__set--split form-group">
+                <label class="form__label" for="title">
+                    Title
+                    <input type="text" id="title" class="form-control" placeholder="required" name="title" value="<%= play.title %>"/>
+                </label>
                 
-            <label class="form__label form-check-label" for="oneAct">
-                One-Act
-                <input class="form-check-input" type="radio" id="oneAct" name="length" value="oneAct">
-            </label>
+                <label class="form__label" for="genre">
+                    Genre
+                    <input type="text" id="genre" class="form-control" placeholder="Genre" name="genre" value="<%= play.genre %>"/>
+                </label>
+            </fieldset>
+
+            <fieldset class="form__set form__set--length form-check form-check-inline form-group">
+                <label class="form__label" for="fullLength">
+                    Full-Length
+                    <input class="form-check-input" type="radio" id="fullLength" name="length" value="fullLength">
+                </label>
+                    
+                <label class="form__label" for="oneAct">
+                    One-Act
+                    <input class="form-check-input" type="radio" id="oneAct" name="length" value="oneAct">
+                </label>
+                    
+                <label class="form__label" for="short">
+                    Short
+                    <input class="form-check-input" type="radio" id="short" name="length" value="short">
+                </label>
+            </fieldset>
+
+            <fieldset class="form__set form__set--cast form-group">
+                <label class="form__label--short" for="castSize">
+                    Cast Size
+                    <input type="text" id="castSize" class="form-control" placeholder="number (range)" name="castSize" value="<%= play.castSize %>"/>
+                </label>
+                    
+                <label class="form__label--short"  for="castingMale">
+                    # Male Characters
+                    <input type="text" id="castingMale" class="form-control" placeholder="number" name="castingMale" value="<%= play.castingMale %>"/>
+                </label>
+                    
+                <label class="form__label--short" for="castingFemale">
+                    # Female Characters
+                    <input type="text" id="castingFemale" class="form-control" placeholder="number" name="castingFemale" value="<%= play.castingFemale %>"/>
+                </label>
                 
-            <label class="form__label form-check-label" for="short">
-                Short
-                <input class="form-check-input" type="radio" id="short" name="length" value="short">
-            </label>
-        </fieldset>
+                <label class="form__label--short" for="castingNeutral">
+                    # Neutral Characters
+                    <input type="text" id="castingNeutral" class="form-control" placeholder="number" name="castingNeutral" value="<%= play.castingNeutral %>"/>
+                </label>
+            </fieldset>
 
-        <fieldset class="form__set form__set--cast form-group">
-            <label class="form__label--short" for="castSize">
-                Cast Size
-                <input type="text" id="castSize" class="form-control" placeholder="number (range)" name="castSize" value="<%= play.castSize %>"/>
-            </label>
-                
-            <label class="form__label--short"  for="castingMale">
-                # Male Characters
-                <input type="text" id="castingMale" class="form-control" placeholder="number" name="castingMale" value="<%= play.castingMale %>"/>
-            </label>
-                
-            <label class="form__label--short" for="castingFemale">
-                # Female Characters
-                <input type="text" id="castingFemale" class="form-control" placeholder="number" name="castingFemale" value="<%= play.castingFemale %>"/>
-            </label>
-               
-            <label class="form__label--short" for="castingNeutral">
-                # Neutral Characters
-                <input type="text" id="castingNeutral" class="form-control" placeholder="number" name="castingNeutral" value="<%= play.castingNeutral %>"/>
-            </label>
-        </fieldset>
+            <fieldset class="form__set form-group">
+                <label class="form__label" for="specialCasting">
+                    Special Casting Considerations
+                    <input type="text" class="form-control" id="specialCasting" name="specialCasting" value="<%= play.specialCasting %>"/>
+                </label>
+            </fieldset>  
 
-        <fieldset class="form__set form-group">
-            <label class="form__label" for="specialCasting">
-                Special Casting Considerations
-                <input type="text" class="form-control" id="specialCasting" name="specialCasting" value="<%= play.specialCasting %>"/>
-            </label>
-        </fieldset>  
+            <fieldset class="form__set form-group">
+                <label class="form__label" for="synopsis">
+                    Synopsis
+                    <textarea class="form-control" id="synopsis" name="synopsis" rows="5"><%= play.synopsis %></textarea>
+                </label>
+            </fieldset>
 
-        <fieldset class="form__set form-group">
-            <label class="form__label" for="synopsis">
-                Synopsis
-                <textarea class="form-control" id="synopsis" name="synopsis" rows="5"><%= play.synopsis %></textarea>
-            </label>
-        </fieldset>
+            <fieldset class="form__set form-group">
+                <label class="form__label" for="dialogue">
+                    Dialogue Sample
+                    <input type="text" class="form-control" id="dialogue" name="dialogue" value="<%= play.dialogue %>"/>
+                </label>
+            </fieldset>
 
-        <fieldset class="form__set form-group">
-            <label class="form__label" for="dialogue">
-                Dialogue Sample
-                <input type="text" class="form-control" id="dialogue" name="dialogue" value="<%= play.dialogue %>"/>
-            </label>
-        </fieldset>
+            <fieldset class="form__set--list form-group" >
+                <label class="form__label" for="development">
+                    Development History
+                </label>
+                    <div id="development-info">
+                    <% for (let i=0; i<play.development.length; i++) { %>
+                        <div class="input-group field-box">
+                            <input type="text" class="form-control" id="development" name="development" value="<%= play.development[i] %>"/>
+                            <div class="input-group-append">
+                                <span class="form__button--remove input-group-text" >
+                                    <button class="close remove-button" onClick="removeField(event,'development')">
+                                        <span aria-hidden="true">
+                                            &times;
+                                        </span>
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+                    <% } %>
+                    </div>
+                    <button class="btn btn--secondary" onClick="addField('development')">
+                        Add Another
+                    </button>
+            </fieldset>
 
-        <fieldset class="form__set--list form-group" >
-            <label class="form__label" for="development">
-                Development History
-            </label>
-                <div id="development-info">
-                <% for (let i=0; i<play.development.length; i++) { %>
-                    <div class="input-group field-box">
-                        <input type="text" class="form-control" id="development" name="development" value="<%= play.development[i] %>"/>
+            <fieldset class="form__set--list form-group">
+                <label for="honors">
+                    Honors/Awards
+                </label>
+                <div id="honors-info">
+                <% for (let i=0; i<play.honors.length; i++) { %>
+                    <div class=" input-group field-box">
+                        <input type="text" class="form-control" id="honors" name="honors" value="<%= play.honors[i] %>"/>
                         <div class="input-group-append">
-                            <span class="form__button--remove input-group-text" >
-                                <button class="close remove-button" onClick="removeField(event,'development')">
+                            <span class="form__button--remove input-group-text">
+                                <button class="close remove-button" onClick="removeField(event, 'honors')">
                                     <span aria-hidden="true">
                                         &times;
                                     </span>
@@ -104,45 +130,21 @@
                     </div>
                 <% } %>
                 </div>
-                <button class="btn btn--secondary" onClick="addField('development')">
+                <button class="btn--secondary btn" onClick="addField('honors')">
                     Add Another
                 </button>
-        </fieldset>
-
-        <fieldset class="form__set--list form-group">
-            <label for="honors">
-                Honors/Awards
-            </label>
-            <div id="honors-info">
-            <% for (let i=0; i<play.honors.length; i++) { %>
-                <div class=" input-group field-box">
-                    <input type="text" class="form-control" id="honors" name="honors" value="<%= play.honors[i] %>"/>
-                    <div class="input-group-append">
-                        <span class="form__button--remove input-group-text">
-                            <button class="close remove-button" onClick="removeField(event, 'honors')">
-                                <span aria-hidden="true">
-                                    &times;
-                                </span>
-                            </button>
-                        </span>
-                    </div>
-                </div>
-            <% } %>
-            </div>
-            <button class="btn--secondary btn" onClick="addField('honors')">
-                Add Another
-            </button>
-        </fieldset>
-        
-        <p class="form__label">Image Upload <i>(.jpeg, .jpg, .png, .gif files only)</i></p>
-        <fieldset class="form__set custom-file">
-            <label class="form__label custom-file-label" for="prodStill">
-                <%= play.prodStill %> 
-            </label>           
-            <input type="file" accept="image/*" class="custom-file-input" id="prodStill" name="prodStill"/>
-        </fieldset>
+            </fieldset>
             
-        <input type="submit" class="form__btn btn" id="submit-btn" value="Submit">
+            <p class="form__label">Image Upload <i>(.jpeg, .jpg, .png, .gif files only)</i></p>
+            <fieldset class="form__set custom-file">
+                <label class="form__label custom-file-label" for="prodStill">
+                    <%= play.prodStill %> 
+                </label>           
+                <input type="file" accept="image/*" class="custom-file-input" id="prodStill" name="prodStill"/>
+            </fieldset>
+                
+            <input type="submit" class="form__btn btn" id="submit-btn" value="Submit">
+        </div>
     </form>
 
     <%- include('./partials/footer.ejs') %>

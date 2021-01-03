@@ -18,23 +18,23 @@
 }
 
 .about__heading {
-    font-size: 6em;
+    font-size: 7rem;
     color: rgb(252, 255, 212);
     font-family: 'Playfair Display', serif;
     font-style: italic;
-    text-shadow: -.02em .02em .02em rgb(156, 34, 28);
+    text-shadow: -.06rem .06rem .06rem rgb(156, 34, 28);
     text-align: center;
 }
 
 .about__main {
     max-width:70%;
-    padding: 2em;
+    padding: 3rem;
     padding-top: 0;
     color: rgb(252, 255, 212);
     background-color:black;
-    border: solid rgb(233, 217, 89) 4px;
-    border-radius: 3px;
-    margin: 2em 0;
+    border: solid rgb(233, 217, 89) .4rem;
+    border-radius: .3rem;
+    margin: 3rem 0;
 }
 
 @media (max-width: 768px) { 
@@ -50,13 +50,13 @@
 
     .about__main {
         max-width: 100%;
-        padding: 1.3em 1.3em;
+        padding: 2rem;
         border-left-style: none;
         border-right-style: none;
     }
 
     .about__heading {
-        font-size: 3em;
+        font-size: 4rem;
     }
 
 }

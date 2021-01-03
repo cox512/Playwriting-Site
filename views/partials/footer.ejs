@@ -1,9 +1,11 @@
 <footer class="footer">
-    <p class="footer__copyright">copyright 2020</p>
-    <ul class="footer__nav list-group list-group-horizontal">
+    <p class="footer__copyright footer--hide">copyright 2020</p>
+    <ul class="footer__nav">
     <!-- If the user has successfully logged in -->
         <% if (currentUser) { %>
-            <li class="footer__link footer--hide">Welcome <%= currentUser.username %></li>
+            <li class="footer__link footer--hide footer--welcome">
+                Welcome <%= currentUser.username %>
+            </li>
             <li class="footer__link">
                 <a href="/plays/new">Add New Play</a>
             </li>
@@ -12,6 +14,7 @@
                     <input class="footer__link--log-out" type="submit" value="Log Out"/>
                 </form>
             </li>
+    <!-- If no one has logged in -->
         <% } else { %>
             <li class="footer__link">
                 <a href="/sessions/new">admin log-in</a>
