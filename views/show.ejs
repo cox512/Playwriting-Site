@@ -2,98 +2,100 @@
 <html lang="en">
 <head>
     <%- include('./partials/head.ejs') %>
+    <link 
+        rel="stylesheet" 
+        type="text/css" href="/css/show.css">
 </head>
-<body class="show-page">
+<body class="details">
 
     <%- include('./partials/header.ejs') %>
     <%- include('./partials/spacer.ejs') %>
     
-    <div class="show-photo-display">
-        <% if(play.prodStill) { %>
-            <img class="play-photo" alt="production still" src="<%= play.prodStill %>">
-            <h2 class="title-display"> <%= play.title %></h2>
-            <% if(play.dialogue) { %>
-            <h4 class="dialogue-display"> <%= play.dialogue %></h4>
-            <% } %>
-        <% } else { %>
-            <div class="no-photo">
-                <div class="no-photo-title">
-                    <%= play.title %>
-                </div>
-                <div class="no-photo-dialogue">
-                    <%= play.dialogue %>
-                </div>
-            </div>
-        <%} %>  
-    </div>
-
-    <div class="details-div">
-        <h3 class="script-breakdown">SYNOPSIS</h3>
-        <div class="synopsis">
-            <div class="genre-length">
-                <div class="genre">
-                    <h6 class="play-details" id="genre"><b>GENRE:</b></h6>
-                    <p"> <%= play.genre %></p>
-                </div>
-                <div class="play-length">
-                    <h6 class="play-details"><b>LENGTH:</b></h6> 
-                    <% if(play.length === "fullLength") { %>
-                        <p >Full-Length</p>
-                    <% } else if (play.length === "oneAct") { %>
-                        <p>One-Act</p>
-                    <%} else if (play.length === "short") { %>
-                        <p >Short</p>
-                    <% } %>
-                </div>
-            </div>
-            <p class="synopsis-text"> <%= play.synopsis %></p>
-            <div class="casting-needs">
-            <h6 class="details-head">TOTAL CAST: <%= play.castSize %></h6> 
-            <p>(
-                <% if (play.castingMale) { %>
-                    M: <%= play.castingMale %>
-                <% } %>
-                <% if (play.castingFemale) { %>
-                    F: <%= play.castingFemale %>
-                <% } %>
-                <% if (play.castingNeutral) { %>
-                    Gender-Neutral: <%= play.castingNeutral %>   
-                <% } %>
-                )
+    <header class="details__header">
+        <h1 class="details__header--title">
+            <%= play.title %>
+        </h1>
+        <% if(play.dialogue) { %>
+            <p class="details__header--quote">
+                <%= play.dialogue %>
             </p>
-            <% if (play.specialCasting) { %>
-                <h6 class="details-head">SPECIAL CASTING NEEDS:</h6> 
-                <p><%= play.specialCasting %></p>   
-            <% } %>
-            </div>
-        </div>
-    </div>     
+        <% } %>
+        <% if(play.prodStill) { %>
+            <img class="details__header--img" alt="production photo" src="<%= play.prodStill %>">
+        <% } else { %>
+            <img class="details__header--img" alt="The exterior of a theatre" src="/images/PBD_exterior.jpeg">
+        <%} %>  
+    </header>
 
-    <% if (play.honors[0] || play.development[0]) { %>
-    <div class="details-div">
-        <div class="play-history">
-                 <!-- HONORS -->
-            <% if (play.honors[0]) { %>
-                <h6 class="details-head">HONORS</h6>
-                <ul>
-                <% for (let i=0; i<play.honors.length; i++) { %>
-                    <li><%= play.honors[i] %></li>
-                <% } %>
-                </ul> 
-            <% } %>
-                <!-- DEVELOPMENT -->
-            <% if (play.development[0]) { %>
-                <h6 class="details-head">DEVELOPMENT HISTORY</h6>
-                <ul>
-                <% for (let i=0; i<play.development.length; i++) { %>
-                    <li><%= play.development[i] %></li>
+    <main class="details__summary">
+        <section class="details__summary--inset">
+            <h2 class="details__summary--heading">SYNOPSIS</h2>
+            <div class="details__summary--display">
+                <div class="details--row">
+                    <div class="details--category">
+                        <p><b>GENRE:</b> <%= play.genre %></p>
+                    </div>
+                    <div class="details--category">
+                        <p><b>LENGTH: </b>   
+                        <% if(play.length === "fullLength") { %>
+                            Full-Length
+                        <% } else if (play.length === "oneAct") { %>
+                            One-Act
+                        <%} else if (play.length === "short") { %>
+                            Short
+                        <% } %>
+                    </p> 
+                    </div>
+                </div>
+                <p class="details__summary--synopsis"> <%= play.synopsis %></p>
+                <div class="details__casting">
+                    <h3 class="details__heading">
+                        TOTAL CAST: <%= play.castSize %>
+                    </h3> 
+                    <p><% if (play.castingMale) { %>
+                            Male: <%= play.castingMale %> / 
+                        <% } %>
+                        <% if (play.castingFemale) { %>
+                            Female: <%= play.castingFemale %> / 
+                        <% } %>
+                        <% if (play.castingNeutral) { %>
+                            Gender-Neutral: <%= play.castingNeutral %>   
+                        <% } %></p>
+                    <% if (play.specialCasting) { %>
+                        <h3 class="details__heading">
+                            SPECIAL CASTING NEEDS:
+                        </h3> 
+                        <p><%= play.specialCasting %></p>   
                     <% } %>
-                </ul>
-            <% } %>
-        </div>
-    </div>
-    <% } %>
+                </div>
+            </div>
+        </section>     
 
+        <% if (play.honors[0] || play.development[0]) { %>
+        <section class="details__summary--inset">
+            <div class="details__summary--display">
+
+                <% if (play.honors[0]) { %>
+                    <h3 class="details__heading">HONORS</h3>
+                    <ul class="details__history">
+                    <% for (let i=0; i<play.honors.length; i++) { %>
+                        <li><%= play.honors[i] %></li>
+                    <% } %>
+                    </ul> 
+                <% } %>
+
+                <% if (play.development[0]) { %>
+                    <h3 class="details__heading">DEVELOPMENT HISTORY</h3>
+                    <ul class="details__history">
+                    <% for (let i=0; i<play.development.length; i++) { %>
+                        <li><%= play.development[i] %></li>
+                        <% } %>
+                    </ul>
+                <% } %>
+            </div>
+        </section>
+        <% } %>
+    </main>
     <%- include('./partials/footer.ejs') %>
 </body>
 </html>

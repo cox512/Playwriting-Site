@@ -85,12 +85,12 @@ router.put("/uploads/:id", isAuthenticated, (req, res) => {
     if (req.file !== undefined) {
       req.body.prodStill = req.file.location;
     }
-
     if (err) {
       return res.status(422).send({
         errors: [{ title: "File Upload Error", detail: err.message }],
       });
     }
+
     Play.findByIdAndUpdate(
       req.params.id,
       req.body,

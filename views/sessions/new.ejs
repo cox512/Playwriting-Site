@@ -2,26 +2,28 @@
 <html lang="en">
 <head>
     <%- include('../partials/head.ejs') %>
-
+    <link 
+    rel="stylesheet" 
+    type="text/css" href="/css/forms.css">
 </head>
 <body>
     <%- include('../partials/header.ejs') %>
     <%- include('../partials/spacer.ejs') %>
     <div class="form">
         <form action="/sessions" method="POST">
-            <h1 class="form-label">User Log-In Form</h1>
+            <h1 class="form__heading">User Log-In Form</h1>
             <div class="form-group">
-                <label for="username" class="form-label">Username:</label>
+                <label for="username" class="form__label">Username:</label>
                 <input type="text" id="username" class="form-control" name="username">
             </div>
             <div class="form-group">
-                <label for="password" class="form-label">Password:</label>
+                <label for="password" class="form__label">Password:</label>
                 <input type="password" id="password" class="form-control" name="password">
             </div>
-                <input type="submit" class="btn btn-light" value="SUBMIT"/>
+            <input type="submit" class="btn" value="SUBMIT"/>
         </form>
     </div>
-    <img class="sign-in-photo" src="/images/Perfectly_Normal_teabag.JPG"
+    <img class="form__img--sign-in" src="/images/Perfectly_Normal_teabag.JPG"
    alt="production photo">
     <%- include('../partials/footer.ejs') %>
 </body>

@@ -1,0 +1,77 @@
+.index {
+    color:rgb(252, 255, 212);
+}
+
+.index__header {
+    position: relative;
+}
+
+.index--heading {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+}
+
+.index__header--heading {
+    font-size: 9rem;
+    text-shadow: -.1rem .1rem .1rem rgb(156, 34, 28);
+    position: absolute;
+    top: 3rem;
+    left: 1.6rem;
+}
+
+.index__header--img {
+    width: 100%;
+}
+
+.index__length--heading {
+    font-size: 4rem;
+    text-align: center;
+    text-shadow: 0.1rem 0.1rem 0.1rem rgb(156 34 28);
+    margin: 1rem auto;
+}
+
+.index__plays--display {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.index__plays--thumbnail {
+    margin: 1rem;
+    text-align: center;
+}
+
+.index__plays--title {
+    color:rgb(252, 255, 212)
+}
+
+.index__plays--img{
+    max-width: 25rem;
+}
+
+.index__plays--img:hover {
+    border: solid .2rem white;
+}
+
+.index__btn--display {
+    display: flex;
+    justify-content: space-between;
+    margin: 1.5rem auto
+}
+
+
+@media (max-width: 768px) { 
+    .index__length--heading {
+        font-size: 3rem;
+    }
+
+    .index__header--heading {
+        font-size: 5rem;
+    }
+}
+
+@media (max-width: 480px) { 
+    .index__header--heading {
+        font-size: 3rem;
+    }
+}
