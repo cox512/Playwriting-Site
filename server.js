@@ -5,10 +5,11 @@ const mongoose = require("mongoose");
 const db = mongoose.connection;
 const session = require("express-session");
 require("dotenv").config();
-
 const PORT = process.env.PORT;
 
-//Database Setup
+//===============================
+// DATABASE
+//===============================
 const DB_URI = process.env.DB_URI;
 
 mongoose.connect(
@@ -26,7 +27,9 @@ db.on("open", () => {
   console.log("connected to Mongo");
 });
 
-//Middleware
+//===============================
+// MIDDLEWARE
+//===============================
 app.use(
   session({
     secret: process.env.SECRET,
@@ -34,14 +37,14 @@ app.use(
     saveUninitialized: false,
   })
 );
-
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-
 app.use(methodOverride("_method"));
 
-//CONTROLLERS
+//===============================
+// CONTROLLERS
+//===============================
 const playsController = require("./controllers/plays-controller.js");
 app.use("/plays", playsController);
 
@@ -54,7 +57,9 @@ app.use("/sessions", sessionController);
 const contactController = require("./controllers/contact-controller.js");
 app.use("/contact", contactController);
 
-//Landing page
+//===============================
+// Landing Page Route
+//===============================
 app.get("/", (req, res) => {
   res.render("about.ejs", {
     titleBar: "Home",
