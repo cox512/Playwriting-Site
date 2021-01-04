@@ -45,7 +45,7 @@
     .about__img--mobile-headshot {
         display: block;
         width: 50%;
-        margin: 0 auto
+        margin: 3rem auto 0 auto;
     }
 
     .about__main {

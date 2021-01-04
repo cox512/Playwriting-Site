@@ -1,6 +1,6 @@
-//=================
-// Add a a new input field to the development and honors fields
-//=================
+//========================
+// Add a new input field to the development and honors fields
+//========================
 
 const addField = (field) => {
   event.preventDefault();
@@ -15,7 +15,7 @@ const addField = (field) => {
       `<div class="input-group field-box">
         <input type="text" name="${field}" id="${field}" class="form-control">
           <div class="input-group-append">
-            <span class="form__button--remove input-group-text" >
+            <span class="input-group-text" >
               <button class="close remove-button" onClick="removeField(event,'${field}')">
                 <span aria-hidden="true">
                   &times;
@@ -33,6 +33,5 @@ const addField = (field) => {
 //=================
 const removeField = (evt, field) => {
   evt.preventDefault();
-
   evt.currentTarget.offsetParent.remove();
 };

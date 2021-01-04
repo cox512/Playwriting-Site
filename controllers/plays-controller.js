@@ -1,10 +1,12 @@
 const express = require("express");
 const router = express.Router();
 const Play = require("../models/plays.js");
-
 const upload = require("../services/file-upload");
 const singleUpload = upload.single("prodStill");
 
+//==============================
+// Verifies current user has admin privileges
+//==============================
 const isAuthenticated = (req, res, next) => {
   if (req.session.currentUser) {
     return next();
@@ -13,8 +15,9 @@ const isAuthenticated = (req, res, next) => {
   }
 };
 
-//ROUTES
-
+//===============================
+// ROUTES
+//===============================
 router.get("/new", isAuthenticated, (req, res) => {
   res.render("new.ejs", {
     currentUser: req.session.currentUser,
@@ -58,16 +61,6 @@ router.get("/:id", (req, res) => {
   });
 });
 
-router.delete("/:id", isAuthenticated, (req, res) => {
-  Play.findByIdAndRemove(
-    req.params.id,
-    { useFindAndModify: false },
-    (err, data) => {
-      res.redirect("/plays");
-    }
-  );
-});
-
 router.get("/:id/edit", isAuthenticated, (req, res) => {
   Play.findById(req.params.id, (err, foundPlay) => {
     res.render("edit.ejs", {
@@ -88,7 +81,6 @@ router.put("/uploads/:id", isAuthenticated, (req, res) => {
         errors: [{ title: "File Upload Error", detail: err.message }],
       });
     }
-
     Play.findByIdAndUpdate(
       req.params.id,
       req.body,
@@ -98,6 +90,16 @@ router.put("/uploads/:id", isAuthenticated, (req, res) => {
       }
     );
   });
+});
+
+router.delete("/:id", isAuthenticated, (req, res) => {
+  Play.findByIdAndRemove(
+    req.params.id,
+    { useFindAndModify: false },
+    (err, data) => {
+      res.redirect("/plays");
+    }
+  );
 });
 
 module.exports = router;

@@ -22,10 +22,6 @@ nav {
     padding: 0 0 0 3rem;
 }
 
-.header__spacer {
-    height: 5rem;
-}
-
 .footer {
     width: 100%;
     position: absolute;
@@ -84,10 +80,6 @@ nav {
     .header {
         height: 4rem;
         padding: 0 .5rem;
-    }
-
-    .header__spacer {
-        height: 4rem;
     }
 
     .header__name {

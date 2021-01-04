@@ -8,8 +8,6 @@
 </head>
 <body>
     <%- include('./partials/header.ejs') %>
-    <%- include('./partials/spacer.ejs') %>
-
     <form class="form" action="/plays/uploads/<%= play.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
         <div class="form__plays">
             <h1 class="form__heading">Edit Play Details</h1>
@@ -94,7 +92,7 @@
                         <div class="input-group field-box">
                             <input type="text" class="form-control" id="development" name="development" value="<%= play.development[i] %>"/>
                             <div class="input-group-append">
-                                <span class="form__button--remove input-group-text" >
+                                <span class="input-group-text" >
                                     <button class="close remove-button" onClick="removeField(event,'development')">
                                         <span aria-hidden="true">
                                             &times;
@@ -146,7 +144,6 @@
             <input type="submit" class="form__btn btn" id="submit-btn" value="Submit">
         </div>
     </form>
-
     <%- include('./partials/footer.ejs') %>
 </body>
 </html>

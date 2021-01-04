@@ -5,7 +5,7 @@ const multerS3 = require("multer-s3");
 aws.config.update({
   secretAccessKey: process.env.AWS_SECRET_KEY,
   accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-  region: "us-east-2",
+  region: process.env.AWS_REGION,
 });
 
 const s3 = new aws.S3();
@@ -29,7 +29,7 @@ const upload = multer({
   fileFilter: checkFileType,
   storage: multerS3({
     s3,
-    bucket: "playwritingsite",
+    bucket: process.env.AWS_BUCKET_NAME,
     acl: "public-read",
     metadata: function (req, file, cb) {
       cb(null, { fieldName: file.fieldname });

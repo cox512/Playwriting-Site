@@ -4,7 +4,9 @@ const nodemailer = require("nodemailer");
 const USERNAME = process.env.USERNAME;
 const PASSWORD = process.env.PASSWORD;
 
-//ROUTES
+//===============================
+// ROUTES
+//===============================
 router.get("/", (req, res) => {
   res.render("contact.ejs", {
     currentUser: req.session.currentUser,

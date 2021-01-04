@@ -7,10 +7,7 @@
         type="text/css" href="/css/show.css">
 </head>
 <body class="details">
-
-    <%- include('./partials/header.ejs') %>
-    <%- include('./partials/spacer.ejs') %>
-    
+    <%- include('./partials/header.ejs') %>    
     <header class="details__header">
         <h1 class="details__header--title">
             <%= play.title %>
@@ -37,14 +34,14 @@
                     </div>
                     <div class="details--category">
                         <p><b>LENGTH: </b>   
-                        <% if(play.length === "fullLength") { %>
-                            Full-Length
-                        <% } else if (play.length === "oneAct") { %>
-                            One-Act
-                        <%} else if (play.length === "short") { %>
-                            Short
-                        <% } %>
-                    </p> 
+                            <% if(play.length === "fullLength") { %>
+                                Full-Length
+                            <% } else if (play.length === "oneAct") { %>
+                                One-Act
+                            <%} else if (play.length === "short") { %>
+                                Short
+                            <% } %>
+                        </p> 
                     </div>
                 </div>
                 <p class="details__summary--synopsis"> <%= play.synopsis %></p>

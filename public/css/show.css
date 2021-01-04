@@ -78,7 +78,13 @@
     list-style-type: none;
 }
 
-
+@media (max-width: 768px) {  
+    .details__summary--inset {
+        border: none;
+        max-width: 98%;
+        margin: 1.5rem auto;
+    }
+}
 @media (max-width: 480px) {
     .details__header--title {
         font-size: 2.4rem;
@@ -98,11 +104,3 @@
     }
 }
 
-
-@media (max-width: 768px) {  
-    .details__summary--inset {
-        border: none;
-        max-width: 98%;
-        margin: 1.5rem auto;
-    }
-}
