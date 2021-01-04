@@ -84,6 +84,11 @@
         max-width: 98%;
         margin: 1.5rem auto;
     }
+
+    .details__header--quote {
+        padding: .3rem 1rem;
+        font-size: 1.4rem;
+    }
 }
 @media (max-width: 480px) {
     .details__header--title {
@@ -91,8 +96,7 @@
     }
 
     .details__header--quote {
-        padding: .3rem 1rem;
-        font-size: 1.4rem;
+        display: none;
     }
 
     .details__summary--heading {
