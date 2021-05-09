@@ -18,7 +18,7 @@
 .details__header--title {
     padding: .8rem 2rem;
     font-size: 4.5rem;
-    background-image: linear-gradient(90deg, silver, rgba(230, 230, 252,0));
+    background-image: linear-gradient(90deg, silver, rgba(230, 230, 252,.2));
 }
 
 .details__header--quote {
@@ -27,7 +27,7 @@
     text-align: right;
     bottom: 0;
     right: 0;
-    background-image: linear-gradient(-90deg, silver, rgba(230, 230, 252,0));  
+    background-image: linear-gradient(-90deg, silver, rgba(230, 230, 252,.2));  
     margin: 0rem; 
 } 
 
@@ -87,7 +87,7 @@
 
     .details__header--quote {
         padding: .3rem 1rem;
-        font-size: 1.4rem;
+        font-size: 2rem;
     }
 }
 @media (max-width: 480px) {
