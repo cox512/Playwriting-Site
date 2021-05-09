@@ -16,7 +16,7 @@ body {
     line-height: 2.5rem;
     background-color: rgb(5, 5, 48);
     font-size: 1.6rem;
-    min-height: 100vh;
+    /* min-height: 100vh; */
     position: relative;
     padding-bottom: 3rem;
     padding-top: 5rem;

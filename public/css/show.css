@@ -1,11 +1,6 @@
-/* .details {
-    min-height: fit-content;
-} */
-
 .details__header {
     display: flex;
     position: relative;
-    max-height: fit-content;
 }
 
 .details__header--img {
