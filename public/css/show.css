@@ -91,6 +91,10 @@
     }
 }
 @media (max-width: 480px) {
+    #show-img {
+        width: 100%
+    }
+    
     .details__header--title {
         font-size: 2.4rem;
     }
