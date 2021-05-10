@@ -92,7 +92,8 @@
 }
 @media (max-width: 480px) {
     #show-img {
-        width: 100%
+        width: 100%;
+        height: fit-content;
     }
 
     #header__img {
