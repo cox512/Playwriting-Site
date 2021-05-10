@@ -93,7 +93,7 @@
 @media (max-width: 480px) {
     #show-img {
         width: 100%;
-        height: fit-content;
+        object-fit: cover;
     }
 
     #header__img {
