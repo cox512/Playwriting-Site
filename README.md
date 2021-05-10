@@ -2,7 +2,7 @@
 Personal web site to showcase my playwriting work.
 
 ## LIVE SITE
-https://playwriting-site.herokuapp.com/
+https://championofvictory.com/
 
 ## Table of Contents
 - Motivation
