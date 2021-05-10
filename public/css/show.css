@@ -94,7 +94,11 @@
     #show-img {
         width: 100%
     }
-    
+
+    #header__img {
+        width: 100%
+    }
+
     .details__header--title {
         font-size: 2.4rem;
     }
