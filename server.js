@@ -68,3 +68,10 @@ app.get("/", (req, res) => {
 });
 
 app.listen(PORT, () => console.log("Listening on port:", PORT));
+
+/**
+ * ------------ EXPORT -------
+ */
+// Export the API for Vercel function
+
+module.export = app;
