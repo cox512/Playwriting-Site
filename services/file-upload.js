@@ -3,16 +3,29 @@
 //===============================
 
 const aws = require("aws-sdk");
+
+const { S3 } = require("@aws-sdk/client-s3");
+
 const multer = require("multer");
 const multerS3 = require("multer-s3");
 
+// JS SDK v3 does not support global configuration.
+// Codemod has attempted to pass values to each service client in this file.
+// You may need to update clients outside of this file, if they use global config.
 aws.config.update({
   secretAccessKey: process.env.AWS_SECRET_KEY,
   accessKeyId: process.env.AWS_ACCESS_KEY_ID,
   region: process.env.AWS_REGION,
 });
 
-const s3 = new aws.S3();
+const s3 = new S3({
+  credentials: {
+    secretAccessKey: process.env.AWS_SECRET_KEY,
+    accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+  },
+
+  region: process.env.AWS_REGION,
+});
 
 const checkFileType = (req, file, cb) => {
   const filetypes = /jpeg|jpg|png|gif/;

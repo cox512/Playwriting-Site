@@ -32,6 +32,9 @@ router.get("/", (req, res) => {
       currentUser: req.session.currentUser,
       titleBar: "Plays",
     });
+    if (err) {
+      console.log("Error:", err);
+    }
   });
 });
 
