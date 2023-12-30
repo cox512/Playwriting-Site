@@ -13,14 +13,14 @@ const multerS3 = require("multer-s3");
 // Codemod has attempted to pass values to each service client in this file.
 // You may need to update clients outside of this file, if they use global config.
 aws.config.update({
-  secretAccessKey: process.env.AWS_SECRET_KEY,
+  secretAccessKey: process.env.AWS_SECRET,
   accessKeyId: process.env.AWS_ACCESS_KEY_ID,
   region: process.env.AWS_REGION,
 });
 
 const s3 = new S3({
   credentials: {
-    secretAccessKey: process.env.AWS_SECRET_KEY,
+    secretAccessKey: process.env.AWS_SECRET,
     accessKeyId: process.env.AWS_ACCESS_KEY_ID,
   },
 
