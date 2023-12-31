@@ -2,7 +2,7 @@
   "name": "playwriting-site",
   "version": "1.0.0",
   "engines": {
-    "node": ">=18.0.0"
+    "node": "18.19.0"
   },
   "description": "My personal playwriting site",
   "main": "server.js",
