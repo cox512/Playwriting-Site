@@ -1,9 +1,6 @@
 {
   "name": "playwriting-site",
   "version": "1.0.0",
-  "engines": {
-    "node": "18.18.2"
-  },
   "description": "My personal playwriting site",
   "main": "server.js",
   "scripts": {
