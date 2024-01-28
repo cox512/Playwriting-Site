@@ -14,17 +14,17 @@ const multerS3 = require("multer-s3");
 // You may need to update clients outside of this file, if they use global config.
 aws.config.update({
   secretAccessKey: process.env.AWS_SECRET,
-  accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-  region: process.env.AWS_REGION,
+  accessKeyId: process.env.AMAZON_ACCESS_KEY_ID,
+  region: process.env.AMAZON_REGION,
 });
 
 const s3 = new S3({
   credentials: {
     secretAccessKey: process.env.AWS_SECRET,
-    accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+    accessKeyId: process.env.AMAZON_ACCESS_KEY_ID,
   },
 
-  region: process.env.AWS_REGION,
+  region: process.env.AMAZON_REGION,
 });
 
 const checkFileType = (req, file, cb) => {
