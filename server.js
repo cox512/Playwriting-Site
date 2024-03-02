@@ -1,4 +1,5 @@
 const express = require("express");
+const serverless = require("serverless-http");
 const app = express();
 const methodOverride = require("method-override");
 const mongoose = require("mongoose");
@@ -75,3 +76,4 @@ app.listen(PORT, () => console.log("Listening on port:", PORT));
 // Export the API for Vercel function
 
 module.export = app;
+//module.export handler = serverless(app);
